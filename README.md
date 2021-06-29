@@ -1,59 +1,174 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+Code Institute Project 4
 
-Welcome USER_NAME,
+# MS4: View Live Project [Here]()
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
 
-## Gitpod Reminders
+![Multi-Device MockUp]()
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## User Experience
 
-`python3 -m http.server`
+### New User Journey
 
-A blue button should appear to click: _Make Public_,
+1. 
 
-Another blue button should appear to click: _Open Browser_.
+![a]()
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+1. 
 
-A blue button should appear to click: _Make Public_,
+![b]()
 
-Another blue button should appear to click: _Open Browser_.
+1. 
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+![c]()
 
-To log into the Heroku toolbelt CLI:
+1. 
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+![d]()
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
+1. 
 
-## Updates Since The Instructional Video
+![e]()
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### User Stories
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+- First Time Visitor
+    - 
+- Returning Visitor
+    - 
+- Frequent User
+    - 
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Design
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- Colour Scheme
+    - 
+- Typography
+    - 
+- Imagery
+    - 
+- Wireframes
+    - 
+        - [a]()
+        - [b]()
+        - [c]()
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## Features
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+- 
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## Data Schema
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+![Data Scheme]()
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## Taking The Project Further (Additional Features)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
----
+## Technologies
 
-Happy coding!
+### Languages
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+
+### Frameworks, Libraries & Programs Used
+
+1. [Django](https://en.wikipedia.org/wiki/Django_%28web_framework%29)
+
+1. [Bootstrap](https://getbootstrap.com/)
+
+1. [Heroku](https://en.wikipedia.org/wiki/Heroku)
+
+1. [Git](https://git-scm.com/)
+
+1. [Github](https://github.com/)
+
+1. [Gitpod](https://www.gitpod.io/)
+
+1. [Firefox Dev Tools](https://firefox-dev.tools/)
+
+1. [Google Fonts](https://fonts.google.com/?query=Oswa)
+
+1. [Font Awesome](https://fontawesome.com/)
+
+1. [Balsamiq](https://balsamiq.com/)
+
+1. [Favicon.cc](https://www.favicon.cc/)
+
+1. [TinyPNG](https://tinypng.com/)
+
+1. [Multi Media Mockup](https://techsini.com/multi-mockup/)
+
+1. [Adobe Spark](https://spark.adobe.com/sp)
+
+1. [DBDiagram](https://dbdiagram.io/home)
+
+
+## [TESTING](TESTING.md)
+
+Testing Document can be found here: [TESTING]()
+
+
+## Deployment, Forking, Cloning
+
+### Deployment to Heroku
+
+##### Create Application
+
+1. Navigate to Heroku.com and login.
+1. Click on the "New" button in the top right of the page and select "Create new app."
+1. Enter the name of the app, select the region and click "Create app."
+
+##### Connect to GitHub Repository
+
+1. Click the deploy tab and select "GitHub - Connect to GitHub."
+1. Under the section "Search for a repository to connect to" enter the repository name in the box provided.
+1. Once the repository has been found, click the "Connect" button.
+
+##### Setting Environment Variables
+
+Click on the settings tab and then click "Reveal Config Vars" and add the following:
+- key: 
+
+##### Enable Automatic Deployment
+
+1. Click on the Deploy tab
+1. Under the "Automatic Deploy" section, select the branch from GitHub that you want to deploy the app from and then click Enable Automatic Deploys
+
+### Forking the GitHub Repository
+
+By forking the GitHub Repository we are making a copy of the original repository on a GitHub account to view and/or make changes without affecting the original repository. This is done with the following steps:
+
+- Log in to [GitHub](https://github.com/) and locate the GitHub Repository.
+- At the top of the Repository just above the "Settings" button on the menu, locate the "Fork" button.
+- Click the button and now you should have a copy of the original repository in your GitHub account.
+
+### Making a Local Clone
+
+- Log in to [GitHub](https://github.com/) and locate the GitHub Repository.
+- Under the repository name, click "Clone or download".
+- To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+- Open Git Bash
+- Change the current working directory to the location that you want the cloned directory to be made.
+- Type `git clone`, and then paste the URL you copied earlier.
+
+Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) for a more detailed explanation of the cloning process.
+
+
+## Credits
+
+### Code & Media
+
+The space to share any resources I have used to help me build this project.
+
+1. [Tempalate Literals](https://medium.com/@tforward/get-html-to-the-dom-fast-with-js-template-literals-insertadjacenthtml-24b8aa4e8807)
+
+1. [Python Docstrings](https://stackabuse.com/python-docstrings/)
+
+1. [Zip](https://www.w3schools.com/python/ref_func_zip.asp)
+
+### Acknowledgements
