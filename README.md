@@ -1,13 +1,24 @@
 Code Institute Project 4
 
-# MS4: View Live Project [Here]()
+For MS4 I have created a website for 'amphii' the theatre company. The website is builts with Python, Django, JavaScript, CSS, Bootstrap and HTML. It uses a relational database, Stripe payment and is designed to be responsive across multiple devices. amphii allows users to purchase and view tickets for shows.
 
+# MS4: View Live Project [Here]()
 
 ![Multi-Device MockUp]()
 
 ## User Experience
 
-### New User Journey
+#### External User
+
+- To Buy tickets to shows available on the website.
+- View tickets that they have purchased.
+
+#### External User
+
+- Sell Tickets for shows.
+- Promote new shows via their website.
+
+### User Journey
 
 1. 
 
@@ -54,7 +65,14 @@ Code Institute Project 4
 
 ## Features
 
-- 
+- Seat Booking System, Select from seats available during checkout.
+- View tickets from account and cancel booking if required
+- View shows/events that are on
+- Create events and instances of an event as a admin/superuser
+- Event carousel for homepage
+- Gift cards?
+- Help & FAQS
+- Generate a QR code that can be checked to verify entry onsite
 
 ## Data Schema
 
