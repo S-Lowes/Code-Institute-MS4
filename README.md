@@ -73,6 +73,7 @@ For MS4 I have created a website for 'amphii' the theatre company. The website i
 - Gift cards?
 - Help & FAQS
 - Generate a QR code that can be checked to verify entry onsite
+- Allauth social media signup
 
 ## Data Schema
 
@@ -96,6 +97,8 @@ For MS4 I have created a website for 'amphii' the theatre company. The website i
 ### Frameworks, Libraries & Programs Used
 
 1. [Django](https://en.wikipedia.org/wiki/Django_%28web_framework%29)
+
+1. [Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
 
 1. [Bootstrap](https://getbootstrap.com/)
 
