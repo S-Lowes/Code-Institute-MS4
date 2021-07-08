@@ -39,29 +39,54 @@
   <body>
     <header class="container-fluid fixed-top">
       <div id="topnav" class="row">
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+        <div class="col-6 col-lg-2 my-auto py-1 py-lg-0 text-center text-lg-left">
           <a href="{% url 'home' %}" class="nav-link main-logo-link">
-            <h2 class="logo-font my-0 text-purple">
+            <h2 class="logo-font my-0 text-light">
               amphii
             </h2>
+          </a>
+        </div>
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 d-inline-flex">
+          <a class="nav-item my-0 text-light">
+            Tickets & Events
+            <span class="icon">
+              <i class="fas fa-chevron-down"></i>
+            </span>
+          </a>
+          <a class="nav-item my-0 text-light">
+            More
+            <span class="icon">
+              <i class="fas fa-chevron-down"></i>
+            </span>
+          </a>
+          <a class="nav-item my-0 text-light">
+            Gift Cards
+            <span class="icon">
+              <i class="fas fa-gift"></i>
+            </span>
           </a>
         </div>
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
           <form method="GET" action="">
             <div class="input-group w-100">
-              <input class="form-control border border-purple" type="text" name="q"
+              <input class="form-control border-end-0 border-light transparent text-light" type="text" name="q"
                 placeholder="Search by Event, Director or Venue">
-              <div class="input-group-append">
-                <button class="form-control btn btn-purple border border-purple" type="submit">
+                <button class="btn btn-outline-secondary border-start-0 border-light transparent" type="submit">
                   <span class="icon">
                     <i class="fas fa-search"></i>
                   </span>
                 </button>
-              </div>
             </div>
           </form>
         </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0"></div>
+        <div class="col-6 col-lg-2 my-auto py-1 py-lg-0 text-center text-lg-right">
+          <p class="my-0 text-light">
+            <span class="icon">
+              <i class="fas fa-user-circle"></i>
+            </span>
+            Sign In/Register
+          </p>
+        </div>
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0"></div>
       </div>
     </header>

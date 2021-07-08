@@ -8,7 +8,13 @@ body {
 }
 
 /* from Bulma */
+
+header {
+    background-color: #bc40ff;
+}
+
 .icon {
+    color: #f8f9fa !important;
     align-items: center;
     display: inline-flex;
     justify-content: center;
@@ -17,21 +23,34 @@ body {
 }
 
 .logo-font {
-    text-transform: uppercase;
+    text-transform: lowercase;
+    font-style: italic;
 }
 
 .main-logo-link {
     width: fit-content;
 }
 
-.btn-purple {
-    background: #bc40ff;
-    color: white;
+.nav-item {
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0px 10px;
 }
 
-.btn-purple:hover,
-.btn-purple:active,
-.btn-purple:focus {
+.transparent {
+    background-color: transparent;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:active,
+.btn-outline-secondary:focus
+{
+    background-color: transparent !important;
+    box-shadow: unset !important;
+}
+
+/*
+.btn-purple {
     background: #bc40ff;
     color: white;
 }
@@ -39,10 +58,7 @@ body {
 .text-purple{
     color: #bc40ff !important;
 }
-
-.border-purple {
-    border: 1px solid #bc40ff !important;
-}
+*/
 
 /* -------------------------------- Media Queries */
 
