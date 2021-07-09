@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    color: purple;
+    color: blue;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -11,6 +11,8 @@ body {
 
 header {
     background-color: #bc40ff;
+    padding: 10px 0px;
+    background-image: linear-gradient(90deg, rgb(188, 44, 215), rgb(188, 64, 255), rgb(188, 44, 215));
 }
 
 .icon {
@@ -47,6 +49,10 @@ header {
 {
     background-color: transparent !important;
     box-shadow: unset !important;
+}
+
+::placeholder {
+    color: rgba(248, 249, 250, 0.5) !important;
 }
 
 /*
