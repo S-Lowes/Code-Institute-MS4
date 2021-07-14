@@ -47,24 +47,14 @@
           </a>
         </div>
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 d-inline-flex">
-          <a class="nav-item my-0 text-light">
-            Tickets & Events
-            <span class="icon">
-              <i class="fas fa-chevron-down"></i>
-            </span>
-          </a>
-          <a class="nav-item my-0 text-light">
-            More
-            <span class="icon">
-              <i class="fas fa-chevron-down"></i>
-            </span>
-          </a>
-          <a class="nav-item my-0 text-light">
-            Gift Cards
-            <span class="icon">
-              <i class="fas fa-gift"></i>
-            </span>
-          </a>
+          <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="icon">
+                <i class="fas fa-bars"></i>
+              </span>
+            </button>
+            {% include 'includes/main-nav.html' %}
+          </nav>
         </div>
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
           <form method="GET" action="">
