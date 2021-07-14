@@ -16,7 +16,7 @@ header {
 }
 
 .icon {
-    color: #f8f9fa !important;
+    color: #f8f9fa;
     align-items: center;
     display: inline-flex;
     justify-content: center;
@@ -44,18 +44,44 @@ header {
     background-color: transparent;
 }
 
-.btn-outline-secondary:hover,
-.btn-outline-secondary:active,
-.btn-outline-secondary:focus
-{
-    background-color: transparent !important;
-    box-shadow: unset !important;
+.btn-outline-secondary {
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
 }
 
-::placeholder {
+.btn-outline-secondary:hover,
+.btn-outline-secondary:active,
+.btn-outline-secondary:focus {
+    background-color: #bc40ff;
+    box-shadow: unset;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.176));
+}
+
+.search-border {
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.search-border:focus-within {
+    background-color: #f8f9fa;
+}
+
+input::placeholder {
     color: rgba(248, 249, 250, 0.5) !important;
 }
 
+input:focus::placeholder {
+    color: rgba(33, 37, 41, 0.5) !important;
+}
+
+.form-control:focus {
+    color: #212529 !important;
+    background-color: transparent;
+    outline: 0;
+    box-shadow: none;
+}
+  
 /*
 .btn-purple {
     background: #bc40ff;
@@ -71,9 +97,9 @@ header {
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+    .container {
+        max-width: 80%;
+    }
 }
 
 /* fixed top navbar only on medium and up */
@@ -90,4 +116,3 @@ header {
         padding-top: 164px;
     }
 }
-
