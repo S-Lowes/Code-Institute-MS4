@@ -29,6 +29,7 @@
     {% block corejs %}
         <script src="https://kit.fontawesome.com/ea9185fe23.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="{% static 'js/script.js' %}"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -56,14 +57,13 @@
             {% include 'includes/main-nav.html' %}
           </nav>
         </div>
-        <!-- sibling-focus sibling-highlight -->
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
           <form method="GET" action="">
-            <div class="input-group w-100 search-border">
-              <input class="form-control text-light transparent border-0" type="text" name="q"
-                placeholder="Search by Event, Director or Venue">
-                <button class="btn btn-outline-secondary transparent border-0" type="submit">
-                  <span class="icon search-icon">
+            <div id="searchborder" class="input-group w-100 search-border">
+              <input id="search" class="form-control text-light transparent border-0" type="text" name="search"
+                placeholder="Search by Event, Director or Venue"> <!-- onfocus="changeStyle()" -->
+                <button id="searchbutton" class="btn btn-outline-secondary transparent border-0" type="submit">
+                  <span class="icon">
                     <i class="fas fa-search"></i>
                   </span>
                 </button>
