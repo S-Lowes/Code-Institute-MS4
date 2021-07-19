@@ -40,7 +40,7 @@
   <body>
     <header class="container-fluid fixed-top">
       <div id="topnav" class="row">
-        <div class="col-6 col-lg-2 my-auto py-1 py-lg-0 text-center text-lg-left">
+        <div class="col-6 col-lg-2 my-auto py-1 py-lg-0 text-center">
           <a href="{% url 'home' %}" class="nav-link main-logo-link">
             <h2 class="logo-font my-0 text-light">
               amphii
@@ -90,6 +90,49 @@
 
     {% block content %}
     {% endblock %}
+
+    <footer class="container-fluid">
+      <div id="footnav" class="row">
+        <div class="col-6">
+          <div class="">
+            <a href="{% url 'home' %}" class="nav-link main-logo-link">
+              <h2 class="logo-font text-light">
+                amphii
+              </h2>
+            </a>
+          </div>
+
+          <a href="https://www.facebook.com/" target="_blank">
+            <i class="fab fa-facebook-square"></i>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank">
+            <i class="fab fa-instagram-square"></i>
+          </a>
+          <a href="https://twitter.com/" target="_blank">
+            <i class="fab fa-twitter-square"></i>
+          </a>
+          <a href="https://www.youtube.com/" target="_blank">
+            <i class="fab fa-youtube-square"></i>
+          </a>
+
+          <i class="fab fa-stripe"></i>
+
+          <i class="fab fa-github"></i>
+        </div>
+
+        <div class="col-6">
+          <div class="">
+            <p class="text-light">
+              Your Account
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div id="" class="row">
+        <div class="decoration-line"></div>
+      </div>
+    </footer>
 
     {% block postloadjs %}
     {% endblock %}
