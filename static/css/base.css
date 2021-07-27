@@ -7,6 +7,8 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+/* ===== Header ===== */
+
 header {
     background-color: #bc40ff;
     background-image: linear-gradient(90deg, rgb(188, 44, 215), rgb(188, 64, 255), rgb(188, 44, 215));
@@ -77,6 +79,14 @@ header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.176));
 }
 
+.navbar-toggler {
+    color: #f8f9fa;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.1rem #f8f9fa;
+}
+
 /*
 .btn-purple {
     background: #bc40ff;
@@ -88,8 +98,14 @@ header {
 }
 */
 
+/* ===== Footer ===== */
+
 footer {
     background-color: #430067;
+}
+
+footer a {
+    text-decoration: none;
 }
 
 .decoration-line {
@@ -100,6 +116,12 @@ footer {
 
 .copyright {
     font-size: 0.75rem;
+}
+
+.footer-link {
+    font-weight: 600;
+    border-bottom: 0px solid rgb(248, 249, 250, 1);
+    padding: 0px 10px;
 }
 
 /* -------------------------------- Media Queries */
