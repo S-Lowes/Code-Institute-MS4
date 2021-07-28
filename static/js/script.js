@@ -13,3 +13,11 @@ window.onload = function(){
         document.getElementById("searchbutton").style.transition = "none";
      }
  };
+
+ function openNav() {
+   document.getElementById("mySidebar").style.width = "280px";
+}
+
+function closeNav() {
+   document.getElementById("mySidebar").style.width = "0";
+ } 

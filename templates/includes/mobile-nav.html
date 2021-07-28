@@ -1,0 +1,49 @@
+<div id="mySidebar" class="flex-shrink-0 bg-white sidebar">
+    <button class="d-lg-none" type="button" onclick="closeNav()">
+        <span class="icon">
+            <i class="fas fa-chevron-left"></i>
+        </span>
+    </button>
+    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+        <span class="fs-5 fw-semibold">Menu</span>
+    </a>
+    <ul class="list-unstyled">
+        <li class="">
+            <a class="link-dark rounded" href="{% url 'home' %}" id="home-link">
+                Home
+            </a>
+        </li>
+        <li class="">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                data-bs-target="#dashboard-collapse" aria-expanded="false">
+                Tickets & Events
+                <span class="icon">
+                    <i class="fas fa-chevron-down"></i>
+                </span>
+            </button>
+            <div class="collapse" id="dashboard-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                    <li><a class="link-dark rounded" href="#">Action</a></li>
+                    <li><a class="link-dark rounded" href="#">Another action</a></li>
+                    <li><a class="link-dark rounded" href="#">Something else here</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                data-bs-target="#orders-collapse" aria-expanded="false">
+                More
+                <span class="icon">
+                    <i class="fas fa-chevron-down"></i>
+                </span>
+            </button>
+            <div class="collapse" id="orders-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                    <li><a class="link-dark rounded" href="#">Action</a></li>
+                    <li><a class="link-dark rounded" href="#">Another action</a></li>
+                    <li><a class="link-dark rounded" href="#">Something else here</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>

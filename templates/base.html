@@ -38,30 +38,37 @@
     <title>amphii</title>
   </head>
   <body>
-    <header class="container-fluid fixed-top">
+    <header class="container-fluid">
       <div id="topnav" class="row">
-        <div class="col-6 col-lg-2 my-auto py-1 py-lg-0 text-center">
+        <!-- Logo -->
+        <div class="order-2 order-lg-1 col-8 col-lg-2 my-auto text-center">
           <a href="{% url 'home' %}" class="nav-link main-logo-link">
             <h2 class="logo-font my-0 text-light">
               amphii
             </h2>
           </a>
         </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 d-inline-flex">
-          <nav class="navbar navbar-expand-lg">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+
+        <!-- Main Nav -->
+        <!-- data-bs-toggle="" data-bs-target="" aria-controls="" aria-expanded="" aria-label="" -->
+        <div class="order-1 order-lg-2 col-2 col-lg-4 my-auto d-inline-flex">
+          <nav class="navbar-expand-lg w-100">
+            <button class="d-lg-none" type="button" onclick="openNav()">
               <span class="icon">
                 <i class="fas fa-bars"></i>
               </span>
             </button>
             {% include 'includes/main-nav.html' %}
+            {% include 'includes/mobile-nav.html' %}
           </nav>
         </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+
+        <!-- Search -->
+        <div class="order-4 order-lg-3 col-12 col-lg-4 my-auto">
           <form method="GET" action="">
             <div id="searchborder" class="input-group w-100 search-border">
               <input id="search" class="form-control text-light transparent border-0" type="text" name="search"
-                placeholder="Search by Event, Director or Venue"> <!-- onfocus="changeStyle()" -->
+                placeholder="Search by Event, Director or Venue">
                 <button id="searchbutton" class="btn btn-outline-secondary transparent border-0" type="submit">
                   <span class="icon">
                     <i class="fas fa-search"></i>
@@ -70,14 +77,17 @@
             </div>
           </form>
         </div>
-        <div class="col-6 col-lg-2 my-auto py-1 py-lg-0 text-center text-lg-right">
-          <p class="my-0 text-light">
+
+        <!-- Login -->
+        <div class="order-3 order-lg-4 col-2 col-lg-2 my-auto text-center text-lg-right">
+          <p class="text-light my-0">
             <span class="icon">
               <i class="fas fa-user-circle"></i>
             </span>
             Sign In/Register
           </p>
         </div>
+
       </div>
     </header>
 
@@ -93,21 +103,21 @@
 
     <footer class="container-fluid">
 
-      <div class="d-flex justify-content-center justify-content-lg-between">
-        <div class="me-5 d-none d-lg-block text-light">
+      <div class="d-flex justify-content-center justify-content-lg-between p-2 fs-5">
+        <div class="d-none d-lg-block text-light">
           <span>Stay Connected!</span>
         </div>
         <div>
-          <a class="me-4 text-light" href="https://www.facebook.com/" target="_blank">
-            <i class="fab fa-facebook-square"></i>
+          <a class="text-light mx-1" href="https://www.facebook.com/" target="_blank">
+              <i class="fab fa-facebook-square"></i>
           </a>
-          <a class="me-4 text-light" href="https://www.instagram.com/" target="_blank">
+          <a class="text-light mx-1" href="https://www.instagram.com/" target="_blank">
             <i class="fab fa-instagram-square"></i>
           </a>
-          <a class="me-4 text-light" href="https://twitter.com/" target="_blank">
+          <a class="text-light mx-1" href="https://twitter.com/" target="_blank">
             <i class="fab fa-twitter-square"></i>
           </a>
-          <a class="me-4 text-light" href="https://www.youtube.com/" target="_blank">
+          <a class="text-light mx-1" href="https://www.youtube.com/" target="_blank">
             <i class="fab fa-youtube-square"></i>
           </a>
         </div>
@@ -118,8 +128,8 @@
       <div class="container text-center text-md-start">
         <div class="row mt-3">
 
-          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-            <h2 class="logo-font text-light mb-4">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-3">
+            <h2 class="logo-font text-light">
               amphii
             </h2>
             <p class="text-light">
@@ -127,7 +137,7 @@
             </p>
           </div>
 
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-3">
             <ul class="list-unstyled" aria-labelledby="">
               <li><a class="footer-link text-light" href="#">Account</a></li>
               <li><a class="footer-link text-light" href="#">Tickets</a></li>
@@ -136,7 +146,7 @@
             </ul>
           </div>
 
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-3">
             <ul class="list-unstyled" aria-labelledby="">
               <li><a class="footer-link text-light" href="#">Venues/Theaters</a></li>
               <li><a class="footer-link text-light" href="#">Gift Cards</a></li>
@@ -150,7 +160,7 @@
 
       <div class="decoration-line"></div>
 
-      <div id="" class="text-center">
+      <div id="" class="text-center p-4">
         <div>
           <p class="copyright text-light">
             &copy; 2021-2021 amphii
