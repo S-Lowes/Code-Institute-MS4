@@ -14,10 +14,16 @@ window.onload = function(){
      }
  };
 
+
+ // Needs adjustment for different screen size!
  function openNav() {
    document.getElementById("mySidebar").style.width = "280px";
+   document.getElementById("pageOverlay").style.visibility = "visible";
+   document.getElementById("pageOverlay").style.transition = "none";
 }
 
 function closeNav() {
    document.getElementById("mySidebar").style.width = "0";
- } 
+   document.getElementById("pageOverlay").style.visibility = "hidden";
+   document.getElementById("pageOverlay").style.transition = "0.5s";
+}
