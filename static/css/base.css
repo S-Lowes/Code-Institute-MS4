@@ -99,7 +99,7 @@ header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.176));
 }
 
-/*
+
 .btn-purple {
     background: #bc40ff;
     color: white;
@@ -108,7 +108,7 @@ header {
 .text-purple{
     color: #bc40ff !important;
 }
-*/
+
 
 /* ========== Footer ========== */
 
@@ -148,7 +148,26 @@ footer a {
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 30px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
-  }
+}
+
+.mobile-nav button:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f105";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+}
+
+/*
+.sidebar a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: block;
+    transition: 0.3s;
+}
+*/
 
 /* ========== Media Queries ========== */
 
