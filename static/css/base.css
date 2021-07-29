@@ -150,24 +150,33 @@ footer a {
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
 }
 
+.mobile-nav button {
+    width: 100%;
+}
+
 .mobile-nav button:before {
     font-family: "Font Awesome 5 Free";
     content: "\f105";
     display: inline-block;
-    padding-right: 3px;
     vertical-align: middle;
     font-weight: 900;
 }
 
-/*
+
 .sidebar a {
-    padding: 10px;
-    text-decoration: none;
-    font-size: 0.95rem;
-    display: block;
-    transition: 0.3s;
+    width: 100%;
 }
-*/
+
+.event-nav {
+    height: 0;
+    overflow-y: hidden;
+}
+
+.more-nav {
+    height: 0;
+    overflow-y: hidden;
+}
+
 
 /* ========== Media Queries ========== */
 

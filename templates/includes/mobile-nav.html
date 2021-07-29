@@ -1,43 +1,43 @@
 <div id="mySidebar" class="flex-shrink-0 bg-white sidebar">
-    <button class="btn btn-toggle" type="button" onclick="closeNav()">
-        <span class="icon">
-            <i class="fas fa-times"></i>
-        </span>
-    </button>
-    <p class="d-flex align-items-center pb-3 mb-3 pt-3 mt-3 border-bottom px-3">
-        <span class="fs-5 fw-semibold text-purple">Menu</span>
-    </p>
-    <ul class="mobile-nav list-unstyled">
-        <li class="">
-            <a class="text-decoration-none text-purple px-3" href="{% url 'home' %}" id="home-link">
-                Home
-            </a>
-        </li>
-        <li class="">
-            <button class="btn btn-toggle align-items-center collapsed text-purple px-3" data-bs-toggle="collapse"
-                data-bs-target="#dashboard-collapse" aria-expanded="false">
+    <div class="">
+        <button class="btn btn-toggle" type="button" onclick="closeNav()">
+            <span class="icon">
+                <i class="fas fa-times"></i>
+            </span>
+        </button>
+        <p class="d-flex align-items-center py-3 mby-3 border-bottom">
+            <span class="fs-5 fw-semibold text-purple">Menu</span>
+        </p>
+    </div>
+    <div class="mobile-nav">
+        <a class="text-decoration-none text-purple" href="{% url 'home' %}" id="home-link">
+            Home
+        </a>
+        <div>
+            <button class="btn text-purple" type="button" onclick="eOpenClose()">
                 Events
             </button>
-            <div class="collapse" id="dashboard-collapse">
-                <ul class="btn-toggle-nav list-unstyled px-5">
+            <div id="eventNav" class="event-nav">
+                <ul class="list-unstyled">
                     <li><a class="text-decoration-none text-purple" href="#">Action</a></li>
                     <li><a class="text-decoration-none text-purple" href="#">Another action</a></li>
                     <li><a class="text-decoration-none text-purple" href="#">Something else here</a></li>
                 </ul>
             </div>
-        </li>
-        <li class="">
-            <button class="btn btn-toggle align-items-center collapsed text-purple px-3" data-bs-toggle="collapse"
-                data-bs-target="#orders-collapse" aria-expanded="false">
+        </div>
+
+        <div>
+            <button class="btn text-purple" type="button" onclick="mOpenClose()">
                 More
             </button>
-            <div class="collapse" id="orders-collapse">
-                <ul class="btn-toggle-nav list-unstyled px-5">
+            <div id="moreNav" class="more-nav">
+                <ul class="list-unstyled">
                     <li><a class="text-decoration-none text-purple" href="#">Action</a></li>
                     <li><a class="text-decoration-none text-purple" href="#">Another action</a></li>
                     <li><a class="text-decoration-none text-purple" href="#">Something else here</a></li>
                 </ul>
             </div>
-        </li>
-    </ul>
+        </div>
+
+    </div>
 </div>

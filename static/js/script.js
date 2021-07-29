@@ -1,3 +1,4 @@
+// ========== SEARCH BAR ==========
 window.onload = function(){
     let search = document.getElementById("search");
 
@@ -14,16 +15,54 @@ window.onload = function(){
      }
  };
 
-
- // Needs adjustment for different screen size!
+// ========== SIDENAV OPEN/CLOSE ==========
  function openNav() {
    document.getElementById("mySidebar").style.width = "280px";
+   document.getElementById("mySidebar").style.transition = "0.1s";
    document.getElementById("pageOverlay").style.visibility = "visible";
    document.getElementById("pageOverlay").style.transition = "none";
 }
 
 function closeNav() {
    document.getElementById("mySidebar").style.width = "0";
+   document.getElementById("mySidebar").style.transition = "0.1s";
    document.getElementById("pageOverlay").style.visibility = "hidden";
-   document.getElementById("pageOverlay").style.transition = "0.5s";
+   document.getElementById("pageOverlay").style.transition = "0.3s";
+   // ----- Incase they are left open -----
+   document.getElementById("eventNav").style.height = "0";
+   document.getElementById("moreNav").style.height = "0";
+}
+
+// ========== EVENT OPEN/CLOSE ==========
+function eOpenClose(){
+   x = document.getElementById("eventNav").style.height;
+   if (x == "100%") {
+       return eClose();
+   }
+   return eOpen();
+}
+
+function eOpen() {
+      document.getElementById("eventNav").style.height = "100%";
+}
+
+function eClose() {
+      document.getElementById("eventNav").style.height = "0";
+}
+
+// ========== MORE OPEN/CLOSE ==========
+function mOpenClose(){
+   y = document.getElementById("moreNav").style.height;
+   if (y == "100%") {
+       return mClose();
+   }
+   return mOpen();
+}
+
+function mOpen() {
+      document.getElementById("moreNav").style.height = "100%";
+}
+
+function mClose() {
+      document.getElementById("moreNav").style.height = "0";
 }
