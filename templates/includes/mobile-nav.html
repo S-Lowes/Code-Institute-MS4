@@ -1,40 +1,40 @@
-<div id="mySidebar" class="flex-shrink-0 bg-white sidebar">
+<div id="mySidebar" class="flex-shrink-0 bg-white sidebar text-dark">
     <div class="">
-        <button class="btn btn-toggle" type="button" onclick="closeNav()">
+        <button class="btn" type="button" onclick="closeNav()">
             <span class="icon">
                 <i class="fas fa-times"></i>
             </span>
         </button>
-        <p class="d-flex align-items-center py-3 mby-3 border-bottom">
-            <span class="fs-5 fw-semibold text-purple">Menu</span>
+        <p class="d-flex align-items-center py-3 my-3 border-bottom">
+            <span class="fs-5 fw-semibold">Menu</span>
         </p>
     </div>
     <div class="mobile-nav">
-        <a class="text-decoration-none text-purple" href="{% url 'home' %}" id="home-link">
+        <a class="text-decoration-none text-dark" href="{% url 'home' %}" id="home-link">
             Home
         </a>
         <div>
-            <button class="btn text-purple" type="button" onclick="eOpenClose()">
+            <button id="eventButton" class="btn btn-toggle" type="button" onclick="eOpenClose()" aria-expanded="false">
                 Events
             </button>
             <div id="eventNav" class="event-nav">
-                <ul class="list-unstyled">
-                    <li><a class="text-decoration-none text-purple" href="#">Action</a></li>
-                    <li><a class="text-decoration-none text-purple" href="#">Another action</a></li>
-                    <li><a class="text-decoration-none text-purple" href="#">Something else here</a></li>
+                <ul class="list-unstyled btn-toggle-nav">
+                    <li><a class="text-decoration-none text-dark" href="#">Action</a></li>
+                    <li><a class="text-decoration-none text-dark" href="#">Another action</a></li>
+                    <li><a class="text-decoration-none text-dark" href="#">Something else here</a></li>
                 </ul>
             </div>
         </div>
 
         <div>
-            <button class="btn text-purple" type="button" onclick="mOpenClose()">
+            <button id="moreButton" class="btn btn-toggle" type="button" onclick="mOpenClose()" aria-expanded="false">
                 More
             </button>
             <div id="moreNav" class="more-nav">
-                <ul class="list-unstyled">
-                    <li><a class="text-decoration-none text-purple" href="#">Action</a></li>
-                    <li><a class="text-decoration-none text-purple" href="#">Another action</a></li>
-                    <li><a class="text-decoration-none text-purple" href="#">Something else here</a></li>
+                <ul class="list-unstyled btn-toggle-nav">
+                    <li><a class="text-decoration-none text-dark" href="#">Action</a></li>
+                    <li><a class="text-decoration-none text-dark" href="#">Another action</a></li>
+                    <li><a class="text-decoration-none text-dark" href="#">Something else here</a></li>
                 </ul>
             </div>
         </div>

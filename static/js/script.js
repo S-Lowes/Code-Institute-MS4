@@ -43,10 +43,12 @@ function eOpenClose(){
 }
 
 function eOpen() {
+      document.getElementById("eventButton").setAttribute("aria-expanded", true);
       document.getElementById("eventNav").style.height = "100%";
 }
 
 function eClose() {
+      document.getElementById("eventButton").setAttribute("aria-expanded", false);
       document.getElementById("eventNav").style.height = "0";
 }
 
@@ -60,9 +62,11 @@ function mOpenClose(){
 }
 
 function mOpen() {
+      document.getElementById("moreButton").setAttribute("aria-expanded", true);
       document.getElementById("moreNav").style.height = "100%";
 }
 
 function mClose() {
+      document.getElementById("moreButton").setAttribute("aria-expanded", false);
       document.getElementById("moreNav").style.height = "0";
 }

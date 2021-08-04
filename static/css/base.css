@@ -105,8 +105,12 @@ header {
     color: white;
 }
 
-.text-purple{
+.text-purple {
     color: #bc40ff !important;
+}
+
+.text-dark {
+    color: #212529 !important;
 }
 
 
@@ -150,18 +154,40 @@ footer a {
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
 }
 
-.mobile-nav button {
-    width: 100%;
+.btn-toggle:hover,
+.btn-toggle:focus {
+  background-color: #f2daff;
 }
 
-.mobile-nav button:before {
+.btn-toggle::before {
     font-family: "Font Awesome 5 Free";
     content: "\f105";
     display: inline-block;
     vertical-align: middle;
     font-weight: 900;
+    line-height: 0;
+    transition: transform .35s ease;
 }
 
+.btn-toggle[aria-expanded="true"]::before {
+    transform: rotate(90deg);
+}
+
+.btn-toggle-nav {
+    padding-top: 5px;
+}
+
+.btn-toggle-nav a {
+    border-radius: 5px;
+    padding: .1875rem .5rem;
+    margin-top: .125rem;
+    margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+    background-color: #f2daff;
+}
 
 .sidebar a {
     width: 100%;
