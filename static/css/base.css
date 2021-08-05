@@ -113,6 +113,10 @@ header {
     color: #212529 !important;
 }
 
+#signInRegister {
+    margin-bottom: 0rem;
+}
+
 
 /* ========== Footer ========== */
 
@@ -156,7 +160,7 @@ footer a {
 
 .btn-toggle:hover,
 .btn-toggle:focus {
-  background-color: #f2daff;
+    background-color: rgba(188, 64, 255, 0.25);
 }
 
 .btn-toggle::before {
@@ -186,7 +190,7 @@ footer a {
 
 .btn-toggle-nav a:hover,
 .btn-toggle-nav a:focus {
-    background-color: #f2daff;
+    background-color: rgba(188, 64, 255, 0.25);
 }
 
 .sidebar a {
