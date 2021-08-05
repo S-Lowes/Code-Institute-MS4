@@ -207,6 +207,22 @@ footer a {
     overflow-y: hidden;
 }
 
+.sidebar-m-1 {
+    margin-left: 10px;
+}
+
+
+.sidebar-m-2 {
+    margin-left: 22px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 25px;
+    margin-left: 50px;
+  }
 
 /* ========== Media Queries ========== */
 
