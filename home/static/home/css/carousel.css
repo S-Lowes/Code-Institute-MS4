@@ -1,71 +1,59 @@
 .carousel {
-    --current-slide: 0;
-    /* we set position relative so absolute position works properly for the buttons */
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .carousel-button {
-    /* vertically centering the buttons */
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-  
-    /* basic styling */
-    padding: 0;
-    margin: 0.5rem;
-    border-radius: 50%;
-    background-color: transparent;
-    border: none;
-  
-    font-size: 1.5rem;
-    cursor: pointer;
-  
-    transition: color 0.1s;
-  }
-  
-  .carousel-button:hover {
-    color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .carousel-button_next {
-    /* The "next slide button" will be at the right */
-    right: 0;
-  }
-  
-  .slides {
-    display: flex;
-    transition: transform 0.5s;
-    transform: translateX(calc(-100% * var(--current-slide)));
-    height: 350px; /* You must set a specified height */
-  }
-  
-  .slide {
-    flex: 0 0 100%;
-  }
+  overflow: hidden;
+  max-width: 80%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-  .hero-one {
-    background: url('/media/eventhero1.jpg') no-repeat center center fixed;
-    background-color: #e6e6e6; /* Used if the image is unavailable */
-    background-size: cover;
-  }
+.carousel .carousel__item,
+.carousel .carousel__item--hidden {
+  display: none;
+}
 
-  .hero-two {
-    background: url('/media/eventhero2.jpg') no-repeat center center fixed;
-    background-color: #e6e6e6; /* Used if the image is unavailable */
-    background-size: cover;
-  }
+.carousel .carousel__item img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
 
-  .hero-three {
-    background: url('/media/eventhero3.jpg') no-repeat center center fixed;
-    background-color: #e6e6e6; /* Used if the image is unavailable */
-    background-size: cover;
+.carousel .carousel__item--visible {
+  display: block;
+  animation: fadeVisibility 0.5s;
+}
+
+.carousel .carousel__actions {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel .carousel__actions button {
+  border-radius: 50px;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.carousel .carousel__actions button#carousel__button--prev {
+  margin-left: 20px;
+}
+
+.carousel .carousel__actions button#carousel__button--next {
+  margin-right: 20px;
+}
+
+@keyframes fadeVisibility {
+  0% {
+    opacity: 0;
   }
-  
-  @media screen and (min-width: 768px) {
-    .carousel-button {
-      font-size: 2rem;
-      margin: 1rem;
-    }
+  100% {
+    opacity: 1;
+    transform: opacity linear;
   }
+}

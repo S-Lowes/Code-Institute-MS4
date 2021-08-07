@@ -1,39 +1,43 @@
-function modulo(number, mod) {
-    let result = number % mod;
-    if (result < 0) {
-      result += mod;
-    }
-    return result;
+let slidePosition = 0;
+const slides = document.getElementsByClassName('carousel__item');
+const totalSlides = slides.length;
+
+document.
+  getElementById('carousel__button--next')
+  .addEventListener("click", function() {
+    moveToNextSlide();
+  });
+document.
+  getElementById('carousel__button--prev')
+  .addEventListener("click", function() {
+    moveToPrevSlide();
+  });
+
+function updateSlidePosition() {
+  for (let slide of slides) {
+    slide.classList.remove('carousel__item--visible');
+    slide.classList.add('carousel__item--hidden');
   }
-  
-  function setUpCarousel(carousel) {
-    function handleNext() {
-      currentSlide = modulo(currentSlide + 1, numSlides);
-      changeSlide(currentSlide);
-    }
-  
-    function handlePrevious() {
-      currentSlide = modulo(currentSlide - 1, numSlides);
-      changeSlide(currentSlide);
-    }
-  
-    function changeSlide(slideNumber) {
-      carousel.style.setProperty('--current-slide', slideNumber);
-    }
-  
-    // get elements
-    const buttonPrevious = carousel.querySelector('[data-carousel-button-previous]');
-    const buttonNext = carousel.querySelector('[data-carousel-button-next]');
-    const slidesContainer = carousel.querySelector('[data-carousel-slides-container]');
-  
-    // carousel state we need to remember
-    let currentSlide = 0;
-    const numSlides = slidesContainer.children.length;
-  
-    // set up events
-    buttonPrevious.addEventListener('click', handlePrevious);
-    buttonNext.addEventListener('click', handleNext);
+
+  slides[slidePosition].classList.add('carousel__item--visible');
+}
+
+function moveToNextSlide() {
+  if (slidePosition === totalSlides - 1) {
+    slidePosition = 0;
+  } else {
+    slidePosition++;
   }
-  
-  const carousels = document.querySelectorAll('[data-carousel]');
-  carousels.forEach(setUpCarousel);
+
+  updateSlidePosition();
+}
+
+function moveToPrevSlide() {
+  if (slidePosition === 0) {
+    slidePosition = totalSlides - 1;
+  } else {
+    slidePosition--;
+  }
+
+  updateSlidePosition();
+}
