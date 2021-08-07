@@ -7,36 +7,38 @@
 
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
 {% endblock %}
 
 {% block content %}
 <div class="carousel" data-carousel>
     <div class="carousel-buttons">
       <button class="carousel-button carousel-button_previous" data-carousel-button-previous>
-        <span class="fas fa-chevron-circle-left"></span>
+        <span class="icon">
+          <i class="fas fa-chevron-left"></i>
+        </span>
       </button>
       <button class="carousel-button carousel-button_next" data-carousel-button-next>
-        <span class="fas fa-chevron-circle-right"></span>
+        <span class="icon">
+          <i class="fas fa-chevron-right"></i>
+        </span>
       </button>
     </div>
     <div class="slides" data-carousel-slides-container>
       <div class="slide hero-one">
         <!-- Any Content -->
-        <h2>Slide 1 heading</h2>
-        <p>Slide 1 content
       </div>
       <div class="slide hero-two">
         <!-- Any Content -->
-        <h2>Slide 2 heading</h2>
-        <p>Slide 2 content
+      </div>
+      <div class="slide hero-three">
+        <!-- Any Content -->
       </div>
     </div>
   </div>
+  <div class="container">
+    <div class="row">
+    </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}

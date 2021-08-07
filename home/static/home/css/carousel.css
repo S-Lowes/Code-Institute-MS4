@@ -38,6 +38,7 @@
     display: flex;
     transition: transform 0.5s;
     transform: translateX(calc(-100% * var(--current-slide)));
+    height: 350px; /* You must set a specified height */
   }
   
   .slide {
@@ -46,11 +47,19 @@
 
   .hero-one {
     background: url('/media/eventhero1.jpg') no-repeat center center fixed;
+    background-color: #e6e6e6; /* Used if the image is unavailable */
     background-size: cover;
   }
 
   .hero-two {
     background: url('/media/eventhero2.jpg') no-repeat center center fixed;
+    background-color: #e6e6e6; /* Used if the image is unavailable */
+    background-size: cover;
+  }
+
+  .hero-three {
+    background: url('/media/eventhero3.jpg') no-repeat center center fixed;
+    background-color: #e6e6e6; /* Used if the image is unavailable */
     background-size: cover;
   }
   
