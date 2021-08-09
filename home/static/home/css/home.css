@@ -1,0 +1,21 @@
+.home-event {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.home-event a {
+    display: block;
+}
+
+.home-event-image {
+    display: block;
+    width: 100%;
+}
+
+.home-event-click {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
