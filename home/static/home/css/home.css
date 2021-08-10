@@ -5,6 +5,17 @@
     overflow: hidden;
 }
 
+#home-event-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    clear: float;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(188, 64, 255, 0.2);
+}
+
 .home-event a {
     display: block;
 }
@@ -15,7 +26,23 @@
 }
 
 .home-event-click {
+    display: none;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    right: 0%;
+    background-color: #bc40ff;
+    height: 100%;
+}
+
+.home-event-icon {
+    height: 100%;
+}
+
+.home-event a:hover #home-event-overlay{
+    display: block;
+}
+
+.home-event a:hover .home-event-click{
+    display: block;
 }
