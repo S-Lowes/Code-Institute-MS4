@@ -3,6 +3,7 @@
     position: relative;
     vertical-align: top;
     overflow: hidden;
+    border-radius: 0.2rem;
 }
 
 #home-event-overlay {
@@ -45,4 +46,8 @@
 
 .home-event a:hover .home-event-click{
     display: block;
+}
+
+.home-event:hover{
+    box-shadow: 0 0 5px 1px #212529 ;
 }
