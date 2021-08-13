@@ -30,7 +30,9 @@ function closeNav() {
    document.getElementById("pageOverlay").style.transition = "0.3s";
    // ----- Incase they are left open -----
    document.getElementById("eventNav").style.height = "0";
+   document.getElementById("eventButton").setAttribute("aria-expanded", false);
    document.getElementById("moreNav").style.height = "0";
+   document.getElementById("moreButton").setAttribute("aria-expanded", false);
 }
 
 // ========== EVENT OPEN/CLOSE ==========
