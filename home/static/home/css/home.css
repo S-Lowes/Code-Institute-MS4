@@ -26,6 +26,12 @@
     width: 100%;
 }
 
+.home-venue-image {
+    display: block;
+    width: 100%;
+    border-radius: 0.2rem;
+}
+
 .home-event-click {
     display: none;
     position: absolute;
