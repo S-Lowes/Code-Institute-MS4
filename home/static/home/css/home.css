@@ -33,7 +33,7 @@
     transform: translateY(-50%);
     right: 0%;
     background-color: #bc40ff;
-    height: 200%;
+    height: 150%;
 }
 
 .home-event-icon {
@@ -50,4 +50,8 @@
 
 .home-event:hover{
     box-shadow: 0 0 5px 1px #212529 ;
+}
+
+#home-decoration-line {
+    border-bottom: 1px solid rgba( 	33, 37, 41, 0.2) !important; 
 }
