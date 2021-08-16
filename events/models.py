@@ -2,14 +2,6 @@ from django.db import models
 
 
 # Create your models here.
-class Venue(models.Model):
-    name = models.CharField(max_length=254, null=False, blank=False)
-    capacity = models.IntegerField()
-
-    def __str__(self):
-        return self.name
-
-
 class Event(models.Model):
     venue = models.ForeignKey('Venue', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254, null=False, blank=False)
@@ -34,6 +26,15 @@ class Showtime(models.Model):
 
     def __str__(self):
         return self.date
+
+
+class Venue(models.Model):
+    showtime = models.ForeignKey('Showtime', null=True, blank=True, on_delete=models.SET_NULL)
+    name = models.CharField(max_length=254, null=False, blank=False)
+    capacity = models.IntegerField()
+
+    def __str__(self):
+        return self.name
 
 
 class Price(models.Model):
