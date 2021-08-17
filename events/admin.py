@@ -5,29 +5,32 @@ from .models import Event, Showtime, Venue, Price
 # Register your models here.
 class EventAdmin(admin.ModelAdmin):
     list_display = (
-        'venue',
         'name',
         'date_start',
         'date_end',
         'run_time',
         'description_short',
         'description_long',
+        'image_hero',
+        'image_normal',
+    )
+
+
+class Venueadmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'capacity',
+        'description',
+        'image',
     )
 
 
 class ShowtimeAdmin(admin.ModelAdmin):
     list_display = (
         'event',
+        'venue',
         'date',
         'time',
-    )
-
-
-class Venueadmin(admin.ModelAdmin):
-    list_display = (
-        'showtime',
-        'name',
-        'capacity',
     )
 
 
