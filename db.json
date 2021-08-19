@@ -1,1 +1,609 @@
-[{"model": "admin.logentry", "pk": 1, "fields": {"action_time": "2021-08-18T19:40:43.506Z", "user": 1, "content_type": 14, "object_id": "1", "object_repr": "The Pilgrims Respite", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 2, "fields": {"action_time": "2021-08-18T19:45:21.598Z", "user": 1, "content_type": 14, "object_id": "2", "object_repr": "Maestro's Muse", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 3, "fields": {"action_time": "2021-08-18T19:45:32.815Z", "user": 1, "content_type": 14, "object_id": "1", "object_repr": "The Pilgrim's Respite", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"}}, {"model": "admin.logentry", "pk": 4, "fields": {"action_time": "2021-08-18T20:05:54.394Z", "user": 1, "content_type": 13, "object_id": "1", "object_repr": "Steve", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 5, "fields": {"action_time": "2021-08-18T20:42:35.463Z", "user": 1, "content_type": 13, "object_id": "2", "object_repr": "The Winter’s Tale", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 6, "fields": {"action_time": "2021-08-18T20:59:46.037Z", "user": 1, "content_type": 13, "object_id": "3", "object_repr": "Asako Hada & The Lumberjacks", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 7, "fields": {"action_time": "2021-08-18T21:31:31.489Z", "user": 1, "content_type": 13, "object_id": "1", "object_repr": "Steve", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image normal\"]}}]"}}, {"model": "admin.logentry", "pk": 8, "fields": {"action_time": "2021-08-18T21:48:01.684Z", "user": 1, "content_type": 13, "object_id": "1", "object_repr": "Steve", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image normal\"]}}]"}}, {"model": "admin.logentry", "pk": 9, "fields": {"action_time": "2021-08-18T21:58:12.084Z", "user": 1, "content_type": 13, "object_id": "3", "object_repr": "Asako Hada & The Lumberjacks", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image hero\", \"Image normal\"]}}]"}}, {"model": "admin.logentry", "pk": 10, "fields": {"action_time": "2021-08-18T22:09:55.188Z", "user": 1, "content_type": 13, "object_id": "3", "object_repr": "The Mousetrap", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Run time\", \"Description short\", \"Description long\"]}}]"}}, {"model": "admin.logentry", "pk": 11, "fields": {"action_time": "2021-08-18T22:13:24.762Z", "user": 1, "content_type": 13, "object_id": "2", "object_repr": "The Winter’s Tale", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Description short\", \"Description long\"]}}]"}}, {"model": "auth.user", "pk": 1, "fields": {"password": "pbkdf2_sha256$260000$iyceD1BzPSG6vfDTpEVIl1$n1y02+m5rklz91ZCvRhw1gcC1UytnRcfLMJJywJYQNw=", "last_login": "2021-08-18T21:10:28.486Z", "is_superuser": true, "username": "amphiisu", "first_name": "", "last_name": "", "email": "", "is_staff": true, "is_active": true, "date_joined": "2021-08-18T19:32:58.315Z", "groups": [], "user_permissions": []}}, {"model": "sessions.session", "pk": "rihu0opst7q6knd7wvanq4ud17n3d6jj", "fields": {"session_data": ".eJxVjEEOwiAQRe_C2hCYUgZcuvcMZBioVA0kpV0Z765NutDtf-_9lwi0rSVsPS9hTuIstDj9bpH4kesO0p3qrUludV3mKHdFHrTLa0v5eTncv4NCvXxrggkQhmQ1ZD-SRbCeDRJyJHKUo9UK0HOyzuAwZlZgEhrFA0c9OS3eH9gdN5k:1mGRJO:dnpIbvaee8_oZlnjdhJphyxkuVZOysWVsJ69cAYs7Ik", "expire_date": "2021-09-01T19:33:18.326Z"}}, {"model": "sites.site", "pk": 1, "fields": {"domain": "example.com", "name": "example.com"}}, {"model": "events.event", "pk": 1, "fields": {"name": "Steve", "date_start": "2021-09-10", "date_end": "2021-09-24", "run_time": 45, "description_short": "Three men search for Steve, wonder who He is, think about God, die.", "description_long": "The triplet of Benjamin Beckmann, Marcel Williams, and Oscar Silvio take on our latest play; Steve by Stephen Belber.", "image_hero": "event-hero-1_PCbL6Vn.jpg", "image_normal": "event-normal-1_8KlwmcN.jpg"}}, {"model": "events.event", "pk": 2, "fields": {"name": "The Winter’s Tale", "date_start": "2021-09-17", "date_end": "2021-10-01", "run_time": 120, "description_short": "Shakespeare is back. Time for some tragedy and romance.", "description_long": "King Leontes becomes paranoid about his wife's fidelity; he imprisons her, kills their son, and banishes their infant daughter; years later, a statue comes to life.", "image_hero": "event-hero-2_MaykaVS.jpg", "image_normal": "event-normal-2_gH3fDWh.jpg"}}, {"model": "events.event", "pk": 3, "fields": {"name": "The Mousetrap", "date_start": "2021-09-27", "date_end": "2021-11-01", "run_time": 120, "description_short": "Murder, Mystery, and intrigue from the mind of Agatha Christie.", "description_long": "The Mousetrap is a murder mystery about a group of strangers who are stuck together in the midst of a snowstorm.", "image_hero": "event-hero-3_j4qr5g2.jpg", "image_normal": "event-normal-3_eNyvJa3.jpg"}}, {"model": "events.venue", "pk": 1, "fields": {"name": "The Pilgrim's Respite", "capacity": 100, "description": "A cosy interior for intimate performances. The Pilgrims Respite is our smallest theatre and is usually used for plays, comedy acts and lectures.", "image": "venue-1_SaxnDJn.jpg"}}, {"model": "events.venue", "pk": 2, "fields": {"name": "Maestro's Muse", "capacity": 300, "description": "This is our largest concert hall, used for orchestral performances and theatrical performances.", "image": "venue-2_i4H4BEE.jpg"}}]
+[{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2021-08-18T19:40:43.506Z",
+        "user": 1,
+        "content_type": 14,
+        "object_id": "1",
+        "object_repr": "The Pilgrims Respite",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2021-08-18T19:45:21.598Z",
+        "user": 1,
+        "content_type": 14,
+        "object_id": "2",
+        "object_repr": "Maestro's Muse",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2021-08-18T19:45:32.815Z",
+        "user": 1,
+        "content_type": 14,
+        "object_id": "1",
+        "object_repr": "The Pilgrim's Respite",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2021-08-18T20:05:54.394Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "1",
+        "object_repr": "Steve",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2021-08-18T20:42:35.463Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "2",
+        "object_repr": "The Winter’s Tale",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2021-08-18T20:59:46.037Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "3",
+        "object_repr": "Asako Hada & The Lumberjacks",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2021-08-18T21:31:31.489Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "1",
+        "object_repr": "Steve",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image normal\"]}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2021-08-18T21:48:01.684Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "1",
+        "object_repr": "Steve",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image normal\"]}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2021-08-18T21:58:12.084Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "3",
+        "object_repr": "Asako Hada & The Lumberjacks",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image hero\", \"Image normal\"]}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2021-08-18T22:09:55.188Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "3",
+        "object_repr": "The Mousetrap",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Run time\", \"Description short\", \"Description long\"]}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2021-08-18T22:13:24.762Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "2",
+        "object_repr": "The Winter’s Tale",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description short\", \"Description long\"]}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2021-08-19T12:12:45.734Z",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "1",
+        "object_repr": "Steve: 2021-09-10 at 18:00:00",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2021-08-19T12:27:50.458Z",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "2",
+        "object_repr": "Steve: 2021-09-10 at 20:00:00",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2021-08-19T12:28:26.213Z",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "3",
+        "object_repr": "Steve: 2021-09-13 at 18:00:00",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2021-08-19T12:28:35.310Z",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "2",
+        "object_repr": "Steve: 2021-09-10 at 20:00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2021-08-19T12:28:53.889Z",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "3",
+        "object_repr": "Steve: 2021-09-17 at 20:00:00",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Date\", \"Time\"]}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2021-08-19T12:29:21.136Z",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "4",
+        "object_repr": "Steve: 2021-09-15 at 18:00:00",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2021-08-19T12:30:46.041Z",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "5",
+        "object_repr": "The Winter’s Tale: 2021-09-17 at 18:00:00",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2021-08-19T12:31:11.517Z",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "6",
+        "object_repr": "The Winter’s Tale: 2021-09-22 at 19:30:00",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2021-08-19T12:31:38.160Z",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "7",
+        "object_repr": "The Winter’s Tale: 2021-09-24 at 20:00:00",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2021-08-19T12:32:25.949Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "3",
+        "object_repr": "The Mousetrap",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Date end\"]}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2021-08-19T12:32:53.954Z",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "8",
+        "object_repr": "The Mousetrap: 2021-09-27 at 18:00:00",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2021-08-19T12:33:19.887Z",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "9",
+        "object_repr": "The Mousetrap: 2021-10-01 at 20:00:00",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2021-08-19T12:33:40.326Z",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "10",
+        "object_repr": "The Mousetrap: 2021-10-06 at 18:00:00",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2021-08-19T12:34:50.259Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "Adult",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2021-08-19T12:36:50.794Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "2",
+        "object_repr": "Child",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2021-08-19T12:37:10.662Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "3",
+        "object_repr": "Senior",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2021-08-19T12:37:25.570Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "4",
+        "object_repr": "Adult",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2021-08-19T12:37:36.285Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "5",
+        "object_repr": "Child",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2021-08-19T12:38:49.264Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "6",
+        "object_repr": "Senior",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2021-08-19T12:40:04.983Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "6",
+        "object_repr": "Senior",
+        "action_flag": 3,
+        "change_message": ""
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2021-08-19T12:40:05.033Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "5",
+        "object_repr": "Child",
+        "action_flag": 3,
+        "change_message": ""
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2021-08-19T12:40:05.057Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "4",
+        "object_repr": "Adult",
+        "action_flag": 3,
+        "change_message": ""
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2021-08-19T12:40:05.082Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "3",
+        "object_repr": "Senior",
+        "action_flag": 3,
+        "change_message": ""
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2021-08-19T12:40:05.106Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "2",
+        "object_repr": "Child",
+        "action_flag": 3,
+        "change_message": ""
+    }
+}, {
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2021-08-19T12:40:05.141Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "Adult",
+        "action_flag": 3,
+        "change_message": ""
+    }
+}, {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$iyceD1BzPSG6vfDTpEVIl1$n1y02+m5rklz91ZCvRhw1gcC1UytnRcfLMJJywJYQNw=",
+        "last_login": "2021-08-18T21:10:28.486Z",
+        "is_superuser": true,
+        "username": "amphiisu",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-08-18T19:32:58.315Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}, {
+    "model": "sessions.session",
+    "pk": "57kck4q5o8kmndaumeuno1rb6mgti3bv",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQRe_C2hCYUgZcuvcMZBioVA0kpV0Z765NutDtf-_9lwi0rSVsPS9hTuIstDj9bpH4kesO0p3qrUludV3mKHdFHrTLa0v5eTncv4NCvXxrggkQhmQ1ZD-SRbCeDRJyJHKUo9UK0HOyzuAwZlZgEhrFA0c9OS3eH9gdN5k:1mGggE:8usXiaSLd6Z93LXy8rGwrFtloqcpjYHudDKpE0CGimE",
+        "expire_date": "2021-09-02T11:57:54.703Z"
+    }
+}, {
+    "model": "sessions.session",
+    "pk": "rihu0opst7q6knd7wvanq4ud17n3d6jj",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQRe_C2hCYUgZcuvcMZBioVA0kpV0Z765NutDtf-_9lwi0rSVsPS9hTuIstDj9bpH4kesO0p3qrUludV3mKHdFHrTLa0v5eTncv4NCvXxrggkQhmQ1ZD-SRbCeDRJyJHKUo9UK0HOyzuAwZlZgEhrFA0c9OS3eH9gdN5k:1mGRJO:dnpIbvaee8_oZlnjdhJphyxkuVZOysWVsJ69cAYs7Ik",
+        "expire_date": "2021-09-01T19:33:18.326Z"
+    }
+}, {
+    "model": "sites.site",
+    "pk": 1,
+    "fields": {
+        "domain": "example.com",
+        "name": "example.com"
+    }
+}, {
+    "model": "events.event",
+    "pk": 1,
+    "fields": {
+        "name": "Steve",
+        "date_start": "2021-09-10",
+        "date_end": "2021-09-24",
+        "run_time": 45,
+        "description_short": "Three men search for Steve, wonder who He is, think about God, die.",
+        "description_long": "The triplet of Benjamin Beckmann, Marcel Williams, and Oscar Silvio take on our latest play; Steve by Stephen Belber.",
+        "image_hero": "event-hero-1_PCbL6Vn.jpg",
+        "image_normal": "event-normal-1_8KlwmcN.jpg"
+    }
+}, {
+    "model": "events.event",
+    "pk": 2,
+    "fields": {
+        "name": "The Winter’s Tale",
+        "date_start": "2021-09-17",
+        "date_end": "2021-10-01",
+        "run_time": 120,
+        "description_short": "Shakespeare is back. Time for some tragedy and romance.",
+        "description_long": "King Leontes becomes paranoid about his wife's fidelity; he imprisons her, kills their son, and banishes their infant daughter; years later, a statue comes to life.",
+        "image_hero": "event-hero-2_MaykaVS.jpg",
+        "image_normal": "event-normal-2_gH3fDWh.jpg"
+    }
+}, {
+    "model": "events.event",
+    "pk": 3,
+    "fields": {
+        "name": "The Mousetrap",
+        "date_start": "2021-09-27",
+        "date_end": "2021-10-15",
+        "run_time": 120,
+        "description_short": "Murder, Mystery, and intrigue from the mind of Agatha Christie.",
+        "description_long": "The Mousetrap is a murder mystery about a group of strangers who are stuck together in the midst of a snowstorm.",
+        "image_hero": "event-hero-3_j4qr5g2.jpg",
+        "image_normal": "event-normal-3_eNyvJa3.jpg"
+    }
+}, {
+    "model": "events.venue",
+    "pk": 1,
+    "fields": {
+        "name": "The Pilgrim's Respite",
+        "capacity": 100,
+        "description": "A cosy interior for intimate performances. The Pilgrims Respite is our smallest theatre and is usually used for plays, comedy acts and lectures.",
+        "image": "venue-1_SaxnDJn.jpg"
+    }
+}, {
+    "model": "events.venue",
+    "pk": 2,
+    "fields": {
+        "name": "Maestro's Muse",
+        "capacity": 300,
+        "description": "This is our largest concert hall, used for orchestral performances and theatrical performances.",
+        "image": "venue-2_i4H4BEE.jpg"
+    }
+}, {
+    "model": "events.showtime",
+    "pk": 1,
+    "fields": {
+        "event": 1,
+        "venue": 1,
+        "date": "2021-09-10",
+        "time": "18:00:00"
+    }
+}, {
+    "model": "events.showtime",
+    "pk": 3,
+    "fields": {
+        "event": 1,
+        "venue": 1,
+        "date": "2021-09-17",
+        "time": "20:00:00"
+    }
+}, {
+    "model": "events.showtime",
+    "pk": 4,
+    "fields": {
+        "event": 1,
+        "venue": 1,
+        "date": "2021-09-15",
+        "time": "18:00:00"
+    }
+}, {
+    "model": "events.showtime",
+    "pk": 5,
+    "fields": {
+        "event": 2,
+        "venue": 2,
+        "date": "2021-09-17",
+        "time": "18:00:00"
+    }
+}, {
+    "model": "events.showtime",
+    "pk": 6,
+    "fields": {
+        "event": 2,
+        "venue": 2,
+        "date": "2021-09-22",
+        "time": "19:30:00"
+    }
+}, {
+    "model": "events.showtime",
+    "pk": 7,
+    "fields": {
+        "event": 2,
+        "venue": 2,
+        "date": "2021-09-24",
+        "time": "20:00:00"
+    }
+}, {
+    "model": "events.showtime",
+    "pk": 8,
+    "fields": {
+        "event": 3,
+        "venue": 1,
+        "date": "2021-09-27",
+        "time": "18:00:00"
+    }
+}, {
+    "model": "events.showtime",
+    "pk": 9,
+    "fields": {
+        "event": 3,
+        "venue": 2,
+        "date": "2021-10-01",
+        "time": "20:00:00"
+    }
+}, {
+    "model": "events.showtime",
+    "pk": 10,
+    "fields": {
+        "event": 3,
+        "venue": 2,
+        "date": "2021-10-06",
+        "time": "18:00:00"
+    }
+}]

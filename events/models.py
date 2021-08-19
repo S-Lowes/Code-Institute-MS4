@@ -33,7 +33,7 @@ class Showtime(models.Model):
     time = models.TimeField(auto_now=False, auto_now_add=False)
 
     def __str__(self):
-        return self.event + "" + self.date
+        return self.event.name + ": " + str(self.date) + " at " + str(self.time)
 
 
 class Price(models.Model):
