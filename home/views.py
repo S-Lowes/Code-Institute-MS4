@@ -1,9 +1,19 @@
 from django.shortcuts import render
+from events.models import Event, Venue
 
 # Create your views here.
+# Event.objects.order_by('-name')[:3]
 
 
 def index(request):
     """ A view to show the index page """
 
-    return render(request, 'home/index.html')
+    events = Event.objects.order_by('name')[:3]
+    venues = Venue.objects.all()
+
+    context = {
+        'events': events,
+        'venues': venues,
+    }
+    print(events)
+    return render(request, 'home/index.html', context)
