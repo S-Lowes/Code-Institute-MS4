@@ -73,14 +73,13 @@
       nisi ut aliquip ex ea commodo consequat.</p>
   </div>
   <div class="row justify-content-center">
+    {% for venue in venues %}
     <div class="col-10 col-md-5 col-lg-5 mx-auto">
-      <img class="home-venue-image" src="/media/venue-1.jpg" alt="">
-      <h5 class="text-dark text-center">Venue 1</h5>
+      <img class="home-venue-image" src="{{ venue.image.url }}" alt="">
+      <h5 class="text-dark mt-2 mb-1"><b>{{ venue.name }}</b></h5>
+      <p class="text-dark">{{ venue.description }}</p>
     </div>
-    <div class="col-10 col-md-5 col-lg-5 mx-auto">
-      <img class="home-venue-image" src="/media/venue-2.jpg" alt="">
-      <h5 class="text-dark text-center">Venue 2</h5>
-    </div>
+    {% endfor %}
   </div>
 </div>
 
