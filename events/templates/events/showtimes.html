@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock %}
+
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div>
+            <img class="w-100" src="{{ event.image_hero.url }}" alt="">
+        </div>
+        <div>
+            <h2>{{ event.name }}</h5>
+        </div>
+    </div>
+
+    <div class="row my-3">
+        {% for showtime in showtimes %}
+        <div class="col-12 col-lg-4 mx-auto">
+            <h5>{{ showtime.date }}</h5>
+            <h5>{{ showtime.time }}</h5>
+        </div>
+        <div class="col-12 col-lg-4 mx-auto">
+            <h5>{{ showtime.venue }}</h5>
+        </div>
+        <div class="col-12 col-lg-4 mx-auto">
+            <button>Buy Tickets</button>
+        </div>
+        {% endfor %}   
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{% endblock %}

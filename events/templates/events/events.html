@@ -13,7 +13,9 @@
   {% for event in events %}
     <div class="row my-3">
         <div class="col-6 col-lg-4 mx-auto">
+          <a href="{% url 'showtimes' event.id %}">
             <img class="w-100" src="{{ event.image_normal.url }}" alt="">
+          </a>
         </div>
         <div class="col-6 col-lg-8 mx-auto">
             <h2>{{ event.name }}</h2>
