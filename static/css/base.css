@@ -234,7 +234,7 @@ footer a {
     max-width: 100%;
 }
 
-.showtime-iamge {
+.showtime-image {
     position: block;
     max-width: 100%;
 }
@@ -256,6 +256,18 @@ footer a {
 .showtime-description {
     position: absolute;
     z-index: 2;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%,-50%);
+    background-color: #bc40ff;
+    background-image: linear-gradient(90deg, rgb(188, 44, 215), rgb(188, 64, 255), rgb(188, 44, 215));
+    border-radius: 0.2rem;
+}
+
+.btn-outline-light:hover {
+    color: #bc40ff;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
 }
 
 /* ========== Media Queries ========== */

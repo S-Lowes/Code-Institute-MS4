@@ -10,13 +10,41 @@
 
 {% block content %}
 <div class="container">
-    <div class="row showtime-hero">
+    <div class="showtime-hero">
         <img class="showtime-image w-100" src="{{ event.image_hero.url }}" alt="">
         <div class="showtime-overlay"></div>
-        <div class="showtime-description">
-            <h2 class="text-light">{{ event.name }}</h5>
+        <div class="showtime-description text-light p-2">
+            <h2>{{ event.name }}</h5>
+            <p>{{ event.date_start}} - {{ event.date_end}}</p>
+            <p>{{ event.run_time}} Minutes</p>
+            <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#showtimeModal">
+                <span class="icon">
+                    <i class="fas fa-arrow-right"></i>
+                </span>
+                More Info 
+              </button>
+              
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="showtimeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="showtimeModal">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  
 
     <div class="row my-3">
         {% for showtime in showtimes %}
