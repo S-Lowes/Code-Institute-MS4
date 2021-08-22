@@ -21,7 +21,7 @@
     <div id="overlay"></div>
     <div class="carousel-details">
       <h2 class="text-light">{{ event.name }}</h2>
-      <a class="text-decoration-none text-light p-2 my-2" href="">Book Tickets</a>
+      <a class="text-decoration-none text-light p-2 my-2" href="{% url 'showtimes' event.id %}">Book Tickets</a>
     </div>
   </div>
   {% endfor %}
@@ -37,7 +37,7 @@
     {% for event in events %}
     <div class="col-10 col-lg-4 mx-auto">
       <div class="home-event">
-        <a href="">
+        <a href="{% url 'showtimes' event.id %}">
           <div id="home-event-overlay"></div>
           <img class="home-event-image" src="{{ event.image_normal.url }}" alt="">
           <div class="home-event-click">

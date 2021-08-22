@@ -1,6 +1,6 @@
 <div id="mySidebar" class="flex-shrink-0 bg-white sidebar text-dark">
     <div>
-        <button class="btn close-btn" type="button" onclick="closeNav()">
+        <button class="btn btn-position" type="button" onclick="closeNav()">
             <span class="icon">
                 <i class="fas fa-times"></i>
             </span>
@@ -15,11 +15,11 @@
         </a>
         <div>
             <button id="eventButton" class="btn btn-toggle fs-4 sidebar-m-1" type="button" onclick="eOpenClose()" aria-expanded="false">
-                Events
+                Tickets & Events
             </button>
             <div id="eventNav" class="event-nav">
                 <ul class="list-unstyled btn-toggle-nav">
-                    <li><a class="text-decoration-none fs-5 my-2 text-dark" href="#">Action</a></li>
+                    <li><a class="text-decoration-none fs-5 my-2 text-dark" href="{% url 'events' %}">Events</a></li>
                     <li><a class="text-decoration-none fs-5 my-2 text-dark" href="#">Another action</a></li>
                     <li><a class="text-decoration-none fs-5 my-2 text-dark" href="#">Something else here</a></li>
                 </ul>

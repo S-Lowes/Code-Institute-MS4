@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container py-3">
     <div class="showtime-hero">
         <img class="showtime-image w-100" src="{{ event.image_hero.url }}" alt="">
         <div class="showtime-overlay"></div>
@@ -32,34 +32,40 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="showtimeModal">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title text-dark" id="showtimeModal"><b>{{ event.name }}</b></h5>
+                    <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">
+                        <span class="icon">
+                            <i class="fas fa-times"></i>
+                        </span>
+                    </button>
                 </div>
-                <div class="modal-body">
-                    ...
+                <div class="modal-body text-dark">
+                    <p>{{ event.description_short}}</p>
+                    <p>{{ event.description_long}}</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
   
-
-    <div class="row my-3">
-        {% for showtime in showtimes %}
-        <div class="col-12 col-lg-4 mx-auto">
-            <h5>{{ showtime.date }}</h5>
-            <h5>{{ showtime.time }}</h5>
+    {% for showtime in showtimes %}
+    <div class="row my-2 mt-md-4 mb-md-5 py-4 showtime-content text-light">
+        <div class="col-12 col-md-4 mx-auto my-auto text-center">
+            <h5>Date: {{ showtime.date }}</h5>
+            <h5>Time: {{ showtime.time }}</h5>
         </div>
-        <div class="col-12 col-lg-4 mx-auto">
-            <h5>{{ showtime.venue }}</h5>
+        <div class="col-12 col-md-4 mx-auto my-auto text-center">
+            <h5 class="showtime-venue-text">Venue</h5>
+            <div class="decoration-line"></div>
+            <h5 class="showtime-venue-text">{{ showtime.venue }}</h5>
         </div>
-        <div class="col-12 col-lg-4 mx-auto">
-            <button>Buy Tickets</button>
-        </div>
-        {% endfor %}   
+        <div class="col-12 col-md-4 mx-auto my-auto text-center">
+            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Buy Ticket</button>
+        </div> 
     </div>
+    {% endfor %}  
 </div>
 {% endblock %}
 
