@@ -10,12 +10,11 @@
 
 {% block content %}
 <div class="container">
-    <div class="row">
-        <div>
-            <img class="w-100" src="{{ event.image_hero.url }}" alt="">
-        </div>
-        <div>
-            <h2>{{ event.name }}</h5>
+    <div class="row showtime-hero">
+        <img class="showtime-image w-100" src="{{ event.image_hero.url }}" alt="">
+        <div class="showtime-overlay"></div>
+        <div class="showtime-description">
+            <h2 class="text-light">{{ event.name }}</h5>
         </div>
     </div>
 
