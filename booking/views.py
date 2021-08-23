@@ -1,8 +1,18 @@
 from django.shortcuts import render
-
+from events.models import Showtime, Venue
 
 # Create your views here.
-def booking(request):
-    """ A view to show the booking page """
+# Event.objects.order_by('-name')[:3]
 
-    return render(request, 'booking/booking.html')
+
+def booking(request):
+    """ A view to show the index page """
+
+    showtime = Showtime.objects.all()
+    venues = Venue.objects.all()
+
+    context = {
+        'showtime': showtime,
+        'venues': venues,
+    }
+    return render(request, 'booking/booking.html', context)

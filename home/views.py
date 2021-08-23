@@ -15,5 +15,5 @@ def index(request):
         'events': events,
         'venues': venues,
     }
-    print(events)
+
     return render(request, 'home/index.html', context)
