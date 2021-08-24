@@ -62,7 +62,7 @@
             <h5 class="showtime-venue-text">{{ showtime.venue }}</h5>
         </div>
         <div class="col-12 col-md-4 mx-auto my-auto text-center">
-            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Buy Tickets</button>
+            <a href="{% url 'booking' showtime.id %}" type="button" class="btn btn-outline-light">Buy Tickets</a>
         </div> 
     </div>
     {% endfor %}  

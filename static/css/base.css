@@ -24,7 +24,7 @@ body {
 /* ========== Header ========== */
 
 header {
-    background-color: #bc40ff;
+    background-color: #bc40ff; /* Consider mixing the colors up here #ff0d62 #ffaa0d */
     background-image: linear-gradient(90deg, rgb(188, 44, 215), rgb(188, 64, 255), rgb(188, 44, 215));
     padding-top: 10px;
 }

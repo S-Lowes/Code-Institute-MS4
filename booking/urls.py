@@ -3,5 +3,5 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.booking, name='booking'),
+    path('<int:showtime_id>/', views.booking, name='booking'),
 ]

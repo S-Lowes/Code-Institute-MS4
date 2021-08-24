@@ -6,26 +6,18 @@ var firstSeatLabel = 1;
       $total = $('#total'),
       sc = $('#seat-map').seatCharts({
       map: [
-        'ff_ff',
-        'ff_ff',
-        'ee_ee',
-        'ee_ee',
-        'ee___',
-        'ee_ee',
-        'ee_ee',
-        'ee_ee',
-        'eeeee',
+        'gggggggggggg','gggggggggggg','gggggggggggg','pppppppppppp','pppppppppppp','gggggggggggg','gggggggggggg','ggggg__ggggg','gggg____gggg','gg________gg',
       ],
       seats: {
-        f: {
-          price   : 100,
-          classes : 'first-class', //your custom CSS class
-          category: 'First Class'
-        },
-        e: {
+        g: {
           price   : 40,
-          classes : 'economy-class', //your custom CSS class
-          category: 'Economy Class'
+          classes : 'general', //your custom CSS class
+          category: 'General'
+        },
+        p: {
+          price   : 60,
+          classes : 'premium', //your custom CSS class
+          category: 'Premium'
         }         
       
       },
@@ -38,8 +30,8 @@ var firstSeatLabel = 1;
       legend : {
         node : $('#legend'),
           items : [
-          [ 'f', 'available',   'First Class' ],
-          [ 'e', 'available',   'Economy Class'],
+          [ 'g', 'available',   'General' ],
+          [ 'p', 'available',   'Premium'],
           [ 'f', 'unavailable', 'Already Booked']
           ]         
       },
@@ -48,7 +40,7 @@ var firstSeatLabel = 1;
       click: function () {
         if (this.status() == 'available') {
           //let's create a new <li> which we'll add to the cart items
-          $('<li>'+this.data().category+' Seat # '+this.settings.label+': <b>$'+this.data().price+'</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
+          $('<li>'+this.data().category+' Seat '+this.settings.label+': <b>£'+this.data().price+'</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
             .attr('id', 'cart-item-'+this.settings.id)
             .data('seatId', this.settings.id)
             .appendTo($cart);

@@ -15,7 +15,7 @@
 {% block content %}
 
 <div>
-  <p>{{ venues }}</p>
+  <p>{{ showtime.seating_plan }}</p>
 </div>
 
 <div id="seat-map">
@@ -26,7 +26,7 @@
   <h3> Selected Seats (<span id="counter">0</span>):</h3>
   <ul id="selected-seats">
   </ul>
-  Total: <b>$<span id="total">0</span></b>
+  Total: <b>£<span id="total">0</span></b>
   <button class="checkout-button">Checkout &raquo;</button>
   <div id="legend"></div>
 </div>

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
+
 # Create your models here.
 class Event(models.Model):
     name = models.CharField(max_length=254, null=False, blank=False)
@@ -32,6 +33,7 @@ class Showtime(models.Model):
     venue = models.ForeignKey('Venue', null=True, blank=True, on_delete=models.SET_NULL)
     date = models.DateField()
     time = models.TimeField(auto_now=False, auto_now_add=False)
+    seating_plan = ArrayField(models.CharField(max_length=80, blank=True), default=list)
 
     def __str__(self):
         return self.event.name + ": " + str(self.date) + " at " + str(self.time)

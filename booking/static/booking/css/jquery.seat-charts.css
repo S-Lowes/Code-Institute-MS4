@@ -9,13 +9,13 @@ div.seatCharts-cell {
 	text-align: center;
 	outline: none;
 	font-size: 13px;
-	line-height:16px;
-	color: blue;
+	line-height:25px;
+	color: #430067;
 
 }
 div.seatCharts-seat {
-	background-color: green;
-	color: white;
+	background-color: #bc40ff;
+	color: #f8f9fa;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -42,19 +42,27 @@ div.seatCharts-row:after {
 }
 
 div.seatCharts-seat.selected {
-	background-color: aqua;
+	background-color:  #1d5400;
+	color: #f8f9fa;
 }
 
 div.seatCharts-seat.focused {
-	background-color: #6db131;
+	background-color: #9e8dff;
+	color: #f8f9fa;
 }
 
-div.seatCharts-seat.available {
-	background-color: green;
+div.seatCharts-seat.available.general {
+	background-color: #e9ecef;
+	color: #bc40ff;
+}
+
+div.seatCharts-seat.available.premium {
+	background-color: #bc40ff;
+	color: #f8f9fa;
 }
 
 div.seatCharts-seat.unavailable {
-	background-color: red;
+	background-color: #430067;
 	cursor: not-allowed;
 }
 
