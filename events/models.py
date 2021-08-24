@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
 class Event(models.Model):
@@ -21,6 +21,7 @@ class Venue(models.Model):
     capacity = models.IntegerField()
     description = models.TextField()
     image = models.ImageField(null=True, blank=True)
+    seating_plan = ArrayField(models.CharField(max_length=80, blank=True), default=list)
 
     def __str__(self):
         return self.name
