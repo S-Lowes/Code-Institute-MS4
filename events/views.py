@@ -49,7 +49,7 @@ def add_event(request):
     """ Add an event to the store """
 
     form = EventForm()
-    template = "add_event.html"
+    template = "events/add_event.html"
 
     context = {
         'form': form,
