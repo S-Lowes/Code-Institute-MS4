@@ -13,7 +13,7 @@ class EventForm(forms.ModelForm):
     # image_normal = forms.ImageField(label='Normal Image', required=False, widget=CustomClearableFileInput)
 
 
-class VeneForm(forms.ModelForm):
+class VenueForm(forms.ModelForm):
 
     class Meta:
         model = Venue
@@ -26,4 +26,4 @@ class ShowtimeForm(forms.ModelForm):
 
     class Meta:
         model = Showtime
-        fields = '__all__'
+        fields = ('event', 'venue', 'date', 'time',)

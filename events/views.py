@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 
 from .models import Event, Showtime
-from .forms import EventForm
+from .forms import EventForm, VenueForm, ShowtimeForm
 
 # Create your views here.
 
@@ -46,10 +46,46 @@ def event_showtimes(request, event_id):
 
 
 def add_event(request):
-    """ Add an event to the store """
+    """ Create an event """
 
-    form = EventForm()
+    if request.method == 'POST':
+        form = EventForm(request.POST, request.FILES)
+        if form.is_valid():
+            event = form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('add_event'))
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    else:
+        form = EventForm()
+
     template = "events/add_event.html"
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def add_venue(request):
+    """ Create a venue """
+
+    form = VenueForm()
+    template = "events/add_venue.html"
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def add_showtime(request):
+    """ Create an event showtime """
+
+    form = ShowtimeForm()
+    template = "events/add_showtime.html"
 
     context = {
         'form': form,

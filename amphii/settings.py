@@ -64,7 +64,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'amphii.urls'
 
-CRISPY_TEMPLATE_PACKAGE = 'bootstrap4'
+CRISPY_TEMPLATE_PACKAGE = 'bootstrap5'
 
 TEMPLATES = [
     {
@@ -89,6 +89,7 @@ TEMPLATES = [
     },
 ]
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
