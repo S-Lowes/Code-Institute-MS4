@@ -35,7 +35,7 @@ def event_showtimes(request, event_id):
     """ A view to show individual event showtimes """
 
     event = get_object_or_404(Event, pk=event_id)
-    showtimes = Showtime.objects.select_related().filter(event=event_id)
+    showtimes = Showtime.objects.select_related().filter(event=event_id).order_by('date')
 
     context = {
         'showtimes': showtimes,
@@ -45,6 +45,7 @@ def event_showtimes(request, event_id):
     return render(request, 'events/showtimes.html', context)
 
 
+# '@login_required'
 def add_event(request):
     """ Create an event """
 
@@ -52,10 +53,10 @@ def add_event(request):
         form = EventForm(request.POST, request.FILES)
         if form.is_valid():
             event = form.save()
-            messages.success(request, 'Successfully added product!')
+            messages.success(request, 'Successfully added an event!')
             return redirect(reverse('add_event'))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add the event. Please ensure the form is valid.')
     else:
         form = EventForm()
 
@@ -71,7 +72,17 @@ def add_event(request):
 def add_venue(request):
     """ Create a venue """
 
-    form = VenueForm()
+    if request.method == 'POST':
+        form = VenueForm(request.POST, request.FILES)
+        if form.is_valid():
+            venue = form.save()
+            messages.success(request, 'Successfully added a venue!')
+            return redirect(reverse('add_venue'))
+        else:
+            messages.error(request, 'Failed to add the venue. Please ensure the form is valid.')
+    else:
+        form = VenueForm()
+
     template = "events/add_venue.html"
 
     context = {
@@ -84,7 +95,17 @@ def add_venue(request):
 def add_showtime(request):
     """ Create an event showtime """
 
-    form = ShowtimeForm()
+    if request.method == 'POST':
+        form = ShowtimeForm(request.POST)
+        if form.is_valid():
+            showtime = form.save()
+            messages.success(request, 'Successfully added a showtime!')
+            return redirect(reverse('add_showtime'))
+        else:
+            messages.error(request, 'Failed to add the showtime. Please ensure the form is valid.')
+    else:
+        form = ShowtimeForm()
+
     template = "events/add_showtime.html"
 
     context = {

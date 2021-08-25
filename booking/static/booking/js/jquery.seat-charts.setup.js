@@ -1,12 +1,18 @@
 var firstSeatLabel = 1;
 
+let showtimeData = document.getElementById('showtime_data').textContent;
+let showtime = JSON.parse(showtimeData);
+console.log(showtimeData);
+console.log(showtime);
+
+
   $(document).ready(function() {
     var $cart = $('#selected-seats'),
       $counter = $('#counter'),
       $total = $('#total'),
       sc = $('#seat-map').seatCharts({
       map: [
-        'gggggggggggg','gggggggggggg','gggggggggggg','pppppppppppp','pppppppppppp','gggggggggggg','gggggggggggg','ggggg__ggggg','gggg____gggg','gg________gg',
+        "gggggggggggg","gggggggggggg","gggggggggggg","pppppppppppp","pppppppppppp","gggggggggggg","gggggggggggg","ggggg__ggggg","gggg____gggg","gg________gg",
       ],
       seats: {
         g: {
@@ -35,7 +41,6 @@ var firstSeatLabel = 1;
           [ 'f', 'unavailable', 'Already Booked']
           ]         
       },
-      rows: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'],
 
       click: function () {
         if (this.status() == 'available') {
@@ -82,7 +87,7 @@ var firstSeatLabel = 1;
     });
 
     //let's pretend some seats have already been booked
-    sc.get(['1_2', '4_1', '7_1', '7_2']).status('unavailable');
+    sc.get(['9_2','1_2', '4_1', '7_1', '7_2']).status('unavailable');
 
 });
 

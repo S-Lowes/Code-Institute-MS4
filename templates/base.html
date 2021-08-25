@@ -88,9 +88,9 @@
             </span>
             {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
-              Account/Management
+              Manage /
               {% endif %}
-            Account
+              Account
             {% else %}
             Login/Register
             {% endif %}
@@ -101,7 +101,7 @@
                 <li><a class="dropdown-item" href="">Event Management</a></li>
               {% endif %}
               <li><a class="dropdown-item" href="">My Account</a></li>
-              <li><a class="text-decoration-none fs-5 my-2 text-dark" href="{% url 'account_logout' %}">Logout</a></li>
+              <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
               {% else %}
                 <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
                 <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>

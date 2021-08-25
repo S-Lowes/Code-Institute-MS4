@@ -355,6 +355,7 @@ footer a {
 .allauth-form-inner-content button,
 .allauth-form-inner-content input[type='submit'] {
 	/* btn */
+    margin: 0px 5px 5px 0px;
 	display: inline-block;
     font-weight: 400;
     color: #fff;

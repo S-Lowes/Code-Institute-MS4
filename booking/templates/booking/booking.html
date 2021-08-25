@@ -14,10 +14,7 @@
 
 {% block content %}
 
-<div>
-  <p>{{ showtime.seating }}</p>
-</div>
-
+{{ showtime_data|json_script:"showtime_data" }}
 <div id="seat-map">
     <div class="front-indicator">Front</div>
 </div>
