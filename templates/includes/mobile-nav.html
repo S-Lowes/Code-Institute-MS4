@@ -27,14 +27,31 @@
         </div>
 
         <div>
-            <button id="moreButton" class="btn btn-toggle fs-4 sidebar-m-1" type="button" onclick="mOpenClose()" aria-expanded="false">
-                More
+            <button id="accountButton" class="btn btn-toggle fs-4 sidebar-m-1" type="button" onclick="aOpenClose()" aria-expanded="false">
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                        Account/Management
+                    {% endif %}
+                    Account
+                {% else %}
+                    Login/Register
+                {% endif %}
             </button>
-            <div id="moreNav" class="more-nav">
+            <div id="accountNav" class="account-nav">
                 <ul class="list-unstyled btn-toggle-nav">
-                    <li><a class="text-decoration-none fs-5 my-2 text-dark" href="#">Action</a></li>
-                    <li><a class="text-decoration-none fs-5 my-2 text-dark" href="#">Another action</a></li>
-                    <li><a class="text-decoration-none fs-5 my-2 text-dark" href="#">Something else here</a></li>
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <li><a class="text-decoration-none fs-5 my-2 text-dark" href="">Event Management</a></li>
+                        {% endif %}
+                        <li><a class="text-decoration-none fs-5 my-2 text-dark" href="">My Profile</a></li>
+                        <li><a class="text-decoration-none fs-5 my-2 text-dark"
+                            href="{% url 'account_logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a class="text-decoration-none fs-5 my-2 text-dark"
+                        href="{% url 'account_login' %}">Login</a></li>
+                    <li><a class="text-decoration-none fs-5 my-2 text-dark"
+                        href="{% url 'account_signup' %}">Register</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

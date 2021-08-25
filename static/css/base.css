@@ -5,6 +5,11 @@ html {
 body {
     color: blue;
     font-family: 'Quicksand', sans-serif;
+    
+    min-height: 100%;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .overlay {
@@ -126,6 +131,7 @@ header {
 
 footer {
     background-color: #430067;
+    margin-top: auto;
 }
 
 footer a {
@@ -206,7 +212,7 @@ footer a {
     overflow-y: hidden;
 }
 
-.more-nav {
+.account-nav {
     height: 0;
     overflow-y: hidden;
 }
@@ -308,6 +314,78 @@ footer a {
     right: 15px;
     z-index: 9999999999;
 }
+
+.toast {
+    width: 350px;
+    max-width: 100%;
+    font-size: .875rem;
+    pointer-events: auto;
+    background-color: rgba(255,255,255,1);
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    border-radius: .25rem;
+}
+
+/* ========== Allauth Form Formatting ========== */
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem; /* mt-4 */
+    color: #212529; /* text-secondary */
+}
+
+.allauth-form-inner-content h2, hr {
+    color: #212529;
+}
+
+.allauth-form-inner-content input {
+    border-color: #000;
+    border-radius: 0;
+    margin: 10px 0px 10px 0px;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	/* btn */
+	display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #000;
+    border: 1px solid #000;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+
+    /* standard bootstrap btn transitions */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+	color: #fff;
+    background-color: #222;
+    border-color: #222;
+}
+
+.allauth-form-inner-content a {
+	color: #bc40ff; /* text-info */
+}
+
 
 /* ========== Media Queries ========== */
 

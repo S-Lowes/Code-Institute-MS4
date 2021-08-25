@@ -31,8 +31,8 @@ function closeNav() {
    // ----- Incase they are left open -----
    document.getElementById("eventNav").style.height = "0";
    document.getElementById("eventButton").setAttribute("aria-expanded", false);
-   document.getElementById("moreNav").style.height = "0";
-   document.getElementById("moreButton").setAttribute("aria-expanded", false);
+   document.getElementById("accountNav").style.height = "0";
+   document.getElementById("accountButton").setAttribute("aria-expanded", false);
 }
 
 // ========== EVENT OPEN/CLOSE ==========
@@ -55,8 +55,8 @@ function eClose() {
 }
 
 // ========== MORE OPEN/CLOSE ==========
-function mOpenClose(){
-   y = document.getElementById("moreNav").style.height;
+function aOpenClose(){
+   y = document.getElementById("accountNav").style.height;
    if (y == "100%") {
        return mClose();
    }
@@ -64,11 +64,11 @@ function mOpenClose(){
 }
 
 function mOpen() {
-      document.getElementById("moreButton").setAttribute("aria-expanded", true);
-      document.getElementById("moreNav").style.height = "100%";
+      document.getElementById("accountButton").setAttribute("aria-expanded", true);
+      document.getElementById("accountNav").style.height = "100%";
 }
 
 function mClose() {
-      document.getElementById("moreButton").setAttribute("aria-expanded", false);
-      document.getElementById("moreNav").style.height = "0";
+      document.getElementById("accountButton").setAttribute("aria-expanded", false);
+      document.getElementById("accountNav").style.height = "0";
 }

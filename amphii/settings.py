@@ -47,9 +47,11 @@ INSTALLED_APPS = [
     'home',
     'events',
     'booking',
+    'profiles',
 
     # Other
     'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +65,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'amphii.urls'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACKAGE = 'bootstrap5'
 
