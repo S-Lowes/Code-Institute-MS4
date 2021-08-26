@@ -1,13 +1,16 @@
 var firstSeatLabel = 1;
 
+let mydata1 = JSON.parse(document.getElementById('seat_map').textContent);
+console.log(mydata1)
+
   $(document).ready(function() {
+    console.log('ready!')
     var $cart = $('#selected-seats'),
       $counter = $('#counter'),
       $total = $('#total'),
       sc = $('#seat-map').seatCharts({
       map: [
-        "gggggggggggg","gggggggggggg","gggggggggggg","pppppppppppp","pppppppppppp","gggggggggggg","gggggggggggg","ggggg__ggggg","gggg____gggg","gg________gg",
-      ],
+        "gggggggggggg","gggggggggggg","gggggggggggg","pppppppppppp","pppppppppppp","gggggggggggg","gggggggggggg","ggggg__ggggg","gggg____gggg","gg________gg"],
       seats: {
         g: {
           price   : 40,
@@ -62,7 +65,6 @@ var firstSeatLabel = 1;
         
           //remove the item from our cart
           $('#cart-item-'+this.settings.id).remove();
-        
           //seat has been vacated
           return 'available';
         } else if (this.status() == 'unavailable') {

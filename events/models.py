@@ -33,7 +33,7 @@ class Showtime(models.Model):
     venue = models.ForeignKey('Venue', null=True, blank=True, on_delete=models.SET_NULL)
     date = models.DateField()
     time = models.TimeField(auto_now=False, auto_now_add=False)
-    seat_taken = models.TextField(max_length=254, blank=True)
+    seat_taken = ArrayField(models.CharField(max_length=254, blank=True), default=list)
 
     def __str__(self):
         return self.event.name + ": " + str(self.date) + " at " + str(self.time)

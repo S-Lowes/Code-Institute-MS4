@@ -14,7 +14,6 @@
 
 {% block content %}
 
-<!-- {{ showtime_data|json_script:"showtime_data" -->
 <div id="seat-map">
     <div class="front-indicator">Front</div>
 </div>
@@ -31,5 +30,6 @@
 
 {% block postloadjs %}
 {{ block.super }}
+{{ seat_map|json_script:"seat_map" }}
 <script src="{% static 'booking/js/jquery.seat-charts.setup.js' %}"></script>
 {% endblock %}
