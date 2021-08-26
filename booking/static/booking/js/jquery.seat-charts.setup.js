@@ -1,10 +1,15 @@
 var firstSeatLabel = 1;
 
-let mydata1 = JSON.parse(document.getElementById('seat_map').textContent);
-console.log(mydata1)
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;SameSite=Lax;";
+}
+
+let seat_map = JSON.parse(document.getElementById('seat_map').textContent);
 
   $(document).ready(function() {
-    console.log('ready!')
     var $cart = $('#selected-seats'),
       $counter = $('#counter'),
       $total = $('#total'),
@@ -46,7 +51,6 @@ console.log(mydata1)
             .attr('id', 'cart-item-'+this.settings.id)
             .data('seatId', this.settings.id)
             .appendTo($cart);
-            
           /*
            * Lets up<a href="https://www.jqueryscript.net/time-clock/">date</a> the counter and total
            *
@@ -97,3 +101,25 @@ function recalculateTotal(sc) {
   
   return total;
 }
+
+/*
+* Checkout Function: Create Cookie
+* 
+*/
+
+document.getElementById("checkout-button").addEventListener("click", checkout);
+
+function checkout() {
+  let selectedSeats = document.getElementById("selected-seats");
+  let children = selectedSeats.children;
+  cookie_seating = [];
+  for(var i=0; i<children.length; i++){
+    var child = children[i];
+    seating = child.getAttribute('id');
+    seating_id=seating.substring(10);
+    cookie_seating.push(seating_id);
+    console.log(cookie_seating);
+}
+
+  setCookie("cookie_seating",cookie_seating,1)
+};
