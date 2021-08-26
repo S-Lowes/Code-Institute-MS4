@@ -1,11 +1,5 @@
 var firstSeatLabel = 1;
 
-let showtimeData = document.getElementById('showtime_data').textContent;
-let showtime = JSON.parse(showtimeData);
-console.log(showtimeData);
-console.log(showtime);
-
-
   $(document).ready(function() {
     var $cart = $('#selected-seats'),
       $counter = $('#counter'),

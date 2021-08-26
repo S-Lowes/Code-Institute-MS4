@@ -22,7 +22,7 @@ class Venueadmin(admin.ModelAdmin):
         'capacity',
         'description',
         'image',
-        'seating_plan',
+        'seat_map',
     )
 
 
