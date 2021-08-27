@@ -140,7 +140,6 @@ function checkout() {
 }
 
   setCookie("cookie_seating",cookie_seating,1)
-  console.log(getCookie("cookie_seating"))
 };
 
 $('#send-cookie').click(function() {    
@@ -152,9 +151,9 @@ $('#send-cookie').click(function() {
       url: '',
       method: 'POST',
       dataType: "json",
-      data: {payload: getCookie("cookie_seating")},
+      data: {seat_taken_cookie: getCookie("cookie_seating")},
       success: (data) => {
-        console.log(data);
+        console.log("Yay Hurray!", data);
       },
       error: (error) => {
         console.log("oh no!", error);

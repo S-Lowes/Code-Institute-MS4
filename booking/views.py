@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from events.models import Showtime
+from django.http import JsonResponse
 # Create your views here.
 
 def booking(request, showtime_id):
@@ -13,21 +14,14 @@ def booking(request, showtime_id):
 
     if request.method == 'POST':
         data = request.POST
-        print('data:')
-        print(data)
-        todo = data.get('payload')
-        print('todo:')
-        print(todo)
+        st_cookie = data.get('seat_taken_cookie')
+        split_st_cookie = st_cookie.split(",")
 
-        x = todo.split(",")
-
-        a = np.array(seat_taken)
-        b = np.array(x)
-        c = np.concatenate((a, b), axis=0)
-        print(c)
+        new_st = seat_taken + split_st_cookie
 
         # taken_cookie = data.get()
-        Showtime.objects.filter(pk=showtime_id).update(seat_taken=x)
+        Showtime.objects.filter(pk=showtime_id).update(seat_taken=new_st)
+        return JsonResponse({'status': 'Todo added!'})
 
     template = "booking/booking.html"
 
