@@ -27,5 +27,4 @@ class ShowtimeForm(forms.ModelForm):
     class Meta:
         model = Showtime
         fields = '__all__'
-    
-    # exclude = ['seating_plan']
+        exclude = ['seat_taken']

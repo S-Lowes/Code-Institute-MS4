@@ -32,6 +32,7 @@ class ShowtimeAdmin(admin.ModelAdmin):
         'venue',
         'date',
         'time',
+        'seat_taken'
     )
 
 

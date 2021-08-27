@@ -1,5 +1,6 @@
 var firstSeatLabel = 1;
 
+// Set Cookie (W3S)
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -7,15 +8,33 @@ function setCookie(cname, cvalue, exdays) {
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;SameSite=Lax;";
 }
 
+// Get Cookie (Django)
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      // Does this cookie string begin with the name we want?
+      if (cookie.substring(0, name.length + 1) === (name + "=")) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
+
 let seat_map = JSON.parse(document.getElementById('seat_map').textContent);
+let seat_taken = JSON.parse(document.getElementById('seat_taken').textContent);
 
   $(document).ready(function() {
     var $cart = $('#selected-seats'),
       $counter = $('#counter'),
       $total = $('#total'),
       sc = $('#seat-map').seatCharts({
-      map: [
-        "gggggggggggg","gggggggggggg","gggggggggggg","pppppppppppp","pppppppppppp","gggggggggggg","gggggggggggg","ggggg__ggggg","gggg____gggg","gg________gg"],
+      map: seat_map,
       seats: {
         g: {
           price   : 40,
@@ -87,7 +106,7 @@ let seat_map = JSON.parse(document.getElementById('seat_map').textContent);
     });
 
     //let's pretend some seats have already been booked
-    sc.get(['9_2','1_2', '4_1', '7_1', '7_2']).status('unavailable');
+    sc.get(seat_taken).status('unavailable');
 
 });
 
@@ -118,8 +137,27 @@ function checkout() {
     seating = child.getAttribute('id');
     seating_id=seating.substring(10);
     cookie_seating.push(seating_id);
-    console.log(cookie_seating);
 }
 
   setCookie("cookie_seating",cookie_seating,1)
+  console.log(getCookie("cookie_seating"))
 };
+
+$('#send-cookie').click(function() {    
+  $.ajax({
+      headers: {
+        "X-Requested-With": "XMLHttpRequest",
+        "X-CSRFToken": getCookie("csrftoken"),
+      },
+      url: '',
+      method: 'POST',
+      dataType: "json",
+      data: {payload: getCookie("cookie_seating")},
+      success: (data) => {
+        console.log(data);
+      },
+      error: (error) => {
+        console.log("oh no!", error);
+      }
+  });
+});

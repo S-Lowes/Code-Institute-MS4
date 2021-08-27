@@ -24,6 +24,7 @@
   </ul>
   Total: <b>£<span id="total">0</span></b>
   <button id="checkout-button" class="checkout-button">Checkout &raquo;</button>
+  <button id="send-cookie" class="">Send Cookie{% csrf_token %}</button>
   <div id="legend"></div>
 </div>
 {% endblock %}
@@ -31,5 +32,6 @@
 {% block postloadjs %}
 {{ block.super }}
 {{ seat_map|json_script:"seat_map" }}
+{{ seat_taken|json_script:"seat_taken" }}
 <script src="{% static 'booking/js/jquery.seat-charts.setup.js' %}"></script>
 {% endblock %}
