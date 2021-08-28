@@ -1,10 +1,13 @@
 var firstSeatLabel = 1;
 
+let seat_map = JSON.parse(document.getElementById('seat_map').textContent);
+let seat_taken = JSON.parse(document.getElementById('seat_taken').textContent);
+
 // Set Cookie (W3S)
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  let expires = "expires="+ d.toUTCString();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;SameSite=Lax;";
 }
 
@@ -12,22 +15,26 @@ function setCookie(cname, cvalue, exdays) {
 function getCookie(name) {
   let cookieValue = null;
   if (document.cookie && document.cookie !== "") {
-    const cookies = document.cookie.split(";");
-    for (let i = 0; i < cookies.length; i++) {
-      const cookie = cookies[i].trim();
-      // Does this cookie string begin with the name we want?
-      if (cookie.substring(0, name.length + 1) === (name + "=")) {
-        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-        break;
+      const cookies = document.cookie.split(";");
+      for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + "=")) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+          }
       }
-    }
   }
   return cookieValue;
 }
 
+// Blank Cookies on page load
+window.onload = function(){
+  setCookie("cookie_seating","",-1)
+  setCookie("cookie_number","",-1)
+  setCookie("total","",-1)
+};
 
-let seat_map = JSON.parse(document.getElementById('seat_map').textContent);
-let seat_taken = JSON.parse(document.getElementById('seat_taken').textContent);
 
   $(document).ready(function() {
     var $cart = $('#selected-seats'),
@@ -78,14 +85,48 @@ let seat_taken = JSON.parse(document.getElementById('seat_taken').textContent);
            */
           $counter.text(sc.find('selected').length+1);
           $total.text(recalculateTotal(sc)+this.data().price);
-          
+
+
+          setCookie("total",recalculateTotal(sc)+this.data().price,1) //Set Cookie for Total
+
+          //Set cookie_seating cookie +
+          function add_select_to_cookie(cookie_name, selected) {
+            current_cookie = getCookie(cookie_name);
+            if (current_cookie == null || current_cookie == "") {
+              setCookie(cookie_name, selected, 1);
+            } else {
+              let arr = current_cookie.split(",");
+              arr.push(selected);
+              setCookie(cookie_name, arr.toString());
+            };
+          };
+
+          add_select_to_cookie("cookie_seating",this.settings.id);
+          add_select_to_cookie("cookie_number",this.settings.label.toString());
+
           return 'selected';
         } else if (this.status() == 'selected') {
           //update the counter
           $counter.text(sc.find('selected').length-1);
           //and total
           $total.text(recalculateTotal(sc)-this.data().price);
-        
+
+          setCookie("total",recalculateTotal(sc)-this.data().price,1) //Set Cookie for Total
+          
+          //Set cookie_seating cookie - 
+          function remove_select_from_cookie(cookie_name, selected) {
+            let arr = getCookie(cookie_name).split(",");
+            j = selected
+            arr = arr.filter(function (item) {
+              return item !== j
+            });
+            let text = arr.toString();
+            setCookie(cookie_name, text, 1)
+          };
+
+          remove_select_from_cookie("cookie_seating",this.settings.id);
+          remove_select_from_cookie("cookie_number",this.settings.label.toString());
+
           //remove the item from our cart
           $('#cart-item-'+this.settings.id).remove();
           //seat has been vacated
@@ -117,32 +158,28 @@ function recalculateTotal(sc) {
   sc.find('selected').each(function () {
     total += this.data().price;
   });
-  
   return total;
 }
 
-/*
-* Checkout Function: Create Cookie
-* 
-*/
 
-document.getElementById("checkout-button").addEventListener("click", checkout);
+// Checkout Function: Create Cookie
 
-function checkout() {
-  let selectedSeats = document.getElementById("selected-seats");
-  let children = selectedSeats.children;
-  cookie_seating = [];
-  for(var i=0; i<children.length; i++){
-    var child = children[i];
-    seating = child.getAttribute('id');
-    seating_id=seating.substring(10);
-    cookie_seating.push(seating_id);
-}
+// document.getElementById("checkout-button").addEventListener("click", checkout);
+// function checkout() {
+//   let selectedSeats = document.getElementById("selected-seats");
+//   let children = selectedSeats.children;
+//   cookie_seating = [];
+//   for(var i=0; i<children.length; i++){
+//     var child = children[i];
+//     seating = child.getAttribute('id');
+//     seating_id=seating.substring(10);
+//     cookie_seating.push(seating_id);
+// }
 
-  setCookie("cookie_seating",cookie_seating,1)
-};
+//   setCookie("cookie_seating",cookie_seating,1)
+// };
 
-$('#send-cookie').click(function() {    
+$('#checkout-button').click(function() {    
   $.ajax({
       headers: {
         "X-Requested-With": "XMLHttpRequest",
