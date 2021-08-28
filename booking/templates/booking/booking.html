@@ -3,6 +3,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'booking/css/jquery.seat-charts.css' %}">
+<link rel="stylesheet" href="{% static 'booking/css/booking.css' %}">
 {% endblock %}
 
 {% block extra_js %}
@@ -13,24 +14,62 @@
 {% endblock %}
 
 {% block content %}
+<!-- Seats -->
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <div id="seat-map">
+        <div class="front-indicator">Front</div>
+      </div>
+    </div>
 
-<div id="seat-map">
-    <div class="front-indicator">Front</div>
+    <!-- Order Summary -->
+    <div class="col-12 col-lg-4">
+
+      <div class="booking-details">
+        <h2>Booking Details</h2>
+        <h3> Selected Seats (<span id="counter">0</span>):</h3>
+        <ul id="selected-seats">
+        </ul>
+        Total: <b>£<span id="total">0</span></b>
+        <button id="checkout-button" class="checkout-button">Checkout &raquo;</button>
+        <div id="legend"></div>
+      </div>
+
+      <div class="div">
+        <p>Fill Out Form</p>
+        <form action="{% url 'booking' showtime.id %}" method="POST" id="payment-form">
+          {% csrf_token %}
+          {{ form|crispy }}
+        </form>
+      </div>
+
+      <div class="">
+        <div class="col-12">
+          <div id="card-element"></div>
+          <div id="card-errors"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
-<div class="booking-details">
-  <h2>Booking Details</h2>
-  <h3> Selected Seats (<span id="counter">0</span>):</h3>
-  <ul id="selected-seats">
-  </ul>
-  Total: <b>£<span id="total">0</span></b>
-  <button id="checkout-button" class="checkout-button">Checkout &raquo;</button>
-  <div id="legend"></div>
-</div>
+
+    <!-- Payment -->
+
+    <div class="col-12">
+      
+
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
 {{ seat_map|json_script:"seat_map" }}
 {{ seat_taken|json_script:"seat_taken" }}
+
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+
 <script src="{% static 'booking/js/jquery.seat-charts.setup.js' %}"></script>
+<script src="{% static 'booking/js/stripe_elements.js' %}"></script>
 {% endblock %}

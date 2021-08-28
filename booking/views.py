@@ -4,13 +4,15 @@ from .forms import BookingForm
 from django.http import JsonResponse
 # Create your views here.
 
+import stripe
+
+
 def booking(request, showtime_id):
     """ A view to show the index page """
 
     showtime = get_object_or_404(Showtime, pk=showtime_id)
     seat_map = showtime.venue.seat_map
     seat_taken = showtime.seat_taken
-    print(seat_taken)
 
     # AJAX Request
     if request.method == 'POST':
@@ -23,17 +25,15 @@ def booking(request, showtime_id):
 
     template = "booking/booking.html"
 
+    form = BookingForm()
+
     context = {
+        'form': form,
         'showtime': showtime,
         'seat_map': seat_map,
         'seat_taken': seat_taken,
+        'stripe_public_key':'pk_test_51J22ppHHOtvYgnT9zBxZ1XMFKv5aDIjmfUc1mY2vxjsEduh6bTERlNDP1rPvjRatRWHZP2csTBpXVfeGyZopbICU00EvwQM8qD',
+        'client_secret': 'test',
 
     }
     return render(request, template, context)
-
-
-def payment(request, showtime_id):
-
-    template = "booking/payment.html"
-
-    return render(request, template)
