@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, Showtime, Venue, Price
+from .models import Event, Showtime, Venue
 
 
 # Register your models here.
@@ -32,19 +32,10 @@ class ShowtimeAdmin(admin.ModelAdmin):
         'venue',
         'date',
         'time',
+        'ticket_price',
         'seat_taken'
     )
-
-
-class Priceadmin(admin.ModelAdmin):
-    list_display = (
-        'showtime',
-        'name',
-        'price',
-    )
-
 
 admin.site.register(Event, EventAdmin)
 admin.site.register(Showtime, ShowtimeAdmin)
 admin.site.register(Venue, Venueadmin)
-admin.site.register(Price, Priceadmin)

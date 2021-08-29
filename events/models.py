@@ -22,7 +22,7 @@ class Venue(models.Model):
     capacity = models.IntegerField()
     description = models.TextField()
     image = models.ImageField(null=True, blank=True)
-    seat_map = ArrayField(models.CharField(max_length=254, blank=True), default=list)
+    seat_map = ArrayField(models.CharField(max_length=254), default=list, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -33,16 +33,8 @@ class Showtime(models.Model):
     venue = models.ForeignKey('Venue', null=True, blank=True, on_delete=models.SET_NULL)
     date = models.DateField()
     time = models.TimeField(auto_now=False, auto_now_add=False)
-    seat_taken = ArrayField(models.CharField(max_length=254, null=True, blank=True), default=list)
+    ticket_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    seat_taken = ArrayField(models.CharField(max_length=254), default=list, null=True, blank=True)
 
     def __str__(self):
         return self.event.name + ": " + str(self.date) + " at " + str(self.time)
-
-
-class Price(models.Model):
-    showtime = models.ForeignKey('Showtime', null=True, blank=True, on_delete=models.SET_NULL)
-    name = models.CharField(max_length=254, null=False, blank=False)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-
-    def __str__(self):
-        return self.name

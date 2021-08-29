@@ -32,32 +32,13 @@
         <ul id="selected-seats">
         </ul>
         Total: <b>£<span id="total">0</span></b>
-        <button id="checkout-button" class="checkout-button">Checkout &raquo;</button>
+        <a id="checkout-button" class="checkout-button" href="{% url 'payment' showtime.id %}">Checkout &raquo;</a>
         <div id="legend"></div>
       </div>
-
-      <div class="div">
-        <p>Fill Out Form</p>
-        <form action="{% url 'booking' showtime.id %}" method="POST" id="payment-form">
-          {% csrf_token %}
-          {{ form|crispy }}
-        </form>
-      </div>
-
-      <div class="">
-        <div class="col-12">
-          <div id="card-element"></div>
-          <div id="card-errors"></div>
-        </div>
-      </div>
-
     </div>
   </div>
 </div>
 
-    <!-- Payment -->
-
-    <div class="col-12">
       
 
 {% endblock %}
@@ -66,10 +47,7 @@
 {{ block.super }}
 {{ seat_map|json_script:"seat_map" }}
 {{ seat_taken|json_script:"seat_taken" }}
-
-{{ stripe_public_key|json_script:"id_stripe_public_key" }}
-{{ client_secret|json_script:"id_client_secret" }}
+{{ ticket_price|json_script:"ticket_price" }}
 
 <script src="{% static 'booking/js/jquery.seat-charts.setup.js' %}"></script>
-<script src="{% static 'booking/js/stripe_elements.js' %}"></script>
 {% endblock %}

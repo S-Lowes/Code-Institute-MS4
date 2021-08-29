@@ -2,6 +2,7 @@ var firstSeatLabel = 1;
 
 let seat_map = JSON.parse(document.getElementById('seat_map').textContent);
 let seat_taken = JSON.parse(document.getElementById('seat_taken').textContent);
+let ticket_price = parseInt(JSON.parse(document.getElementById('ticket_price').textContent));
 
 // Set Cookie (W3S)
 function setCookie(cname, cvalue, exdays) {
@@ -32,9 +33,7 @@ function getCookie(name) {
 window.onload = function(){
   setCookie("cookie_seating","",-1)
   setCookie("cookie_number","",-1)
-  setCookie("total","",-1)
 };
-
 
   $(document).ready(function() {
     var $cart = $('#selected-seats'),
@@ -44,15 +43,11 @@ window.onload = function(){
       map: seat_map,
       seats: {
         g: {
-          price   : 40,
+          price   : ticket_price
+          ,
           classes : 'general', //your custom CSS class
-          category: 'General'
-        },
-        p: {
-          price   : 60,
-          classes : 'premium', //your custom CSS class
-          category: 'Premium'
-        }         
+          category: ''
+        },       
       
       },
       naming : {
@@ -65,9 +60,8 @@ window.onload = function(){
         node : $('#legend'),
           items : [
           [ 'g', 'available',   'General' ],
-          [ 'p', 'available',   'Premium'],
           [ 'f', 'unavailable', 'Already Booked']
-          ]         
+          ]
       },
 
       click: function () {
@@ -86,10 +80,7 @@ window.onload = function(){
           $counter.text(sc.find('selected').length+1);
           $total.text(recalculateTotal(sc)+this.data().price);
 
-
-          setCookie("total",recalculateTotal(sc)+this.data().price,1) //Set Cookie for Total
-
-          //Set cookie_seating cookie +
+          // ===== Set cookie_seating cookie ADD =====
           function add_select_to_cookie(cookie_name, selected) {
             current_cookie = getCookie(cookie_name);
             if (current_cookie == null || current_cookie == "") {
@@ -110,10 +101,8 @@ window.onload = function(){
           $counter.text(sc.find('selected').length-1);
           //and total
           $total.text(recalculateTotal(sc)-this.data().price);
-
-          setCookie("total",recalculateTotal(sc)-this.data().price,1) //Set Cookie for Total
           
-          //Set cookie_seating cookie - 
+          // ===== Set cookie_seating cookie SUBTRACT =====
           function remove_select_from_cookie(cookie_name, selected) {
             let arr = getCookie(cookie_name).split(",");
             j = selected
@@ -126,6 +115,7 @@ window.onload = function(){
 
           remove_select_from_cookie("cookie_seating",this.settings.id);
           remove_select_from_cookie("cookie_number",this.settings.label.toString());
+
 
           //remove the item from our cart
           $('#cart-item-'+this.settings.id).remove();
@@ -161,39 +151,22 @@ function recalculateTotal(sc) {
   return total;
 }
 
-
-// Checkout Function: Create Cookie
-
-// document.getElementById("checkout-button").addEventListener("click", checkout);
-// function checkout() {
-//   let selectedSeats = document.getElementById("selected-seats");
-//   let children = selectedSeats.children;
-//   cookie_seating = [];
-//   for(var i=0; i<children.length; i++){
-//     var child = children[i];
-//     seating = child.getAttribute('id');
-//     seating_id=seating.substring(10);
-//     cookie_seating.push(seating_id);
-// }
-
-//   setCookie("cookie_seating",cookie_seating,1)
-// };
-
-$('#checkout-button').click(function() {    
-  $.ajax({
-      headers: {
-        "X-Requested-With": "XMLHttpRequest",
-        "X-CSRFToken": getCookie("csrftoken"),
-      },
-      url: '',
-      method: 'POST',
-      dataType: "json",
-      data: {seat_taken_cookie: getCookie("cookie_seating")},
-      success: (data) => {
-        console.log("Yay Hurray!", data);
-      },
-      error: (error) => {
-        console.log("oh no!", error);
-      }
-  });
-});
+// $('#checkout-button').click(function() {    
+//   $.ajax({
+//       headers: {
+//         "X-Requested-With": "XMLHttpRequest",
+//         "X-CSRFToken": getCookie("csrftoken"),
+//       },
+//       url: '',
+//       method: 'POST',
+//       dataType: "json",
+//       data: {seat_taken_cookie: getCookie("cookie_seating"),
+//       seat_number_cookie: getCookie("cookie_number")},
+//       success: (data) => {
+//         console.log("Yay Hurray!", data);
+//       },
+//       error: (error) => {
+//         console.log("oh no!", error);
+//       }
+//   });
+// });

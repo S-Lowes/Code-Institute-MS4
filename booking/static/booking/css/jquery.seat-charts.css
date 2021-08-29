@@ -56,11 +56,6 @@ div.seatCharts-seat.available.general {
 	color: #bc40ff;
 }
 
-div.seatCharts-seat.available.premium {
-	background-color: #bc40ff;
-	color: #f8f9fa;
-}
-
 div.seatCharts-seat.unavailable {
 	background-color: #430067;
 	cursor: not-allowed;
