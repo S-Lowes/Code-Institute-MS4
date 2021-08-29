@@ -64,15 +64,24 @@ def payment(request, showtime_id):
     else:
         print("These lists do NOT contain identical elements.")
 
+    if len(list_st_cookie) != len(list_sn_cookie):
+        print("These lists are same length")
+    else:
+        print("These lists are NOT same length")
+
+    number_of_tickets = len(list_st_cookie)
+
+    total_cost = number_of_tickets * cost_per_ticket
+
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-    # stripe_total = round(int()*100)
-    # stripe.api_key = stripe_secret_key
-    # intent = stripe.PaymentIntent.create(
-    #     amount=stripe_total,
-    #     currency=settings.STRIPE_CURRENCY,
-    # )
+    stripe_total = round(int(total_cost)*100)
+    stripe.api_key = stripe_secret_key
+    intent = stripe.PaymentIntent.create(
+        amount=stripe_total,
+        currency=settings.STRIPE_CURRENCY,
+        )
 
     template = "booking/payment.html"
 
@@ -80,6 +89,6 @@ def payment(request, showtime_id):
         'form': form,
         'showtime': showtime,
         'stripe_public_key': stripe_public_key,
-        # 'client_secret': intent.client_secret,
+        'client_secret': intent.client_secret,
     }
     return render(request, template, context)

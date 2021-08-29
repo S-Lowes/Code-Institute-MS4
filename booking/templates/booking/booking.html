@@ -3,7 +3,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'booking/css/jquery.seat-charts.css' %}">
-<link rel="stylesheet" href="{% static 'booking/css/booking.css' %}">
+<link rel="stylesheet" href="{% static 'booking/css/booking-payment.css' %}">
 {% endblock %}
 
 {% block extra_js %}
@@ -45,6 +45,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
+
 {{ seat_map|json_script:"seat_map" }}
 {{ seat_taken|json_script:"seat_taken" }}
 {{ ticket_price|json_script:"ticket_price" }}
