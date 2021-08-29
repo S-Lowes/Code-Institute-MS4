@@ -1,4 +1,3 @@
-from django.views import View
 from django.shortcuts import render, get_object_or_404
 from events.models import Showtime
 from .forms import BookingForm
@@ -47,7 +46,7 @@ def booking(request, showtime_id):
 
 def payment(request, showtime_id):
 
-    form = BookingForm()
+    booking_form = BookingForm()
     showtime = get_object_or_404(Showtime, pk=showtime_id)
     total = request.session['total']
     seat_id = request.session['seat_id']
@@ -68,7 +67,7 @@ def payment(request, showtime_id):
     template = "booking/payment.html"
 
     context = {
-        'form': form,
+        'booking_form': booking_form,
         'showtime': showtime,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
