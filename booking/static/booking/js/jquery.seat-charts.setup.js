@@ -29,12 +29,6 @@ function getCookie(name) {
   return cookieValue;
 }
 
-// Blank Cookies on page load
-window.onload = function(){
-  setCookie("cookie_seating","",-1)
-  setCookie("cookie_number","",-1)
-};
-
   $(document).ready(function() {
     var $cart = $('#selected-seats'),
       $counter = $('#counter'),
@@ -46,7 +40,7 @@ window.onload = function(){
           price   : ticket_price
           ,
           classes : 'general', //your custom CSS class
-          category: ''
+          category: 'Theater'
         },       
       
       },
@@ -80,42 +74,12 @@ window.onload = function(){
           $counter.text(sc.find('selected').length+1);
           $total.text(recalculateTotal(sc)+this.data().price);
 
-          // ===== Set cookie_seating cookie ADD =====
-          function add_select_to_cookie(cookie_name, selected) {
-            current_cookie = getCookie(cookie_name);
-            if (current_cookie == null || current_cookie == "") {
-              setCookie(cookie_name, selected, 1);
-            } else {
-              let arr = current_cookie.split(",");
-              arr.push(selected);
-              setCookie(cookie_name, arr.toString());
-            };
-          };
-
-          add_select_to_cookie("cookie_seating",this.settings.id);
-          add_select_to_cookie("cookie_number",this.settings.label.toString());
-
           return 'selected';
         } else if (this.status() == 'selected') {
           //update the counter
           $counter.text(sc.find('selected').length-1);
           //and total
           $total.text(recalculateTotal(sc)-this.data().price);
-          
-          // ===== Set cookie_seating cookie SUBTRACT =====
-          function remove_select_from_cookie(cookie_name, selected) {
-            let arr = getCookie(cookie_name).split(",");
-            j = selected
-            arr = arr.filter(function (item) {
-              return item !== j
-            });
-            let text = arr.toString();
-            setCookie(cookie_name, text, 1)
-          };
-
-          remove_select_from_cookie("cookie_seating",this.settings.id);
-          remove_select_from_cookie("cookie_number",this.settings.label.toString());
-
 
           //remove the item from our cart
           $('#cart-item-'+this.settings.id).remove();
@@ -139,16 +103,59 @@ window.onload = function(){
     //let's pretend some seats have already been booked
     sc.get(seat_taken).status('unavailable');
 
+    // GET CORRECT SEATS CHOSEN & TOTAL PRICE
+
+    $('#re-calc-button').click(function() {
+      recalc = recalculateTotal(sc);
+      console.log(recalc);
+      seat_id_label = confirmSeats(sc);
+      seat_id = seat_id_label[0]
+      seat_label = seat_id_label[1]
+      console.log(seat_id);
+      console.log(seat_label);
+
+
+      $.ajax({
+        headers: {
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRFToken": getCookie("csrftoken"),
+        },
+        url: '',
+        method: 'POST',
+        dataType: "json",
+        data: {
+          total_recalc: recalc,
+          id_recalc: JSON.stringify(seat_id),
+          label_recalc: JSON.stringify(seat_label),
+        },
+        success: (data) => {
+          console.log("Yay Hurray!", data);
+        },
+        error: (error) => {
+          console.log("oh no!", error);
+        }
+      });
+    });
 });
 
 function recalculateTotal(sc) {
   var total = 0;
-
   //basically find every selected seat and sum its price
   sc.find('selected').each(function () {
     total += this.data().price;
   });
   return total;
+}
+
+function confirmSeats(sc) {
+  let this_id = new Array();
+  let this_label = new Array()
+  //basically find every selected seat and create array of its ID & Num
+  sc.find('selected').each(function () {
+    this_id.push(this.settings.id);
+    this_label.push(this.settings.label);
+  });
+  return [this_id,this_label];
 }
 
 // $('#checkout-button').click(function() {    

@@ -16,19 +16,19 @@ def booking(request, showtime_id):
     seat_map = showtime.venue.seat_map
     seat_taken = showtime.seat_taken
     ticket_price = showtime.ticket_price
+    print(seat_taken)
 
     # AJAX Request
-    # if request.method == 'POST':
-    #     data = request.POST
-    #     st_cookie = data.get('seat_taken_cookie')
-    #     sn_cookie = data.get('seat_number_cookie')
-    #     print(st_cookie, sn_cookie)
+    if request.method == 'POST':
+        data = request.POST
+        total = data.get('total_recalc')
+        seat_id = data.get('id_recalc')
+        seat_label = data.get('label_recalc')
 
-    #     split_st_cookie = st_cookie.split(",")
-    #     new_st = seat_taken + split_st_cookie
-    #     print(new_st)
-    #     # Showtime.objects.filter(pk=showtime_id).update(seat_taken=new_st)
-    #     return JsonResponse({'status': 'Todo added!'})
+        request.session['total'] = total
+        request.session['seat_id'] = seat_id
+        request.session['seat_label'] = seat_label
+        return JsonResponse({'status': 'Data Acquired By View!'})
 
     template = "booking/booking.html"
 
@@ -47,36 +47,18 @@ def booking(request, showtime_id):
 
 def payment(request, showtime_id):
 
-    showtime = get_object_or_404(Showtime, pk=showtime_id)
     form = BookingForm()
-    cost_per_ticket = int(showtime.ticket_price)
-    print(cost_per_ticket)
+    showtime = get_object_or_404(Showtime, pk=showtime_id)
+    total = request.session['total']
+    seat_id = request.session['seat_id']
+    seat_label = request.session['seat_label']
 
-    seat_taken_data = showtime.seat_taken
-
-    st_cookie = request.COOKIES.get('cookie_seating')
-    sn_cookie = request.COOKIES.get('cookie_number')
-    list_st_cookie = st_cookie.split(",")
-    list_sn_cookie = sn_cookie.split(",")
-
-    if set(seat_taken_data).intersection(set(list_st_cookie)):
-        print("These lists contain some identical elements.")
-    else:
-        print("These lists do NOT contain identical elements.")
-
-    if len(list_st_cookie) != len(list_sn_cookie):
-        print("These lists are same length")
-    else:
-        print("These lists are NOT same length")
-
-    number_of_tickets = len(list_st_cookie)
-
-    total_cost = number_of_tickets * cost_per_ticket
+    print(seat_id, seat_label)
 
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-    stripe_total = round(int(total_cost)*100)
+    stripe_total = round(int(total)*100)
     stripe.api_key = stripe_secret_key
     intent = stripe.PaymentIntent.create(
         amount=stripe_total,
