@@ -69,6 +69,11 @@ select option[value=""] {
     height: 100%;
 }
 
+.form-check-input:checked {
+    background-color: #bc40ff;
+    border-color: #bc40ff;
+}
+
 /*=====  Payment Success  =====*/
 
 #success-bootstrap-card {

@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 from django.http import JsonResponse
@@ -10,6 +11,7 @@ import stripe
 # Create your views here.
 
 
+# @login_required
 def booking(request, showtime_id):
     """ A view to show the index page """
 
@@ -42,6 +44,22 @@ def booking(request, showtime_id):
 
     }
     return render(request, template, context)
+
+
+@require_POST
+def cache_user_booking_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'save_info': request.POST.get('save_info'),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Sorry, your payment cannot be \
+            processed right now. Please try again later.')
+        return HttpResponse(content=e, status=400)
 
 
 def payment(request, showtime_id):
@@ -93,6 +111,7 @@ def payment(request, showtime_id):
     context = {
         'booking_form': booking_form,
         'showtime': showtime,
+        'total': total,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }

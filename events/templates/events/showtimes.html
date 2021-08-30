@@ -21,9 +21,15 @@
                 <span class="icon">
                     <i class="fas fa-arrow-right"></i>
                 </span>
-                More Info 
-              </button>
-              
+                More Info
+            </button>
+            {% if user.is_authenticated %}
+            {% else %}
+            <p class="mt-1 mb-0">
+                <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
+                <a class="text-info" href="{% url 'account_login' %}">login</a> to buy a ticket!
+            </p>
+            {% endif %}
         </div>
     </div>
 

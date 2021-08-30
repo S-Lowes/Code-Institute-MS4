@@ -13,11 +13,12 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container text-dark">
     <div class="row">
-        <div class="col-12 col-lg-4">
-            <div class="div">
-                <p>Fill Out Form</p>
+        <div class="col-12 col-lg-6">
+                <h2 class="px-3 my-4">Booking</h2>
+                <hr>
+                <p class="px-3 mb-4">Fill Out Form To Complete Booking</p>
                 <form action="{% url 'payment' showtime.id %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
@@ -25,22 +26,52 @@
                         {{ booking_form.full_name | as_crispy_field }}
                         {{ booking_form.email | as_crispy_field }}
                         {{ booking_form.phone_number | as_crispy_field }}
+                        {% if user.is_authenticated %}
+                            <div class="mb-0 mt-2">
+                                <label class="form-check-label" for="id-save-info">Save this information to my
+                                    profile</label>
+                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info"
+                                    checked>
+                            </div>
+							{% else %}
+							{% endif %}
                     </fieldset>
                     <fieldset class="px-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
                         <div class="mb-3" id="card-element"></div>
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                     </fieldset>
-                    <div class="submit-button text-right mt-5 mb-2">
-                        <button id="submit-button" class="btn btn-outline-dark rounded-0">
-                            <span class="font-weight-bold">Complete Order</span>
-                            <span class="icon">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                        </button>
-                    </div>
-
+                    <fieldset class="px-3">
+                        <p class="small text-danger my-0">
+                            <span>Your card will be charged <strong>£{{ total|floatformat:2 }}</strong></span>
+                        </p>
+                        <div class="submit-button text-right mt-5 mb-2">
+                            <a href="{% url 'showtimes' showtime.event.id %}" class="btn btn-outline-dark rounded-0">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="font-weight-bold">Cancel</span>
+                            </a>
+                            <button id="submit-button" class="btn btn-outline-dark rounded-0 float-end">
+                                <span class="font-weight-bold">Complete Order</span>
+                                <span class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </fieldset>
                 </form>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="card my-3 mx-auto " style="width: 90%;">
+                <img src="{{ showtime.event.image_normal.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h2 class="card-title">{{ showtime.event.name }}</h2>
+                    <hr>
+                    <p class="card-text">Date: {{ showtime.date }}</p>
+                    <p class="card-text">Time: {{ showtime.time }}</p>
+                    <p class="card-text">Venue: {{ showtime.venue }}</p>
+                </div>
             </div>
         </div>
     </div>
