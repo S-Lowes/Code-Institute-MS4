@@ -27,11 +27,12 @@ def booking(request, showtime_id):
         total = data.get('total_recalc')
         seat_id = data.get('id_recalc')
         seat_label = data.get('label_recalc')
-        print(total)
 
         request.session['total'] = total
         request.session['seat_id'] = seat_id
         request.session['seat_label'] = seat_label
+        request.session['showtime_id'] = showtime.id
+
         return JsonResponse({'status': 'Data Acquired By View!'})
 
     template = "booking/booking.html"
@@ -52,6 +53,10 @@ def cache_user_booking_data(request):
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
+            'total': request.session['total'],
+            'seat_id': request.session['seat_id'],
+            'seat_label': request.session['seat_label'],
+            'showtime_id': request.session['showtime_id'],
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
@@ -86,14 +91,20 @@ def payment(request, showtime_id):
         }
         booking_form = BookingForm(form_data)
         if booking_form.is_valid():
-            booking = booking_form.save()
-
-            Booking.objects.filter(pk=booking.id).update(booking_total=total)
-            Booking.objects.filter(pk=booking.id).update(seat_id=list_seat_id)
-            Booking.objects.filter(pk=booking.id).update(seat_number=list_seat_label)
-            Booking.objects.filter(pk=booking.id).update(showtime=showtime.id)
+            booking = booking_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            booking.stripe_pid = pid
+            booking.booking_total = total
+            booking.seat_id = list_seat_id
+            booking.seat_number = list_seat_label
+            booking.save()
 
             Showtime.objects.filter(pk=showtime_id).update(seat_taken=new_seat_taken)
+            Booking.objects.filter(pk=booking.id).update(showtime=showtime.id)
+
+            # Booking.objects.filter(pk=booking.id).update(booking_total=total)
+            # Booking.objects.filter(pk=booking.id).update(seat_id=list_seat_id)
+            # Booking.objects.filter(pk=booking.id).update(seat_number=list_seat_label)
 
             return redirect(reverse('payment_success', args=[booking.booking_number]))
         else:

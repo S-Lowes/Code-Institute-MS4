@@ -107,7 +107,6 @@ function getCookie(name) {
 
     $('#re-calc-button').click(function() {
       recalc = recalculateTotal(sc);
-      console.log(recalc);
       seat_id_label = confirmSeats(sc);
       seat_id = seat_id_label[0]
       seat_label = seat_id_label[1]
@@ -127,10 +126,10 @@ function getCookie(name) {
           label_recalc: JSON.stringify(seat_label),
         },
         success: (data) => {
-          console.log("Yay Hurray!", data);
+          console.log(data);
         },
         error: (error) => {
-          console.log("oh no!", error);
+          console.log(error);
         }
       });
     });
@@ -155,23 +154,3 @@ function confirmSeats(sc) {
   });
   return [this_id,this_label];
 }
-
-// $('#checkout-button').click(function() {    
-//   $.ajax({
-//       headers: {
-//         "X-Requested-With": "XMLHttpRequest",
-//         "X-CSRFToken": getCookie("csrftoken"),
-//       },
-//       url: '',
-//       method: 'POST',
-//       dataType: "json",
-//       data: {seat_taken_cookie: getCookie("cookie_seating"),
-//       seat_number_cookie: getCookie("cookie_number")},
-//       success: (data) => {
-//         console.log("Yay Hurray!", data);
-//       },
-//       error: (error) => {
-//         console.log("oh no!", error);
-//       }
-//   });
-// });
