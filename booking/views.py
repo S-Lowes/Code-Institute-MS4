@@ -6,12 +6,13 @@ from django.http import JsonResponse
 from .models import Booking
 from events.models import Showtime
 from .forms import BookingForm
+from django.contrib.auth.decorators import login_required
 
 import stripe
 # Create your views here.
 
 
-# @login_required
+@login_required
 def booking(request, showtime_id):
     """ A view to show the index page """
 
@@ -67,6 +68,7 @@ def cache_user_booking_data(request):
         return HttpResponse(content=e, status=400)
 
 
+@login_required
 def payment(request, showtime_id):
 
     booking_form = BookingForm()
@@ -129,6 +131,7 @@ def payment(request, showtime_id):
     return render(request, template, context)
 
 
+@login_required
 def payment_success(request, booking_number):
 
     booking = get_object_or_404(Booking, booking_number=booking_number)

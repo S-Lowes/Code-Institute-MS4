@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 from .models import Event, Showtime
 from .forms import EventForm, VenueForm, ShowtimeForm
@@ -45,9 +46,26 @@ def event_showtimes(request, event_id):
     return render(request, 'events/showtimes.html', context)
 
 
-# '@login_required'
+@login_required
+def event_management(request):
+    """ Event Management Menu """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    template = "events/event_management.html"
+
+    return render(request, template)
+
+
+@login_required
 def add_event(request):
     """ Create an event """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = EventForm(request.POST, request.FILES)
@@ -69,8 +87,13 @@ def add_event(request):
     return render(request, template, context)
 
 
+@login_required
 def add_venue(request):
     """ Create a venue """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = VenueForm(request.POST, request.FILES)
@@ -92,8 +115,13 @@ def add_venue(request):
     return render(request, template, context)
 
 
+@login_required
 def add_showtime(request):
     """ Create an event showtime """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = ShowtimeForm(request.POST)

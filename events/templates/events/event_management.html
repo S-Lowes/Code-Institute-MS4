@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-3 text-dark">
+            <h2 class="text-center">
+              Event Management
+            </h2>
+            <hr>
+            <div class="col-12 col-lg-4">
+                <div class="card mx-auto mb-2" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Events</h5>
+                      <hr>
+                      <p class="card-text">To create an event you will need a name, date start, date end, run time, short & long description and a hero & normal image. Also, please ensure your hero image is 1500x400 pixels and your normal image is 1000x800 pixels.</p>
+                      <a href="{% url 'add_event' %}" class="btn btn-outline-dark rounded-0">Create An Event</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-12 col-lg-4">
+              <div class="card mx-auto mb-2" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">Showtime</h5>
+                    <hr>
+                    <p class="card-text">Hopefully you have an event and venue in mind for your showtime. Otherwise, all you need is a date, time and a ticket price.</p>
+                    <a href="{% url 'add_showtime' %}" class="btn btn-outline-dark rounded-0">Create A Showtime</a>
+                  </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+              <div class="card mx-auto mb-2" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">Venue</h5>
+                    <hr>
+                    <p class="card-text">To create a Venue, ensure it has a name, capacity, description and image. you will also require a seat map. Ensure the image is 1500x1000 pixels. When creating a seat map, use 'g' to represent a seat, '_' to represent empty space and ensure that the same ammount of characters are used on each row which you can seperate with a comma. An example would be: ggg_ggg,ggg_ggg,ggg_ggg</p> 
+                    <a href="{% url 'add_venue' %}" class="btn btn-outline-dark rounded-0">Create A Venue</a>
+                  </div>
+                </div>
+          </div>
+        </div>
+    </div>
+{% endblock %}
