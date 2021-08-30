@@ -19,16 +19,13 @@ def booking(request, showtime_id):
     seat_taken = showtime.seat_taken
     ticket_price = showtime.ticket_price
 
-    print(seat_map)
-    print(type(seat_map))
-
-
     # AJAX Request
     if request.method == 'POST':
         data = request.POST
         total = data.get('total_recalc')
         seat_id = data.get('id_recalc')
         seat_label = data.get('label_recalc')
+        print(total)
 
         request.session['total'] = total
         request.session['seat_id'] = seat_id

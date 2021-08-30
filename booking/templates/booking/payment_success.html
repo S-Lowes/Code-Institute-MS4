@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-12 col-lg-8">
             <hr>
-            <h2 class="mb-4">Thank You</h2>
+            <h2 class="mb-4">Thank You {{ booking.full_name }}</h2>
             <hr>
             <p class="text-black">Your booking information is below and visible in your profile. A confirmation email
                 will be sent to <strong>{{ booking.email }}</strong>. Please show your digital booking at the door.</p>
@@ -45,6 +45,8 @@
                     </div>
                 </div>
 
+                <hr>
+
                 <div class="row">
                     <div class="col">
                         <small class="text-muted">Booking Details:</small>
@@ -52,7 +54,8 @@
                 </div>
 
                 <div class="row">
-                    {% for element in booking.seat_number }
+                    <small class="text-muted">Seats Booked:</small>
+                    {% for element in booking.seat_number %}
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">Seat: {{ element }}</p>
                     </div>
@@ -61,7 +64,7 @@
 
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Full Name</p>
+                        <p class="mb-0 text-black font-weight-bold">Full Name:</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ booking.full_name }}</p>
@@ -70,12 +73,23 @@
 
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Phone Number</p>
+                        <p class="mb-0 text-black font-weight-bold">Phone Number:</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ booking.phone_number }}</p>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <p class="mb-0 text-black font-weight-bold">Email:</p>
+                    </div>
+                    <div class="col-12 col-md-8 text-md-right">
+                        <p class="mb-0">{{ booking.email }}</p>
+                    </div>
+                </div>
+
+                <hr>
 
                 <div class="row">
                     <div class="col">
@@ -95,7 +109,7 @@
         </div>
 
         <div class="col-12 col-lg-4">
-            <div class="card m-3" style="width: 90%;">
+            <div class="card my-3 mx-auto " style="width: 90%;">
                 <img src="{{ booking.showtime.event.image_normal.url }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h2 class="card-title">{{ booking.showtime.event.name }}</h2>
