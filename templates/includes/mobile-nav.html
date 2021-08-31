@@ -43,7 +43,8 @@
                         {% if request.user.is_superuser %}
                             <li><a class="text-decoration-none fs-5 my-2 text-dark" href="{% url 'event_management' %}">Event Management</a></li>
                         {% endif %}
-                        <li><a class="text-decoration-none fs-5 my-2 text-dark" href="">My Profile</a></li>
+                        <li><a class="text-decoration-none fs-5 my-2 text-dark"
+                            href="{% url 'profiles' %}">My Profile</a></li>
                         <li><a class="text-decoration-none fs-5 my-2 text-dark"
                             href="{% url 'account_logout' %}">Logout</a></li>
                     {% else %}

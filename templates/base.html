@@ -102,7 +102,7 @@
               {% if request.user.is_superuser %}
                 <li><a class="dropdown-item" href="{% url 'event_management' %}">Event Management</a></li>
               {% endif %}
-              <li><a class="dropdown-item" href="">My Account</a></li>
+              <li><a class="dropdown-item" href="{% url 'profiles' %}">My Account</a></li>
               <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
               {% else %}
                 <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
