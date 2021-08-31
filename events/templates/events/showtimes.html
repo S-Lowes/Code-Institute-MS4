@@ -6,7 +6,8 @@
 
 {% block content %}
 <div class="container py-3">
-    <div class="showtime-hero">
+    
+    <div class="showtime-hero d-none d-lg-block">
         {% if event.image_hero %}
         <img class="showtime-image w-100" src="{{ event.image_hero.url }}" alt="{{ event.name }}">
         {% else %}
@@ -31,6 +32,34 @@
             </p>
             {% endif %}
         </div>
+    </div>
+
+    <div class="row d-block d-lg-none">
+        <div class="card mx-auto px-0 text-dark">
+            {% if event.image_hero %}
+            <img class="w-100" src="{{ event.image_hero.url }}" alt="{{ event.name }}">
+            {% else %}
+            <img class="w-100" src="{{ MEDIA_URL }}no-image-hero.jpg" alt="{{ event.name }}">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ event.name }}</h5>
+              <p class="card-text">{{ event.date_start}} - {{ event.date_end}}</p>
+              <p class="card-text">{{ event.run_time}} Minutes</p>
+              <button type="button" class="btn btn-outline-dark rounded-0" data-bs-toggle="modal" data-bs-target="#showtimeModal">
+                <span class="icon">
+                    <i class="fas fa-arrow-right"></i>
+                </span>
+                More Info
+            </button>
+            {% if user.is_authenticated %}
+            {% else %}
+            <p class="mt-1 mb-0">
+                <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
+                <a class="text-info" href="{% url 'account_login' %}">login</a> to buy a ticket!
+            </p>
+            {% endif %}
+            </div>
+          </div>
     </div>
 
     <!-- Modal -->
