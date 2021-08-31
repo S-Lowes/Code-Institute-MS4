@@ -66,7 +66,7 @@
         </div>
         <div class="col-12 col-lg-6">
             <div class="card my-3 mx-auto " style="width: 90%;">
-                {% if showtime.event.image_normal.url %}
+                {% if showtime.event.image_normal %}
                 <img src="{{ showtime.event.image_normal.url }}" class="card-img-top" alt="{{ showtime.event.name }}">
                 {% else %}
                 <img class="card-img-top" src="{{ MEDIA_URL }}no-image-normal.jpg" alt="{{ showtime.event.name }}">

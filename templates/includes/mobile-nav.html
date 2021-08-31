@@ -41,7 +41,7 @@
                 <ul class="list-unstyled btn-toggle-nav">
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
-                            <li><a class="text-decoration-none fs-5 my-2 text-dark" href="">Event Management</a></li>
+                            <li><a class="text-decoration-none fs-5 my-2 text-dark" href="{% url 'event_management' %}">Event Management</a></li>
                         {% endif %}
                         <li><a class="text-decoration-none fs-5 my-2 text-dark" href="">My Profile</a></li>
                         <li><a class="text-decoration-none fs-5 my-2 text-dark"

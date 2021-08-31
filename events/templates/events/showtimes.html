@@ -11,7 +11,7 @@
 {% block content %}
 <div class="container py-3">
     <div class="showtime-hero">
-        {% if event.image_hero.url %}
+        {% if event.image_hero %}
         <img class="showtime-image w-100" src="{{ event.image_hero.url }}" alt="{{ event.name }}">
         {% else %}
         <img class="showtime-image w-100" src="{{ MEDIA_URL }}no-image-hero.jpg" alt="{{ event.name }}">

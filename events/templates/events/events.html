@@ -13,7 +13,7 @@
     <div class="row my-3">
         <div class="col-10 col-lg-4 mx-auto p-0">
             <a href="{% url 'showtimes' event.id %}">
-                {% if event.image_normal.url %}
+                {% if event.image_normal %}
                 <img class="w-100 " src="{{ event.image_normal.url }}" alt="{{ event.name }}">
                 {% else %}
                 <img class="w-100" src="{{ MEDIA_URL }}no-image-normal.jpg" alt="{{ event.name }}">

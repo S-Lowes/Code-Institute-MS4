@@ -110,7 +110,7 @@
 
         <div class="col-12 col-lg-4">
             <div class="card my-3 mx-auto" style="width: 90%;">
-                {% if booking.showtime.event.image_normal.url %}
+                {% if booking.showtime.event.image_normal %}
                 <img src="{{ booking.showtime.event.image_normal.url }}" class="card-img-top" alt="{{ booking.showtime.event.name }}">
                 {% else %}
                 <img class="card-img-top" src="{{ MEDIA_URL }}no-image-normal.jpg" alt="{{ booking.showtime.event.name }}">
