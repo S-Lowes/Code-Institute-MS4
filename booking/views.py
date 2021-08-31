@@ -4,8 +4,10 @@ from django.contrib import messages
 from django.conf import settings
 from django.http import JsonResponse
 from .models import Booking
-from events.models import Showtime
 from .forms import BookingForm
+from events.models import Showtime
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 from django.contrib.auth.decorators import login_required
 
 import stripe
@@ -107,7 +109,7 @@ def payment(request, showtime_id):
             # Booking.objects.filter(pk=booking.id).update(booking_total=total)
             # Booking.objects.filter(pk=booking.id).update(seat_id=list_seat_id)
             # Booking.objects.filter(pk=booking.id).update(seat_number=list_seat_label)
-
+            request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('payment_success', args=[booking.booking_number]))
         else:
             messages.error(request, "There was an error with your form!")
@@ -118,6 +120,19 @@ def payment(request, showtime_id):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
             )
+
+    if request.user.is_authenticated:
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+            booking_form = BookingForm(initial={
+                'full_name': profile.user.get_full_name(),
+                'email': profile.user.email,
+                'phone_number': profile.default_phone_number,
+                })
+        except UserProfile.DoesNotExist:
+            booking_form = BookingForm()
+    else:
+        booking_form = BookingForm()
 
     template = "booking/payment.html"
 
@@ -134,10 +149,24 @@ def payment(request, showtime_id):
 @login_required
 def payment_success(request, booking_number):
 
+    save_info = request.session.get('save_info')
+    print(save_info)
     booking = get_object_or_404(Booking, booking_number=booking_number)
     messages.success(request, f"Booking Successful! \
         Your booking number is {booking_number} \
             An email will be sent to {booking.email}.")
+
+    profile = UserProfile.objects.get(user=request.user)
+    booking.user_profile = profile
+    booking.save()
+
+    if save_info:
+        profile_data = {
+            'default_phone_number': booking.phone_number
+        }
+        user_profile_form = UserProfileForm(profile_data, instance=profile)
+        if user_profile_form.is_valid():
+            user_profile_form.save()
 
     if 'total' or 'seat_id' or 'seat_label' in request.session:
         del request.session['total']
