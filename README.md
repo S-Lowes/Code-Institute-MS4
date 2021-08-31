@@ -102,7 +102,7 @@ For MS4 I have created a website for 'amphii' the theatre company. The website i
 
 ## Data Schema
 
-![Data Scheme](documentation/images/db_diagram.png)
+![Data Scheme](documentation/images/db-diagram.png)
 
 This gradually changed as the project went on. initially I would have liked to implement individual tickets to the booking and have a seperate price table for each showtime. However, since I was struggling to use the JQUERY seat charts I had to opt ot do things differently.
 
@@ -213,6 +213,14 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 
 ## Credits
+
+1. [JQUERY Seat Chart](https://github.com/mateuszmarkowski/jQuery-Seat-Charts/blob/master/jquery.seat-charts.css)
+1. [Carousel](https://www.youtube.com/watch?v=gor5BvT2z88&t=1037s)
+1. [AJAX REQUESTS](https://testdriven.io/blog/django-ajax-xhr/)
+1. [Safely Including Data for JavaScript in a Django Template](https://adamj.eu/tech/2020/02/18/safely-including-data-for-javascript-in-a-django-template/)
+
+
+
 
 ### Code & Media
 
