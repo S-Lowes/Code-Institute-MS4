@@ -9,4 +9,7 @@ urlpatterns = [
     path('add-event/', views.add_event, name='add_event'),
     path('add-venue/', views.add_venue, name='add_venue'),
     path('add-showtime/', views.add_showtime, name='add_showtime'),
+    path('edit-event/<int:event_id>/', views.edit_event, name='edit_event'),
+    path('edit-venue/<int:venue_id>/', views.edit_venue, name='edit_venue'),
+    path('edit-showtime/<int:showtime_id>/', views.edit_showtime, name='edit_showtime'),
 ]

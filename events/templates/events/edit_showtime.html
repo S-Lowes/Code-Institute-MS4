@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+    <div class="container text-dark">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <hr>
+                <h2 class="mb-4">Data Management</h2>
+                <h5 class="text-muted">Edit This Showtime</h5>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-10 col-md-6">
+                <form method="POST" action="{% url 'edit_showtime' showtime.id %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="my-2">
+                        <a class="btn btn-outline-dark rounded-0" href="{% url 'events' %}">Cancel</a>
+                        <button class="btn btn-outline-dark rounded-0" type="submit">Edit Showtime</button>
+                    </div>
+                </form>
+            </div>            
+        </div>
+    </div>
+{% endblock %}

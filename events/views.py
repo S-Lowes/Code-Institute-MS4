@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
-from .models import Event, Showtime
+from .models import Event, Showtime, Venue
 from .forms import EventForm, VenueForm, ShowtimeForm
 
 # Create your views here.
@@ -138,6 +138,96 @@ def add_showtime(request):
 
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_event(request, event_id):
+    """ Edit an event """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    event = get_object_or_404(Event, pk=event_id)
+    if request.method == 'POST':
+        form = EventForm(request.POST, request.FILES, instance=event)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated event!')
+            return redirect(reverse('event_management'))
+        else:
+            messages.error(request, 'Failed to update event. Please ensure the form is valid.')
+    else:
+        form = EventForm(instance=event)
+        messages.info(request, f'You are editing {event.name}')
+
+    template = 'events/edit_event.html'
+    context = {
+        'form': form,
+        'event': event,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_venue(request, venue_id):
+    """ Edit a venue """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    venue = get_object_or_404(Venue, pk=venue_id)
+    if request.method == 'POST':
+        form = VenueForm(request.POST, request.FILES, instance=venue)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated venue!')
+            return redirect(reverse('event_management'))
+        else:
+            messages.error(request, 'Failed to update venue. Please ensure the form is valid.')
+    else:
+        form = VenueForm(instance=venue)
+        messages.info(request, f'You are editing {venue.name}')
+
+    template = 'events/edit_venue.html'
+    context = {
+        'form': form,
+        'venue': venue,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_showtime(request, showtime_id):
+    """ Edit an event showtime """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    showtime = get_object_or_404(Showtime, pk=showtime_id)
+    if request.method == 'POST':
+        form = ShowtimeForm(request.POST, request.FILES, instance=showtime)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated showtime!')
+            return redirect(reverse('event_management'))
+        else:
+            messages.error(request, 'Failed to update showtime. Please ensure the form is valid.')
+    else:
+        form = ShowtimeForm(instance=showtime)
+        messages.info(request, f'You are editing {showtime.name}')
+
+    template = 'events/edit_showtime.html'
+    context = {
+        'form': form,
+        'showtime': showtime,
     }
 
     return render(request, template, context)
