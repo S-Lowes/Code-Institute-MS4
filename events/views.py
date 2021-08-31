@@ -72,7 +72,7 @@ def add_event(request):
         if form.is_valid():
             event = form.save()
             messages.success(request, 'Successfully added an event!')
-            return redirect(reverse('add_event'))
+            return redirect(reverse('event_management'))
         else:
             messages.error(request, 'Failed to add the event. Please ensure the form is valid.')
     else:
@@ -100,7 +100,7 @@ def add_venue(request):
         if form.is_valid():
             venue = form.save()
             messages.success(request, 'Successfully added a venue!')
-            return redirect(reverse('add_venue'))
+            return redirect(reverse('event_management'))
         else:
             messages.error(request, 'Failed to add the venue. Please ensure the form is valid.')
     else:
@@ -128,7 +128,7 @@ def add_showtime(request):
         if form.is_valid():
             showtime = form.save()
             messages.success(request, 'Successfully added a showtime!')
-            return redirect(reverse('add_showtime'))
+            return redirect(reverse('event_management'))
         else:
             messages.error(request, 'Failed to add the showtime. Please ensure the form is valid.')
     else:
@@ -148,7 +148,7 @@ def edit_event(request, event_id):
     """ Edit an event """
 
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+        messages.error(request, 'Sorry, only website owners can do that.')
         return redirect(reverse('home'))
 
     event = get_object_or_404(Event, pk=event_id)
@@ -178,7 +178,7 @@ def edit_venue(request, venue_id):
     """ Edit a venue """
 
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+        messages.error(request, 'Sorry, only website owners can do that.')
         return redirect(reverse('home'))
 
     venue = get_object_or_404(Venue, pk=venue_id)
@@ -208,7 +208,7 @@ def edit_showtime(request, showtime_id):
     """ Edit an event showtime """
 
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+        messages.error(request, 'Sorry, only website owners can do that.')
         return redirect(reverse('home'))
 
     showtime = get_object_or_404(Showtime, pk=showtime_id)
@@ -222,7 +222,7 @@ def edit_showtime(request, showtime_id):
             messages.error(request, 'Failed to update showtime. Please ensure the form is valid.')
     else:
         form = ShowtimeForm(instance=showtime)
-        messages.info(request, f'You are editing {showtime.name}')
+        messages.info(request, f'You are editing {showtime.event.name}')
 
     template = 'events/edit_showtime.html'
     context = {
@@ -231,3 +231,30 @@ def edit_showtime(request, showtime_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_event(request, event_id):
+    """ Delete an event """
+    product = get_object_or_404(Event, pk=event_id)
+    product.delete()
+    messages.success(request, 'Product deleted!')
+    return redirect(reverse('event_management'))
+
+
+@login_required
+def delete_venue(request, venue_id):
+    """ Delete a venue """
+    venue = get_object_or_404(Venue, pk=venue_id)
+    venue.delete()
+    messages.success(request, 'Venue deleted!')
+    return redirect(reverse('event_management'))
+
+
+@login_required
+def delete_showtime(request, showtime_id):
+    """ Delete a showtime """
+    product = get_object_or_404(Showtime, pk=showtime_id)
+    product.delete()
+    messages.success(request, 'Product deleted!')
+    return redirect(reverse('event_management'))

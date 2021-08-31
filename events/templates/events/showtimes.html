@@ -70,6 +70,12 @@
         <div class="col-12 col-md-4 mx-auto my-auto text-center">
             {% if request.user.is_authenticated %}
             <a href="{% url 'booking' showtime.id %}" type="button" class="btn btn-outline-light">Buy Tickets</a>
+            {% if request.user.is_superuser %}
+            <small class="ml-3">
+                <a class="text-light" href="{% url 'edit_showtime' showtime.id %}">Edit</a> | 
+                <a class="text-light" href="{% url 'delete_showtime' event.id %}">Delete</a>
+            </small>
+            {% endif %}
             {% else %}
             <a href="{% url 'account_signup' %}" type="button" class="btn btn-outline-light">Sign Up</a>
             {% endif %}

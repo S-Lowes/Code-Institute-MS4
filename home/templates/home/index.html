@@ -9,86 +9,95 @@
 {% block content %}
 <!-- Hero - May need seperate for Mobile vs Desktop -->
 <div class="carousel d-none d-sm-block">
-  {% for event in events %}
-  <!-- |slice:"1:" Alternative Method -->
-  <div
-    class="carousel__item {% cycle 'carousel__item--visible' 'carousel__item--hidden' 'carousel__item--hidden' 'carousel__item--hidden' %}">
-    {% if event.image_hero  %}
-    <img src="{{ event.image_hero.url }}" alt="{{ event.name }}">
-    {% else %}
-    <img src="{{ MEDIA_URL }}no-image-hero.png" alt="{{ event.name }}">
-    {% endif %}
-    <div id="overlay"></div>
-    <div class="carousel-details">
-      <h2 class="text-light">{{ event.name }}</h2>
-      <a class="text-decoration-none text-light p-2 my-2" href="{% url 'showtimes' event.id %}">Book Tickets</a>
+    {% for event in events %}
+    <!-- |slice:"1:" Alternative Method -->
+    <div
+        class="carousel__item {% cycle 'carousel__item--visible' 'carousel__item--hidden' 'carousel__item--hidden' 'carousel__item--hidden' %}">
+        {% if event.image_hero  %}
+        <img src="{{ event.image_hero.url }}" alt="{{ event.name }}">
+        {% else %}
+        <img src="{{ MEDIA_URL }}no-image-hero.png" alt="{{ event.name }}">
+        {% endif %}
+        <div id="overlay"></div>
+        <div class="carousel-details">
+            <h2 class="text-light">{{ event.name }}</h2>
+            <a class="text-decoration-none text-light p-2 my-2" href="{% url 'showtimes' event.id %}">Book Tickets</a>
+        </div>
     </div>
-  </div>
-  {% endfor %}
-  <div class="carousel__actions">
-    <button id="carousel__button--prev" aria-label="Previous slide"><</button>
-      <button id="carousel__button--next" aria-label="Next slide">></button>
-  </div>
+    {% endfor %}
+    <div class="carousel__actions">
+        <button id="carousel__button--prev" aria-label="Previous slide">
+            << /button>
+                <button id="carousel__button--next" aria-label="Next slide">></button>
+    </div>
 </div>
 
 <!-- Rows -->
 <div class="container my-3">
-  <div class="row justify-content-center">
-    {% for event in events %}
-    <div class="col-10 col-lg-4 mx-auto">
-      <div class="home-event">
-        <a href="{% url 'showtimes' event.id %}">
-          <div id="home-event-overlay"></div>
-          {% if event.image_normal%}
-            <img class="home-event-image" src="{{ event.image_normal.url }}" alt="{{ event.name }}">
-          {% else %}
-            <img class="home-event-image" src="{{ MEDIA_URL }}no-image-normal.png" alt="{{ event.name }}">
-          {% endif %}
-          <div class="home-event-click">
-            <span class="icon home-event-icon">
-              <i class="fas fa-chevron-right text-light"></i>
-            </span>
-          </div>
-        </a>
-      </div>
-      <div class="">
-        <p class="text-dark mt-2 mb-1">{{ event.description_short }}</p>
-        <h5 class="text-dark"><b>{{ event.name }}</b></h5>
-      </div>
+    <div class="row justify-content-center">
+        {% for event in events %}
+        <div class="col-10 col-lg-4 mx-auto">
+            <div class="home-event">
+                <a href="{% url 'showtimes' event.id %}">
+                    <div id="home-event-overlay"></div>
+                    {% if event.image_normal%}
+                    <img class="home-event-image" src="{{ event.image_normal.url }}" alt="{{ event.name }}">
+                    {% else %}
+                    <img class="home-event-image" src="{{ MEDIA_URL }}no-image-normal.png" alt="{{ event.name }}">
+                    {% endif %}
+                    <div class="home-event-click">
+                        <span class="icon home-event-icon">
+                            <i class="fas fa-chevron-right text-light"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+            <div class="">
+                <p class="text-dark mt-2 mb-1">{{ event.description_short }}</p>
+                <h5 class="text-dark"><b>{{ event.name }}</b></h5>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-  </div>
-  <!-- Decoration Line -->
-  <div id="home-decoration-line" class="decoration-line"></div>
-  <!-- Company Message -->
-  <div class="row col-10 col-lg-6 mx-auto">
-    <h2 class="text-dark logo-font text-center">amphii</h2>
-    <p class="text-dark text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-      nisi ut aliquip ex ea commodo consequat.</p>
-  </div>
-  <!-- Decoration Line -->
-  <div id="home-decoration-line" class="decoration-line"></div>
-  <!-- Venue Description -->
-  <div class="row col-10 col-lg-6 mx-auto">
-    <h2 class="text-dark text-center">Venues</h2>
-    <p class="text-dark text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-      nisi ut aliquip ex ea commodo consequat.</p>
-  </div>
-  <div class="row justify-content-center">
-    {% for venue in venues %}
-    <div class="col-10 col-md-5 col-lg-5 mx-auto">
-      {% if venue.image %}
-      <img class="home-venue-image" src="{{ venue.image.url }}" alt="{{ venue.name }}">
-      {% else %}
-      <img class="home-venue-image" src="{{ MEDIA_URL }}no-image-venue.png" alt="{{ venue.name }}">
-      {% endif %}
-      <h5 class="text-dark mt-2 mb-1"><b>{{ venue.name }}</b></h5>
-      <p class="text-dark">{{ venue.description }}</p>
+    <!-- Decoration Line -->
+    <div id="home-decoration-line" class="decoration-line"></div>
+    <!-- Company Message -->
+    <div class="row col-10 col-lg-6 mx-auto">
+        <h2 class="text-dark logo-font text-center">amphii</h2>
+        <p class="text-dark text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris
+            nisi ut aliquip ex ea commodo consequat.</p>
     </div>
-    {% endfor %}
-  </div>
+    <!-- Decoration Line -->
+    <div id="home-decoration-line" class="decoration-line"></div>
+    <!-- Venue Description -->
+    <div class="row col-10 col-lg-6 mx-auto">
+        <h2 class="text-dark text-center">Venues</h2>
+        <p class="text-dark text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris
+            nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div class="row justify-content-center">
+        {% for venue in venues %}
+        <div class="col-10 col-md-5 col-lg-5 mx-auto">
+            {% if venue.image %}
+            <img class="home-venue-image" src="{{ venue.image.url }}" alt="{{ venue.name }}">
+            {% else %}
+            <img class="home-venue-image" src="{{ MEDIA_URL }}no-image-venue.png" alt="{{ venue.name }}">
+            {% endif %}
+            <h5 class="text-dark mt-2 mb-1"><b>{{ venue.name }}</b></h5>
+            <p class="text-dark">{{ venue.description }}</p>
+            {% if request.user.is_superuser %}
+                <small class="ml-3 text-dark">
+                    <a class="text-dark" href="{% url 'edit_showtime' venue.id %}">Edit</a> |
+                    <a class="text-dark" href="{% url 'delete_showtime' venue.id %}">Delete</a>
+                </small>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}

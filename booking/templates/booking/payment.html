@@ -19,11 +19,11 @@
                 <form action="{% url 'payment' showtime.id %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                        <legend class="fieldset-label small  px-2 w-auto">Details</legend>
                         {{ booking_form.full_name | as_crispy_field }}
                         {{ booking_form.email | as_crispy_field }}
                         {{ booking_form.phone_number | as_crispy_field }}
-                        {% if user.is_authenticated %}
+                        {% if request.user.is_authenticated %}
                             <div class="mb-0 mt-2">
                                 <label class="form-check-label" for="id-save-info">Save this information to my
                                     profile</label>
@@ -34,7 +34,7 @@
 							{% endif %}
                     </fieldset>
                     <fieldset class="px-3">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <legend class="fieldset-label small  px-2 w-auto">Payment</legend>
                         <div class="mb-3" id="card-element"></div>
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">

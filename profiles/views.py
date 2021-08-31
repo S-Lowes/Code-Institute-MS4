@@ -21,7 +21,7 @@ def profiles(request):
             messages.success(request, 'Contact number updated successfully')
 
     form = UserProfileForm(instance=profile)
-    bookings = profile.booking.all()
+    bookings = profile.booking.order_by('-date')[:4]
 
     template = 'profiles/profiles.html'
     context = {
