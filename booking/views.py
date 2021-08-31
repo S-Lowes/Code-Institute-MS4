@@ -150,8 +150,7 @@ def payment_success(request, booking_number):
     print(save_info)
     booking = get_object_or_404(Booking, booking_number=booking_number)
     messages.success(request, f"Booking Successful! \
-        Your booking number is {booking_number} \
-            An email will be sent to {booking.email}.")
+        Your booking number is {booking_number} ")
 
     profile = UserProfile.objects.get(user=request.user)
     booking.user_profile = profile
