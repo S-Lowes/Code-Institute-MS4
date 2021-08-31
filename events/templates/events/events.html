@@ -9,12 +9,16 @@
 
 {% block content %}
 <div class="container">
-  {% for event in events %}
+    {% for event in events %}
     <div class="row my-3">
         <div class="col-10 col-lg-4 mx-auto p-0">
-          <a href="{% url 'showtimes' event.id %}">
-            <img class="w-100 " src="{{ event.image_normal.url }}" alt="">
-          </a>
+            <a href="{% url 'showtimes' event.id %}">
+                {% if event.image_normal.url %}
+                <img class="w-100 " src="{{ event.image_normal.url }}" alt="{{ event.name }}">
+                {% else %}
+                <img class="w-100" src="{{ MEDIA_URL }}no-image-normal.jpg" alt="{{ event.name }}">
+                {% endif %}
+            </a>
         </div>
         <div class="col-10 col-lg-8 mx-auto text-light event-description">
             <h1 class="p-2">{{ event.name }}</h1>

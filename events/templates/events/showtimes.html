@@ -11,7 +11,11 @@
 {% block content %}
 <div class="container py-3">
     <div class="showtime-hero">
-        <img class="showtime-image w-100" src="{{ event.image_hero.url }}" alt="">
+        {% if event.image_hero.url %}
+        <img class="showtime-image w-100" src="{{ event.image_hero.url }}" alt="{{ event.name }}">
+        {% else %}
+        <img class="showtime-image w-100" src="{{ MEDIA_URL }}no-image-hero.jpg" alt="{{ event.name }}">
+        {% endif %}
         <div class="showtime-overlay"></div>
         <div class="showtime-description text-light p-2">
             <h2>{{ event.name }}</h2>
@@ -68,7 +72,11 @@
             <h5 class="showtime-venue-text">{{ showtime.venue }}</h5>
         </div>
         <div class="col-12 col-md-4 mx-auto my-auto text-center">
+            {% if request.user.is_authenticated %}
             <a href="{% url 'booking' showtime.id %}" type="button" class="btn btn-outline-light">Buy Tickets</a>
+            {% else %}
+            <a href="{% url 'account_signup' %}" type="button" class="btn btn-outline-light">Sign Up</a>
+            {% endif %}
         </div> 
     </div>
     {% endfor %}  

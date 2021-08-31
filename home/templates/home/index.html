@@ -17,7 +17,11 @@
   <!-- |slice:"1:" Alternative Method -->
   <div
     class="carousel__item {% cycle 'carousel__item--visible' 'carousel__item--hidden' 'carousel__item--hidden' 'carousel__item--hidden' %}">
-    <img src="{{ event.image_hero.url }}" alt="">
+    {% if event.image_hero.url  %}
+    <img src="{{ event.image_hero.url }}" alt="{{ event.name }}">
+    {% else %}
+    <img src="{{ MEDIA_URL }}no-image-hero.jpg" alt="{{ event.name }}">
+    {% endif %}
     <div id="overlay"></div>
     <div class="carousel-details">
       <h2 class="text-light">{{ event.name }}</h2>
@@ -39,7 +43,11 @@
       <div class="home-event">
         <a href="{% url 'showtimes' event.id %}">
           <div id="home-event-overlay"></div>
-          <img class="home-event-image" src="{{ event.image_normal.url }}" alt="">
+          {% if event.image_normal.url %}
+          <img class="home-event-image" src="{{ event.image_normal.url }}" alt="{{ event.name }}">
+          {% else %}
+          <img class="home-event-image" src="{{ MEDIA_URL }}no-image-normal.jpg" alt="{{ event.name }}">
+          {% endif %}
           <div class="home-event-click">
             <span class="icon home-event-icon">
               <i class="fas fa-chevron-right text-light"></i>
@@ -75,7 +83,11 @@
   <div class="row justify-content-center">
     {% for venue in venues %}
     <div class="col-10 col-md-5 col-lg-5 mx-auto">
-      <img class="home-venue-image" src="{{ venue.image.url }}" alt="">
+      {% if venue.image.url %}
+      <img class="home-venue-image" src="{{ venue.image.url }}" alt="{{ venue.name }}">
+      {% else %}
+      <img class="home-venue-image" src="{{ MEDIA_URL }}no-image-venue.jpg" alt="{{ venue.name }}">
+      {% endif %}
       <h5 class="text-dark mt-2 mb-1"><b>{{ venue.name }}</b></h5>
       <p class="text-dark">{{ venue.description }}</p>
     </div>
