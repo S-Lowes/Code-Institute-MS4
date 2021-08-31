@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from .models import Booking, Showtime
+from profiles.models import UserProfile
 
 import time
 
@@ -34,6 +35,14 @@ class StripeWH_Handler:
 
         billing_details = intent.charges.data[0].billing_details
 
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_phone_number = billing_details.phone
+                profile.save()
+
         booking_exists = False
         attempt = 1
         while attempt <= 5:
@@ -58,6 +67,7 @@ class StripeWH_Handler:
             try:
                 booking = Booking.objects.create(
                     full_name=billing_details.name,
+                    user_profile=profile,
                     email=billing_details.email,
                     phone_number=billing_details.phone,
                     stripe_pid=pid,
