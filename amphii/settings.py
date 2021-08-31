@@ -121,21 +121,17 @@ WSGI_APPLICATION = 'amphii.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-"""
+# DEPLOYED DB
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
+    # DEV DB HEROKU_POSTGRESQL_CYAN_URL
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+        'default': dj_database_url.parse(os.environ.get('HEROKU_POSTGRESQL_CYAN_URL'))
     }
-"""
-# HEROKU_POSTGRESQL_BLUE_URL
-DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
