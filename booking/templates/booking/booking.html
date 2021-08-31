@@ -10,34 +10,37 @@
 <script src="{% static 'booking/js/jquery.seat-charts.js' %}"></script>
 {% endblock %}
 
+{% block page_header %}
+{% endblock %}
+
 {% block content %}
-<!-- Seats -->
 {% csrf_token %}
-<div class="container">
-  <div class="row">
-
-    <div class="col-12 col-lg-8">
-      <div id="seat-map">
-        <div class="front-indicator">Front</div>
+<div class="container-seat-chart text-dark">
+  <!-- Seats -->
+  <div id="seat-map">
+    <div class="front-indicator">Front</div>
+  </div>
+  <!-- Order Summary -->
+  <div class="booking-details">
+    <hr>
+    <h2>Booking Details</h2>
+    <h3> Selected Seats (<span id="counter">0</span>):</h3>
+    <ul id="selected-seats">
+    </ul>
+    Total: <b>£<span id="total">0</span></b>
+    <div class="div">
+      <button id="seatCalcButton" class="btn btn-outline-dark rounded-0">Confirm Seats</button>
+      <div id="hidden-buttons">
+        <p>Seats are chosen, are you ready to proceed?</p>
+        <button class="btn btn-outline-dark rounded-0" onclick="closeDiv()">&laquo; Not Yet!</button>
+        <a id="checkout-button" class="btn btn-outline-dark rounded-0" href="{% url 'payment' showtime.id  %}">
+          Checkout &raquo;</a>
       </div>
     </div>
-
-    <!-- Order Summary -->
-    <div class="col-12 col-lg-4">
-      <div class="booking-details">
-        <h2>Booking Details</h2>
-        <h3> Selected Seats (<span id="counter">0</span>):</h3>
-        <ul id="selected-seats">
-        </ul>
-        Total: <b>£<span id="total">0</span></b>
-        <a id="checkout-button" class="checkout-button" href="{% url 'payment' showtime.id  %}">Checkout &raquo;</a>
-        <button id="re-calc-button" class="checkout-button">Re-Calc &raquo;</button>
-        <div id="legend"></div>
-      </div>
-    </div>
-
+    <div id="legend"></div>
   </div>
 </div>
+
 {% endblock %}
 
 {% block postloadjs %}

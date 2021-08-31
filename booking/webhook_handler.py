@@ -91,7 +91,7 @@ class StripeWH_Handler:
                 if booking:
                     booking.delete()
                 return HttpResponse(
-                    content=f'Webhook received: {event["type"]} | Error: {e}' ,
+                    content=f'Webhook received: {event["type"]} | Error: {e}',
                     status=500)
 
         return HttpResponse(

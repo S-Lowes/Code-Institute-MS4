@@ -1,6 +1,27 @@
-div.seatCharts-container {
-	min-width: 700px; /* Do we need this? */
+.container-seat-chart {
+margin: 0 auto;
+width: 500px;
+text-align: left;
 }
+
+div.seatCharts-container {
+    padding: 20px;
+}
+
+.booking-details {
+    text-align: left;
+    margin-left: 35px;
+    font-size: 12px;
+    position: relative;
+}
+
+#selected-seats {
+    max-height: 120px;
+    min-height: 120px;
+    overflow-y: scroll;
+    overflow-x: none;
+}
+
 div.seatCharts-cell {
 	height: 25px;
 	width: 25px;
@@ -11,8 +32,8 @@ div.seatCharts-cell {
 	font-size: 13px;
 	line-height:25px;
 	color: #430067;
-
 }
+
 div.seatCharts-seat {
 	background-color: #bc40ff;
 	color: #f8f9fa;
@@ -24,11 +45,6 @@ div.seatCharts-seat {
 div.seatCharts-seat:focus {
 	border: none;
 }
-/*
-.seatCharts-seat:focus {
-	outline: none;
-}
-*/
 
 div.seatCharts-space {
 	background-color: white;
@@ -69,8 +85,7 @@ li.seatCharts-legendItem {
 	line-height: 2;
 }
 
-#selected-seats {
-    max-height: 100px;
-    overflow-y: scroll;
-    overflow-x: none;
+
+#hidden-buttons {
+	display: none;
 }

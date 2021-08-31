@@ -105,12 +105,14 @@ function getCookie(name) {
 
     // GET CORRECT SEATS CHOSEN & TOTAL PRICE
 
-    $('#re-calc-button').click(function() {
+    $('#seatCalcButton').click(function() {
       recalc = recalculateTotal(sc);
       seat_id_label = confirmSeats(sc);
       seat_id = seat_id_label[0]
       seat_label = seat_id_label[1]
-
+      
+      document.getElementById('hidden-buttons').style.display = "block";
+      document.getElementById('seatCalcButton').style.display = "none";
 
       $.ajax({
         headers: {
@@ -137,7 +139,7 @@ function getCookie(name) {
 
 function recalculateTotal(sc) {
   var total = 0;
-  //basically find every selected seat and sum its price
+  //Find every selected seat and sum its price
   sc.find('selected').each(function () {
     total += this.data().price;
   });
@@ -147,10 +149,13 @@ function recalculateTotal(sc) {
 function confirmSeats(sc) {
   let this_id = new Array();
   let this_label = new Array()
-  //basically find every selected seat and create array of its ID & Num
+  //Find every selected seat and create array of its ID & Num
   sc.find('selected').each(function () {
     this_id.push(this.settings.id);
     this_label.push(this.settings.label);
   });
   return [this_id,this_label];
+}
+
+function closeNav() {
 }

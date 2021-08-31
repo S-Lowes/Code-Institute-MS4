@@ -12,6 +12,9 @@ class BookingAdmin(admin.ModelAdmin):
               'phone_number', 'seat_number', 'seat_id', 'booking_total',
               'stripe_pid')
 
+    list_display = ('booking_number', 'date', 'user_profile', 'full_name',
+                    'booking_total', 'seat_number', 'seat_id',)
+
     ordering = ('-date',)
 
 
