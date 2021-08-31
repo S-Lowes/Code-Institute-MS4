@@ -110,9 +110,11 @@ function getCookie(name) {
       seat_id_label = confirmSeats(sc);
       seat_id = seat_id_label[0]
       seat_label = seat_id_label[1]
-      
-      document.getElementById('hidden-buttons').style.display = "block";
-      document.getElementById('seatCalcButton').style.display = "none";
+
+      if (recalc != 0){
+        document.getElementById('hidden-buttons').style.display = "block";
+        document.getElementById('seatCalcButton').style.display = "none";
+      }
 
       $.ajax({
         headers: {
@@ -157,5 +159,7 @@ function confirmSeats(sc) {
   return [this_id,this_label];
 }
 
-function closeNav() {
+function closeDiv() {
+      document.getElementById('hidden-buttons').style.display = "none";
+      document.getElementById('seatCalcButton').style.display = "block";
 }
