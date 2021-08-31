@@ -4,7 +4,6 @@ from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from events.models import Showtime
 from profiles.models import UserProfile
-# from profiles.models import UserProfile
 
 
 # Create your models here.

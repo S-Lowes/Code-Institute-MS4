@@ -1,5 +1,7 @@
 var firstSeatLabel = 1;
 
+
+// GET VARIBALES FROM JSONSCRIPT IN HTML
 let seat_map = JSON.parse(document.getElementById('seat_map').textContent);
 let seat_taken = JSON.parse(document.getElementById('seat_taken').textContent);
 let ticket_price = parseInt(JSON.parse(document.getElementById('ticket_price').textContent));
@@ -39,7 +41,7 @@ function getCookie(name) {
         g: {
           price   : ticket_price
           ,
-          classes : 'general', //your custom CSS class
+          classes : 'general', // CUSTOM CSS CLASS
           category: 'Theater'
         },       
       
@@ -60,16 +62,15 @@ function getCookie(name) {
 
       click: function () {
         if (this.status() == 'available') {
-          //let's create a new <li> which we'll add to the cart items
+          //Create new <li> to add to the cart items
           $('<li>'+this.data().category+' Seat '+this.settings.label+': <b>£'+this.data().price+'</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
             .attr('id', 'cart-item-'+this.settings.id)
             .data('seatId', this.settings.id)
             .appendTo($cart);
           /*
-           * Lets up<a href="https://www.jqueryscript.net/time-clock/">date</a> the counter and total
+           * Up date the counter and total
            *
-           * .find function will not find the current seat, because it will change its stauts only after return
-           * 'selected'. This is why we have to add 1 to the length and the current seat price to the total.
+           * Add 1 to the length and the current seat price to the total.
            */
           $counter.text(sc.find('selected').length+1);
           $total.text(recalculateTotal(sc)+this.data().price);
@@ -81,12 +82,12 @@ function getCookie(name) {
           //and total
           $total.text(recalculateTotal(sc)-this.data().price);
 
-          //remove the item from our cart
+          //Remove the item from our cart
           $('#cart-item-'+this.settings.id).remove();
-          //seat has been vacated
+          //Deat has been vacated
           return 'available';
         } else if (this.status() == 'unavailable') {
-          //seat has been already booked
+          //Seat has been already booked
           return 'unavailable';
         } else {
           return this.style();
@@ -94,17 +95,20 @@ function getCookie(name) {
       }
     });
 
-    //this will handle "[cancel]" link clicks
+    //This will handle "[cancel]" link clicks
     $('#selected-seats').on('click', '.cancel-cart-item', function () {
-      //let's just trigger Click event on the appropriate seat, so we don't have to repeat the logic here
+      //Trigger Click event on the appropriate seat, so we don't have to repeat the logic here
       sc.get($(this).parents('li:first').data('seatId')).click();
     });
 
-    //let's pretend some seats have already been booked
+    //Used to show which seats are unavailable
     sc.get(seat_taken).status('unavailable');
 
-    // GET CORRECT SEATS CHOSEN & TOTAL PRICE
-
+    /*
+    * Onclick find the correct total price and seats chosen by user.
+    * Then,
+    * AJAX post them to the view for database and webhook handling.
+    */
     $('#seatCalcButton').click(function() {
       recalc = recalculateTotal(sc);
       seat_id_label = confirmSeats(sc);
@@ -139,19 +143,19 @@ function getCookie(name) {
     });
 });
 
+//Find every selected seat and sum its price
 function recalculateTotal(sc) {
   var total = 0;
-  //Find every selected seat and sum its price
   sc.find('selected').each(function () {
     total += this.data().price;
   });
   return total;
 }
 
+//Find every selected seat and create array of its ID & Num
 function confirmSeats(sc) {
   let this_id = new Array();
   let this_label = new Array()
-  //Find every selected seat and create array of its ID & Num
   sc.find('selected').each(function () {
     this_id.push(this.settings.id);
     this_label.push(this.settings.label);

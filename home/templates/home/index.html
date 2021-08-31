@@ -7,10 +7,8 @@
 {% endblock %}
 
 {% block content %}
-<!-- Hero - May need seperate for Mobile vs Desktop -->
 <div class="carousel d-none d-sm-block">
     {% for event in events %}
-    <!-- |slice:"1:" Alternative Method -->
     <div
         class="carousel__item {% cycle 'carousel__item--visible' 'carousel__item--hidden' 'carousel__item--hidden' 'carousel__item--hidden' %}">
         {% if event.image_hero  %}
@@ -32,7 +30,6 @@
     </div>
 </div>
 
-<!-- Rows -->
 <div class="container my-3">
     <div class="row justify-content-center">
         {% for event in events %}
@@ -59,25 +56,15 @@
         </div>
         {% endfor %}
     </div>
-    <!-- Decoration Line -->
     <div id="home-decoration-line" class="decoration-line"></div>
-    <!-- Company Message -->
     <div class="row col-10 col-lg-6 mx-auto">
         <h2 class="text-dark logo-font text-center">amphii</h2>
-        <p class="text-dark text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris
-            nisi ut aliquip ex ea commodo consequat.</p>
+        <p class="text-dark text-center">Welcome to amphii! We are a small theatre & music company who use innovative set design and audio technology to provide unique experience. We hope to see you soon!</p>
     </div>
-    <!-- Decoration Line -->
     <div id="home-decoration-line" class="decoration-line"></div>
-    <!-- Venue Description -->
     <div class="row col-10 col-lg-6 mx-auto">
         <h2 class="text-dark text-center">Venues</h2>
-        <p class="text-dark text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris
-            nisi ut aliquip ex ea commodo consequat.</p>
+        <p class="text-dark text-center">We currently only have 2 Venues in use. The Pilgrim's Respite has recently undergone renovation and is looking better than ever!</p>
     </div>
     <div class="row justify-content-center">
         {% for venue in venues %}

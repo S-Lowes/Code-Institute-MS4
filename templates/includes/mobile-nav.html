@@ -10,20 +10,15 @@
         </p>
     </div>
     <div class="mobile-nav">
-        <a class="text-decoration-none fs-3 text-dark sidebar-m-2" href="{% url 'home' %}" id="home-link">
-            Home
-        </a>
         <div>
-            <button id="eventButton" class="btn btn-toggle fs-4 sidebar-m-1" type="button" onclick="eOpenClose()" aria-expanded="false">
+            <a class="text-decoration-none fs-3 text-dark sidebar-m-2" href="{% url 'home' %}" id="home-link">
+                Home
+            </a>
+        </div>
+        <div>
+            <a class="text-decoration-none fs-3 text-dark sidebar-m-2" href="{% url 'events' %}" id="home-link">
                 Tickets & Events
-            </button>
-            <div id="eventNav" class="event-nav">
-                <ul class="list-unstyled btn-toggle-nav">
-                    <li><a class="text-decoration-none fs-5 my-2 text-dark" href="{% url 'events' %}">Events</a></li>
-                    <li><a class="text-decoration-none fs-5 my-2 text-dark" href="#">Another action</a></li>
-                    <li><a class="text-decoration-none fs-5 my-2 text-dark" href="#">Something else here</a></li>
-                </ul>
-            </div>
+            </a>
         </div>
 
         <div>

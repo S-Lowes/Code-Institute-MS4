@@ -106,9 +106,6 @@ def payment(request, showtime_id):
             Showtime.objects.filter(pk=showtime_id).update(seat_taken=new_seat_taken)
             Booking.objects.filter(pk=booking.id).update(showtime=showtime.id)
 
-            # Booking.objects.filter(pk=booking.id).update(booking_total=total)
-            # Booking.objects.filter(pk=booking.id).update(seat_id=list_seat_id)
-            # Booking.objects.filter(pk=booking.id).update(seat_number=list_seat_label)
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('payment_success', args=[booking.booking_number]))
         else:
