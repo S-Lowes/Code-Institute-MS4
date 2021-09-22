@@ -33,6 +33,7 @@ As a returning visitor, I want:
 As a frequent user, I want:
 - To sign in and view my bookings.
 - To continue booking events.
+- To change some of my creditials used during the booking process.
 
 ### User Journey
 

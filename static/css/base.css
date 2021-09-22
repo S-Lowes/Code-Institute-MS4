@@ -387,7 +387,11 @@ footer a {
 	color: #bc40ff; /* text-info */
 }
 
-/* ========== Media Queries ========== */
+.allauth-btn-padding {
+    margin: 0px 5px 5px 0px;;
+}
+
+/* ========== User Profile ========== */
 
 .profile-content {
     background-color: #430067;
