@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container content-container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="">Oops!</h1>
+            <h3 class="">It seems something went wrong.</h3>
+            <p><a href="{% url 'home' %}">Click here to return home</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

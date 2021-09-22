@@ -30,3 +30,6 @@ urlpatterns = [
     path('booking/', include('booking.urls')),
     path('profiles/', include('profiles.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'amphii.views.handle_404_error'
+handler500 = 'amphii.views.handle_500_error'

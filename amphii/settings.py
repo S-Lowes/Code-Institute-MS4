@@ -24,6 +24,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 DEBUG = True
 
+"""
+if 'DEVELOPMENT' in os.environ:
+    DEBUG = True
+else:
+    DEBUG = False
+"""
+
 ALLOWED_HOSTS = ['amphii.herokuapp.com', 'localhost']
 
 
