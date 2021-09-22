@@ -1,20 +1,38 @@
 Code Institute Project 4
 
-For MS4 I have created a website for 'amphii' the theatre company. The website is built with Python, Django, JavaScript, CSS, Bootstrap and HTML. It uses a relational database, Stripe payment and is designed to be responsive across multiple devices although the primary focus was on desktop. amphii allows users to purchase and view tickets for shows.
+For MS4 I have created a website for 'amphii' the mock theatre company. The website is built with Python, Django, JavaScript, CSS, Bootstrap and HTML. It uses a PostgreSQL relational database, Stripe payment and is designed to be responsive across multiple devices although the primary focus was on desktop. amphii allows users to book tickets to attend a variety of different events by selecting seats from a seat chart.
 
 # MS4: View Live Project [Here](https://amphii.herokuapp.com/)
 
 ## User Experience
 
-#### External User
+## Features
 
-- To Buy tickets to shows available on the website.
-- View tickets that they have purchased.
+- Carousel for homepage to see some current events.
+- Pages to display events and their respective showtimes.
+- jQuery Seat Chart: Select from seats available during booking process.
+- Pay for tickets using Stripe.
+- View tickets from the users personal account.
+- Allauth user accounts.
+- Admin event and showtime CRUD.
 
-#### External User
+### User Stories
 
-- Sell Tickets for shows.
-- Promote new shows via their website.
+As a first time user, I want:
+- To quickly be able to understand the purpose of the website and how I can start interacting with it.
+- To be able to register, sign in and sign out with ease.
+- To navigate through the site intuitively finding potential events to attend.
+
+As a returning visitor, I want:
+- To sign in as easily as I did on my first visit and remain signed in.
+- To be able to reset my password in the event that I forgot it.
+- To be able to book seats to a certain event by choosing my seats by way of the seat chart.
+- To be able to view all my bookings from my profile.
+- To be able to save my details for future purchases.
+
+As a frequent user, I want:
+- To sign in and view my bookings.
+- To continue booking events.
 
 ### User Journey
 
@@ -55,22 +73,6 @@ For MS4 I have created a website for 'amphii' the theatre company. The website i
 
 ![Profile](documentation/user_journey/profile-view.png)
 
-
-### User Stories
-
-- First Time Visitor
-    - When I visit this site I want to understand how I can interact with the website.
-    - I want to browse the site looking at potential shows I would like to see.
-    - I would also consider making an account.
-- Returning Visitor
-    - As a returning visitor I may be returning to book seats to a certain event.
-    - This would involve registering and interacting with the seat chart to choose seats.
-    - I would then like to view the booking from my profile.
-- Frequent User
-    - As a frequent user I would be looking to make multiple bookings.
-    - I would also like to sign in a view my tickets at the venue.
-    - I would likely be booking another event.
-
 ### Design
 
 - Colour Scheme
@@ -88,17 +90,6 @@ For MS4 I have created a website for 'amphii' the theatre company. The website i
         - [Ticket View](documentation/wireframes/profile-viewtickets.png)
         - [Special Event](documentation/wireframes/special-event.png)
         - [Ticket View](documentation/wireframes/ticket-view.png)
-
-
-
-## Features
-
-- Seat Booking System, Select from seats available during booking process.
-- View tickets from account.
-- View shows/events that are on.
-- Create events and showtimes as a admin/superuser
-- Event carousel for homepage
-- Allauth social media signup
 
 ## Data Schema
 
