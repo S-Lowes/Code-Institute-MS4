@@ -6,7 +6,7 @@
     border-radius: 0.2rem;
 }
 
-#home-event-overlay {
+.home-event-overlay {
     display: none;
     position: absolute;
     top: 0;
@@ -46,7 +46,7 @@
     height: 100%;
 }
 
-.home-event a:hover #home-event-overlay{
+.home-event a:hover .home-event-overlay{
     display: block;
 }
 
@@ -58,6 +58,8 @@
     box-shadow: 0 0 5px 1px #212529 ;
 }
 
-#home-decoration-line {
-    border-bottom: 1px solid rgba( 	33, 37, 41, 0.2) !important; 
+.home-decoration-line {
+    flex: auto;
+    height: 1px;
+    border-bottom: 1px solid rgba( 	33, 37, 41, 0.2) !important;
 }

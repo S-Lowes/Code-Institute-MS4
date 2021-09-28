@@ -16,17 +16,20 @@
         {% else %}
         <img src="{{ MEDIA_URL }}no-image-hero.png" alt="{{ event.name }}">
         {% endif %}
-        <div id="overlay"></div>
         <div class="carousel-details">
             <h2 class="text-light">{{ event.name }}</h2>
             <a class="text-decoration-none text-light p-2 my-2" href="{% url 'showtimes' event.id %}">Book Tickets</a>
         </div>
     </div>
     {% endfor %}
+    <div id="overlay"></div>
     <div class="carousel__actions">
         <button id="carousel__button--prev" aria-label="Previous slide">
-            < </button>
-                <button id="carousel__button--next" aria-label="Next slide">></button>
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="carousel__button--next" aria-label="Next slide">
+            <i class="fas fa-chevron-right"></i>
+        </button>
     </div>
 </div>
 
@@ -36,7 +39,7 @@
         <div class="col-10 col-lg-4 mx-auto">
             <div class="home-event">
                 <a href="{% url 'showtimes' event.id %}">
-                    <div id="home-event-overlay"></div>
+                    <div class="home-event-overlay"></div>
                     {% if event.image_normal%}
                     <img class="home-event-image" src="{{ event.image_normal.url }}" alt="{{ event.name }}">
                     {% else %}
@@ -56,12 +59,12 @@
         </div>
         {% endfor %}
     </div>
-    <div id="home-decoration-line" class="decoration-line"></div>
+    <div class="home-decoration-line"></div>
     <div class="row col-10 col-lg-6 mx-auto">
         <h2 class="text-dark logo-font text-center">amphii</h2>
         <p class="text-dark text-center">Welcome to amphii! We are a small theatre & music company who use innovative set design and audio technology to provide unique experience. We hope to see you soon!</p>
     </div>
-    <div id="home-decoration-line" class="decoration-line"></div>
+    <div class="home-decoration-line"></div>
     <div class="row col-10 col-lg-6 mx-auto">
         <h2 class="text-dark text-center">Venues</h2>
         <p class="text-dark text-center">We currently only have 2 Venues in use. The Pilgrim's Respite has recently undergone renovation and is looking better than ever!</p>
