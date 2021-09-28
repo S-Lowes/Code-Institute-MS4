@@ -81,8 +81,8 @@
             <p class="text-dark">{{ venue.description }}</p>
             {% if request.user.is_superuser %}
                 <small class="ml-3 text-dark">
-                    <a class="text-dark" href="{% url 'edit_showtime' venue.id %}">Edit</a> |
-                    <a class="text-dark" href="{% url 'delete_showtime' venue.id %}">Delete</a>
+                    <a class="text-dark" href="{% url 'edit_venue' venue.id %}">Edit</a> |
+                    <a class="text-dark" href="{% url 'delete_venue' venue.id %}">Delete</a>
                 </small>
             {% endif %}
         </div>

@@ -67,7 +67,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-dark" id="showtimeModal"><b>{{ event.name }}</b></h5>
+                    <h5 class="modal-title text-dark"><b>{{ event.name }}</b></h5>
                     <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">
                         <span class="icon">
                             <i class="fas fa-times"></i>
@@ -106,7 +106,7 @@
             </small>
             {% endif %}
             {% else %}
-            <a href="{% url 'account_signup' %}" type="button" class="btn btn-outline-light">Sign Up</a>
+            <a href="{% url 'account_signup' %}" class="btn btn-outline-light">Sign Up</a>
             {% endif %}
         </div> 
     </div>

@@ -22,7 +22,7 @@
             <h5 class="p-2">{{ event.date_start}} - {{ event.date_end}}</h5>
             <div class="decoration-line"></div>
             <p class="p-2">{{ event.description_long }}</p>
-            <a href="{% url 'showtimes' event.id %}" type="button" class="btn btn-outline-light m-2">See Showtimes</a>
+            <a href="{% url 'showtimes' event.id %}" class="btn btn-outline-light m-2">See Showtimes</a>
             {% if request.user.is_superuser %}
             <small class="ml-3 text-light">
                 <a class="text-light" href="{% url 'edit_event' event.id %}">Edit</a> | 
