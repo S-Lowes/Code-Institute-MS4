@@ -1,7 +1,4 @@
-
 /*=====  JQUERY SEAT CHARTS  =====*/
-
-
 .container-seat-chart {
 margin: 0 auto;
 width: 500px;
@@ -23,7 +20,7 @@ div.seatCharts-container {
     max-height: 120px;
     min-height: 120px;
     overflow-y: scroll;
-    overflow-x: none;
+    overflow-x: hidden;
 }
 
 div.seatCharts-cell {

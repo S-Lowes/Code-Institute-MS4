@@ -621,7 +621,7 @@
 		});
 		
 		return fn.data('seatCharts');
-	}
+	};
 	
 	
 })(jQuery);

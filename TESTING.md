@@ -1,7 +1,21 @@
 # Testing
 
+[Back to README](README.md)
+
 This is incomplete, I ran out of time... Student Care have suggested to me to submit anyway so as to not incur the wrath of submitting a late project & so I can receive feedback and what I have achieved thus far. Thanks for taking the time to view my project, and hopefully my README will be actually complete next time around.
 
+### Validation
+
+#### HTML
+The HTML validation was completed with the [W3C Markup Validator](https://validator.w3.org/). This was done by copying the address of each project page and passing it to the validator. This was necessary to test the code in its final state after being rendered in the Django templates. The HTML code contains no issues.
+
+#### CSS and Javascript
+The CSS validation was completed with the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/). Any issues highlighted by the validators were fixed. The code now contains no validity issues.
+
+#### Javascript
+The JavaScript validation was completed with the [JS Hint](https://jshint.com/) code analysis tool. Any issues highlighted by the validators were fixed. The code now contains no validity issues.
+
+### Python
 
 #### Validators
 

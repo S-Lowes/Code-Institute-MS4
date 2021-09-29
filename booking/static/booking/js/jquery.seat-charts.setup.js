@@ -6,14 +6,6 @@ let seat_map = JSON.parse(document.getElementById('seat_map').textContent);
 let seat_taken = JSON.parse(document.getElementById('seat_taken').textContent);
 let ticket_price = parseInt(JSON.parse(document.getElementById('ticket_price').textContent));
 
-// Set Cookie (W3S)
-function setCookie(cname, cvalue, exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  let expires = "expires=" + d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;SameSite=Lax;";
-}
-
 // Get Cookie (Django)
 function getCookie(name) {
   let cookieValue = null;
@@ -39,8 +31,7 @@ function getCookie(name) {
       map: seat_map,
       seats: {
         g: {
-          price   : ticket_price
-          ,
+          price  : ticket_price,
           classes : 'general', // CUSTOM CSS CLASS
           category: 'Theater'
         },       
@@ -110,10 +101,10 @@ function getCookie(name) {
     * AJAX post them to the view for database and webhook handling.
     */
     $('#seatCalcButton').click(function() {
-      recalc = recalculateTotal(sc);
-      seat_id_label = confirmSeats(sc);
-      seat_id = seat_id_label[0]
-      seat_label = seat_id_label[1]
+      let recalc = recalculateTotal(sc);
+      let seat_id_label = confirmSeats(sc);
+      let seat_id = seat_id_label[0];
+      let seat_label = seat_id_label[1];
 
       if (recalc != 0){
         document.getElementById('hidden-buttons').style.display = "block";
@@ -134,10 +125,8 @@ function getCookie(name) {
           label_recalc: JSON.stringify(seat_label),
         },
         success: (data) => {
-          console.log(data);
         },
         error: (error) => {
-          console.log(error);
         }
       });
     });
@@ -154,8 +143,8 @@ function recalculateTotal(sc) {
 
 //Find every selected seat and create array of its ID & Num
 function confirmSeats(sc) {
-  let this_id = new Array();
-  let this_label = new Array()
+  let this_id = [];
+  let this_label = [];
   sc.find('selected').each(function () {
     this_id.push(this.settings.id);
     this_label.push(this.settings.label);
