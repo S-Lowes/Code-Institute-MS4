@@ -16,12 +16,7 @@ The CSS validation was completed with the [W3C CSS Validator](https://jigsaw.w3.
 The JavaScript validation was completed with the [JS Hint](https://jshint.com/) code analysis tool. Any issues highlighted by the validators were fixed. The code now contains no validity issues.
 
 ### Python
-
-#### Validators
-
-##### HTML
-
-##### CSS, Python, Javascript
+All Python code was written to be PEP 8 compliant with the final code being tested with the command ```python3 -m flake8```.
 
 #### Formatters
 
@@ -80,10 +75,6 @@ All the tests and development have been conducted on Firefox. Bugfixes would hav
 
 **Bugfix**:
 
-**Bug**: Validation of HTML caused an error with shared ID across HTML elements.
-
-**Bugfix**: This was fixed via some small edits to Javascript and HTML. (Although issue still would appear when creating multiple form elements from the dynamic form)
-
 ## Further Testing:
 
-Family members have created and deleted recipes and reviewed documentation to point out any bugs and/or user experience issues. These have either been noted or mentioned in additional features.
+Family members have booked tickets and reviewed documentation to point out any bugs and/or user experience issues. These have either been noted or mentioned in additional features.

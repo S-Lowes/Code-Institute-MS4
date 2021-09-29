@@ -36,6 +36,7 @@ class ShowtimeAdmin(admin.ModelAdmin):
         'seat_taken'
     )
 
+
 admin.site.register(Event, EventAdmin)
 admin.site.register(Showtime, ShowtimeAdmin)
 admin.site.register(Venue, Venueadmin)

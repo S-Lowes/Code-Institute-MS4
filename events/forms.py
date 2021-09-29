@@ -9,13 +9,11 @@ class EventForm(forms.ModelForm):
         fields = '__all__'
 
 
-
 class VenueForm(forms.ModelForm):
 
     class Meta:
         model = Venue
         fields = '__all__'
-
 
 
 class ShowtimeForm(forms.ModelForm):
