@@ -21,7 +21,9 @@ def all_events(request):
             messages.error(request, "You didn't enter any search criteria!")
             return redirect(reverse('events'))
 
-        queries = Q(name__icontains=query) | Q(description_short__icontains=query) | Q(description_long__icontains=query)
+        queries = Q(name__icontains=query) | Q(
+            description_short__icontains=query) | Q(
+                description_long__icontains=query)
         events = events.filter(queries)
 
     context = {
@@ -36,7 +38,8 @@ def event_showtimes(request, event_id):
     """ A view to show individual event showtimes """
 
     event = get_object_or_404(Event, pk=event_id)
-    showtimes = Showtime.objects.select_related().filter(event=event_id).order_by('date')
+    showtimes = Showtime.objects.select_related().filter(
+        event=event_id).order_by('date')
 
     context = {
         'showtimes': showtimes,
@@ -74,7 +77,8 @@ def add_event(request):
             messages.success(request, 'Successfully added an event!')
             return redirect(reverse('event_management'))
         else:
-            messages.error(request, 'Failed to add the event. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add the event.'
+                           ' Please ensure the form is valid.')
     else:
         form = EventForm()
 
@@ -102,7 +106,8 @@ def add_venue(request):
             messages.success(request, 'Successfully added a venue!')
             return redirect(reverse('event_management'))
         else:
-            messages.error(request, 'Failed to add the venue. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add the venue.'
+                           ' Please ensure the form is valid.')
     else:
         form = VenueForm()
 
@@ -130,7 +135,8 @@ def add_showtime(request):
             messages.success(request, 'Successfully added a showtime!')
             return redirect(reverse('event_management'))
         else:
-            messages.error(request, 'Failed to add the showtime. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add the showtime.'
+                           ' Please ensure the form is valid.')
     else:
         form = ShowtimeForm()
 
@@ -159,7 +165,8 @@ def edit_event(request, event_id):
             messages.success(request, 'Successfully updated event!')
             return redirect(reverse('event_management'))
         else:
-            messages.error(request, 'Failed to update event. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update event.'
+                           ' Please ensure the form is valid.')
     else:
         form = EventForm(instance=event)
         messages.info(request, f'You are editing {event.name}')
@@ -189,7 +196,8 @@ def edit_venue(request, venue_id):
             messages.success(request, 'Successfully updated venue!')
             return redirect(reverse('event_management'))
         else:
-            messages.error(request, 'Failed to update venue. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update venue.'
+                           ' Please ensure the form is valid.')
     else:
         form = VenueForm(instance=venue)
         messages.info(request, f'You are editing {venue.name}')
@@ -219,7 +227,8 @@ def edit_showtime(request, showtime_id):
             messages.success(request, 'Successfully updated showtime!')
             return redirect(reverse('event_management'))
         else:
-            messages.error(request, 'Failed to update showtime. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update showtime.'
+                           ' Please ensure the form is valid.')
     else:
         form = ShowtimeForm(instance=showtime)
         messages.info(request, f'You are editing {showtime.event.name}')

@@ -60,7 +60,8 @@ class StripeWH_Handler:
                 time.sleep(1)
         if booking_exists:
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Booking already in database',
+                content=f'Webhook received: {event["type"]} |'
+                ' SUCCESS: Booking already in database',
                 status=200)
         else:
             booking = None
@@ -73,19 +74,26 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
 
-                list_seat_id = seat_id.lstrip("[").rstrip("]").replace('"', '').split(",")
-                list_seat_label = seat_label.lstrip("[").rstrip("]").replace('"', '').split(",")
+                list_seat_id = seat_id.lstrip("[").rstrip("]").replace(
+                    '"', '').split(",")
+                list_seat_label = seat_label.lstrip("[").rstrip("]").replace(
+                    '"', '').split(",")
 
                 showtime = get_object_or_404(Showtime, pk=showtime_id)
                 old_seat_taken = showtime.seat_taken
                 new_seat_taken = old_seat_taken + list_seat_id
 
-                Booking.objects.filter(pk=booking.id).update(booking_total=total)
-                Booking.objects.filter(pk=booking.id).update(seat_id=list_seat_id)
-                Booking.objects.filter(pk=booking.id).update(seat_number=list_seat_label)
-                Booking.objects.filter(pk=booking.id).update(showtime=showtime_id)
+                Booking.objects.filter(pk=booking.id).update(
+                    booking_total=total)
+                Booking.objects.filter(pk=booking.id).update(
+                    seat_id=list_seat_id)
+                Booking.objects.filter(pk=booking.id).update(
+                    seat_number=list_seat_label)
+                Booking.objects.filter(pk=booking.id).update(
+                    showtime=showtime_id)
 
-                Showtime.objects.filter(pk=showtime_id).update(seat_taken=new_seat_taken)
+                Showtime.objects.filter(pk=showtime_id).update(
+                    seat_taken=new_seat_taken)
 
             except Exception as e:
                 if booking:
@@ -95,7 +103,8 @@ class StripeWH_Handler:
                     status=500)
 
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created booking in webhook',
+            content=f'Webhook received: {event["type"]} |'
+            ' SUCCESS: Created booking in webhook',
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):

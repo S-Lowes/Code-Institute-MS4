@@ -20,7 +20,7 @@
                         <div class="order-confirmation-wrapper p-2 border">
                             <div class="row">
                                 <div class="col">
-                                    <small class="text-muted">Booking Info:</small>
+                                    <small class="text-muted">Booking Info</small>
                                 </div>
                             </div>
                             <div class="row">
@@ -41,12 +41,18 @@
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col">
-                                    <small class="text-muted">Booking Details:</small>
+                                <div class="col pb-2">
+                                    <small class="text-muted">Booking Details</small>
                                 </div>
                             </div>
                             <div class="row">
-                                <small class="text-muted">Seats Booked:</small>
+                                <small class="text-muted">Event</small>
+                                <div class="col-12 col-md-8 text-md-right">
+                                    <p class="mb-0">{{ booking.showtime }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <small class="text-muted">Seats Booked</small>
                                 {% for element in booking.seat_number %}
                                 <div class="col-12 col-md-8 text-md-right">
                                     <p class="mb-0">Seat: {{ element }}</p>
@@ -56,7 +62,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col">
-                                    <small class="text-muted">Billing Info:</small>
+                                    <small class="text-muted">Billing Information</small>
                                 </div>
                             </div>
                             <div class="row">

@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, reverse, \
+    get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -80,7 +81,8 @@ def payment(request, showtime_id):
     seat_label = request.session['seat_label']
 
     list_seat_id = seat_id.lstrip("[").rstrip("]").replace('"', '').split(",")
-    list_seat_label = seat_label.lstrip("[").rstrip("]").replace('"', '').split(",")
+    list_seat_label = seat_label.lstrip(
+        "[").rstrip("]").replace('"', '').split(",")
 
     new_seat_taken = showtime.seat_taken + list_seat_id
 
@@ -103,11 +105,13 @@ def payment(request, showtime_id):
             booking.seat_number = list_seat_label
             booking.save()
 
-            Showtime.objects.filter(pk=showtime_id).update(seat_taken=new_seat_taken)
+            Showtime.objects.filter(pk=showtime_id).update(
+                seat_taken=new_seat_taken)
             Booking.objects.filter(pk=booking.id).update(showtime=showtime.id)
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('payment_success', args=[booking.booking_number]))
+            return redirect(reverse('payment_success', args=[
+                booking.booking_number]))
         else:
             messages.error(request, "There was an error with your form!")
     else:
