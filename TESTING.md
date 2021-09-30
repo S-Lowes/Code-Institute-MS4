@@ -16,15 +16,11 @@ The CSS validation was completed with the [W3C CSS Validator](https://jigsaw.w3.
 The JavaScript validation was completed with the [JS Hint](https://jshint.com/) code analysis tool. Any issues highlighted by the validators were fixed. The code now contains no validity issues.
 
 ### Python
-All Python code was written to be PEP 8 compliant with the final code being tested with the command ```python3 -m flake8```.
-
-#### Formatters
-
-
-### Testing User Journey
-
+All Python code was written to be PEP 8 compliant with the final code being tested with the command ```python3 -m flake8```. Some warnings come from either pre-existing code generated when the Django project was first created, or code generated through the makemigrations command.
 
 ### Testing User Stories
+
+### Testing User Journey
 
 ## Responsive Website View
 
