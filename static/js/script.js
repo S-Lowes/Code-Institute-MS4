@@ -28,9 +28,7 @@ function closeNav() {
    document.getElementById("mySidebar").style.transition = "0.1s";
    document.getElementById("pageOverlay").style.visibility = "hidden";
    document.getElementById("pageOverlay").style.transition = "0.3s";
-   // ----- Incase they are left open -----
-   document.getElementById("eventNav").style.height = "0";
-   document.getElementById("eventButton").setAttribute("aria-expanded", false);
+   // ----- Incase Dropdown Left Open -----
    document.getElementById("accountNav").style.height = "0";
    document.getElementById("accountButton").setAttribute("aria-expanded", false);
 }
