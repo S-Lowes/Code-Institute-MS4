@@ -1,8 +1,8 @@
-Code Institute Project 4
+# MS4: View Live Project [Here](https://amphii.herokuapp.com/)
 
 For MS4 I have created a website for 'amphii' the mock theatre company. The website is built with Python, Django, JavaScript, CSS, Bootstrap and HTML. It uses a PostgreSQL relational database, Stripe payment and is designed to be responsive across multiple devices although the primary focus was on desktop. amphii allows users to book tickets to attend a variety of different events by selecting seats from a seat chart.
 
-# MS4: View Live Project [Here](https://amphii.herokuapp.com/)
+![Multi Media Display](documentation/images/multi-device.png)
 
 ## User Experience
 
@@ -183,6 +183,10 @@ AJAX allows developers to send and receive information to and from a server asyn
 
 ## Credits
 
+The space to share any resources I have used to help me build this project.
+
+### Code & Media
+
 1. [JQUERY Seat Chart](https://www.jqueryscript.net/chart-graph/Full-featured-Seating-Chart-Plugin-With-jQuery-Seat-Charts.html) - Seat Chart
  
 1. [Carousel](https://www.youtube.com/watch?v=gor5BvT2z88&t=1037s) - Carousel For Home App
@@ -193,9 +197,6 @@ AJAX allows developers to send and receive information to and from a server asyn
 
 1. [Pexels](https://www.pexels.com/@cottonbro/collections/) - Specifically cottonbro For Event Images
 
-
-### Code & Media
-
-The space to share any resources I have used to help me build this project.
-
 ### Acknowledgements
+
+My mentor Aaron Sinnott for the helpful feedback. Tutor support to helping with bugs and coding issues.
