@@ -144,6 +144,8 @@ AJAX allows developers to send and receive information to and from a server asyn
 
 1. [Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html) - Django Authentication, Registration & Account Management
 
+1. [Stripe](https://stripe.com/en-gb) - Payment API
+
 1. [Bootstrap](https://getbootstrap.com/) - CSS Framework
 
 1. [Heroku](https://en.wikipedia.org/wiki/Heroku) - Host Website
@@ -173,62 +175,24 @@ AJAX allows developers to send and receive information to and from a server asyn
 
 ## [TESTING](TESTING.md)
 
-Testing Document can be found here: [TESTING](TESTING.md)
+Testing Document Found Here: [TESTING](TESTING.md)
 
 ## Deployment, Forking, Cloning
 
-### Deployment to Heroku
-
-##### Create Application
-
-1. Navigate to Heroku.com and login.
-1. Click on the "New" button in the top right of the page and select "Create new app."
-1. Enter the name of the app, select the region and click "Create app."
-
-##### Connect to GitHub Repository
-
-1. Click the deploy tab and select "GitHub - Connect to GitHub."
-1. Under the section "Search for a repository to connect to" enter the repository name in the box provided.
-1. Once the repository has been found, click the "Connect" button.
-
-##### Setting Environment Variables
-
-Click on the settings tab and then click "Reveal Config Vars" and add the following:
-- key: 
-
-##### Enable Automatic Deployment
-
-1. Click on the Deploy tab
-1. Under the "Automatic Deploy" section, select the branch from GitHub that you want to deploy the app from and then click Enable Automatic Deploys
-
-### Forking the GitHub Repository
-
-By forking the GitHub Repository we are making a copy of the original repository on a GitHub account to view and/or make changes without affecting the original repository. This is done with the following steps:
-
-- Log in to [GitHub](https://github.com/) and locate the GitHub Repository.
-- At the top of the Repository just above the "Settings" button on the menu, locate the "Fork" button.
-- Click the button and now you should have a copy of the original repository in your GitHub account.
-
-### Making a Local Clone
-
-- Log in to [GitHub](https://github.com/) and locate the GitHub Repository.
-- Under the repository name, click "Clone or download".
-- To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
-- Open Git Bash
-- Change the current working directory to the location that you want the cloned directory to be made.
-- Type `git clone`, and then paste the URL you copied earlier.
-
-Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) for a more detailed explanation of the cloning process.
+Deployment Document Found Here: [DEPLOY](DEPLOY.md)
 
 ## Credits
 
-1. [JQUERY Seat Chart](https://www.jqueryscript.net/chart-graph/Full-featured-Seating-Chart-Plugin-With-jQuery-Seat-Charts.html)
+1. [JQUERY Seat Chart](https://www.jqueryscript.net/chart-graph/Full-featured-Seating-Chart-Plugin-With-jQuery-Seat-Charts.html) - Seat Chart
+ 
+1. [Carousel](https://www.youtube.com/watch?v=gor5BvT2z88&t=1037s) - Carousel For Home App
 
-1. [Carousel](https://www.youtube.com/watch?v=gor5BvT2z88&t=1037s)
-
-1. [AJAX REQUESTS](https://testdriven.io/blog/django-ajax-xhr/)
+1. [AJAX REQUESTS](https://testdriven.io/blog/django-ajax-xhr/) - Used In Conjuction With The Seat Chart
 
 1. [Safely Including Data for JavaScript in a Django Template](https://adamj.eu/tech/2020/02/18/safely-including-data-for-javascript-in-a-django-template/)
+
+1. [Pexels](https://www.pexels.com/@cottonbro/collections/) - Specifically cottonbro For Event Images
+
 
 ### Code & Media
 
