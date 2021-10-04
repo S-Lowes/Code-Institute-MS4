@@ -172,6 +172,8 @@ AJAX allows developers to send and receive information to and from a server asyn
 
 1. [JQUERY Seat Chart](https://github.com/mateuszmarkowski/jQuery-Seat-Charts/blob/master/jquery.seat-charts.css) - Booking Seat Chart
 
+1. [Multi Media Mockup](https://techsini.com/multi-mockup/) - Multi Media Mockup
+
 
 ## TESTING
 
