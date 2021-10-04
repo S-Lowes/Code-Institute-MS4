@@ -173,13 +173,13 @@ AJAX allows developers to send and receive information to and from a server asyn
 1. [JQUERY Seat Chart](https://github.com/mateuszmarkowski/jQuery-Seat-Charts/blob/master/jquery.seat-charts.css) - Booking Seat Chart
 
 
-## [TESTING](TESTING.md)
+## TESTING
 
-Testing Document Found Here: [TESTING](TESTING.md)
+[Click for 'Testing' Section](TESTING.md)
 
 ## Deployment, Forking, Cloning
 
-Deployment Document Found Here: [DEPLOY](DEPLOY.md)
+[Click for 'Deployment' Section](DEPLOY.md)
 
 ## Credits
 
